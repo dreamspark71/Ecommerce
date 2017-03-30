@@ -1,0 +1,500 @@
+/* padding from top */
+.head
+{
+	 padding-top: 30px;
+}
+.head1
+{
+	padding-left: 50px;
+}
+
+/*Black text color*/
+.blackcolor
+{
+	color: black;
+}
+
+/* Padding for buttons*/
+.padding
+{
+	padding-right: 10px;
+}
+
+/* Carousel Image*/
+.carousel-inner > .item > img,.carousel-inner > .item > a > img 
+{
+      width: 100%;
+      height: 500px;
+      margin: auto;
+}
+.carousel-control.left, .carousel-control.right 
+{
+    background-image: none
+}
+
+/* Space between nav bar and Carousel*/	
+.nav
+{
+	margin-bottom: 0px;
+}
+
+/* Hover of dropdown navbar*/
+.dropdown-content 
+{
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a 
+{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover 
+{
+	background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content 
+{
+    display: block;
+}
+
+/* Text color*/
+.greycolor
+{
+	color: grey;
+}
+
+/* Text color*/
+.whitecolor
+{
+	color: white;
+}
+
+/*Font text*/
+.times
+{
+	font-family: "Times New Roman";
+}
+
+/* Image size of carousel*/
+.imagesize
+{
+	width: 150px;
+	height: 300px;
+}
+
+/* Featured products size*/
+.line1{
+	border-bottom: solid;
+    border-bottom-color:grey;
+    border-width: 1px; 
+}
+.textalign
+{
+	text-align: right;
+}
+.pan
+{
+	width: 260px;
+	height: 400px;
+}
+.pan1
+{
+	width:10px;
+	height: 20px;
+	text-align: center;
+}
+.imagesize1
+{
+	width: 200px; 
+	height: 290px;
+	border: solid;
+	margin-left: 15px;
+}
+
+/*text blue color*/
+.bluecolor
+{
+	color: #2263a6;
+}
+
+/*Background blue color*/
+.bluebackgroundcolor
+{
+	background-color: #2263a6;
+}
+
+/*blue text color*/
+.bluetextcolor
+{
+	color: #6a96c3;
+}
+
+/*Request a game*/
+.req
+{
+	border-style: solid; 
+	border-width: 1px; 
+	border-color:  #2263a6;
+}
+.req1
+{
+	border: solid;
+	border-width: 1px;
+	margin-top:20px;
+	margin-bottom: 20px;
+	height:110px;
+	border-color: #6a96c3;
+	background-color: #2263a6;
+}
+.req2
+{
+	padding-left: 20px;
+	padding-top: 30px;
+	margin-bottom: 0px;
+	font-size: 20px;
+}
+.req3
+{
+	padding-top: 0px;
+	padding-left: 20px;
+
+}
+.req4
+{
+	margin-right: 10px;
+	background-color: #194a7c;
+}
+
+/*Background page color*/
+.smokewhite
+{
+	background-color: #eeeeee;
+}
+
+/*Last three panel*/
+.imagesize2
+{
+	width: 40px; 
+	height: 60px;
+	border: solid;
+	border-color: #6a96c3;
+	border-width: 1px;
+	margin-left: 5px;
+}
+.line3
+{
+	border-bottom: solid;
+    border-bottom-color:grey;
+    border-width: 1px; 
+}
+
+/* NEWSLETTER*/
+.newsletter
+{
+	margin-left: 700px;
+}
+.textsize
+{
+	margin-right: 300px;
+}
+.blackbackgroundcolor
+{
+	background-color: black;
+}
+
+/*Footer*/
+.line4
+{
+	border-bottom: solid;
+	border-color: grey;
+	border-width: 1px;
+	margin-bottom: 0px;
+}
+.textfoot
+{
+	color: grey;
+	font-size: 12px;
+	padding-right: 10px;
+}
+
+/*bookmark image*/
+.imgc 
+{
+border-radius: 50%;
+position: relative;
+top: -69px;
+left: 10px;
+}
+
+/*collpase*/
+.req6
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	width: 100%;
+	height: 200px;
+	margin-bottom: 0px;
+}
+
+.req7
+{
+	padding-right: 15px;
+	margin-top: -2px;
+}
+.req7:hover
+{
+	padding-top: 2px;
+
+}
+
+/* Tags on images*/
+.vertical-text 
+{
+	transform: rotate(-90deg);
+	font-size: 14px;
+	text-align: center;
+	color:white;
+	margin-top: 60px
+}
+
+.feat
+{
+	border-style: solid;
+	border-width: 1px;
+	width:30px;
+	height: 100px;
+	margin-top: -307px;
+	position: absolute;
+	background-color: #2263a6
+}
+.gaben
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	margin-top: -280px;
+	margin-left: 120px;
+	background-color:#2263a6;
+	color:white;
+	font-size: 13px;
+	text-align: center;
+	padding-top: 5px;
+
+}
+.vertical-text-sale
+{
+	transform: rotate(-90deg);
+	font-size: 14px;
+	text-align: center;
+	color:white;
+	margin-top: -60px;
+	padding-right: 0px;	
+}
+
+.glyph:hover
+{
+	color: blue;
+}
+
+
+}
+
+/* line */
+.line
+{
+	border-style: solid;
+	border-color: grey;
+	border-width: 2px;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+}
+/* Box-login */
+.bor
+{
+	border-style: solid;border-width: 1px;width:500px;height: 300px;margin-right: 50px;border-color: white;
+	background-color: white;
+	margin-bottom: 10px;
+}
+
+/*Sign in*/
+.log
+{
+	text-align: left;padding-left: 10px;padding-top: 10px;font-size: 15px;padding-bottom: 15px
+}
+/* Grey text color*/
+.greycolor
+{
+	color: grey;
+}
+
+/*Text size */
+.text
+{
+	font-size: 12px;
+}
+
+.pad
+{
+	padding-top: 20px;
+}
+
+.pad1
+{
+	margin-top: 10px;
+}
+
+.pad2
+{
+	margin-top: -10px;
+}
+
+/*BUTTON COLOR*/
+.buttoncolor
+{
+	background-color: #2263a6;
+	color: white;
+}
+
+/* TEXT BOX COLOR*/
+.textboxcolor
+{ 
+    background-color:#eeeeee !important;
+}
+
+/* Remember me text */
+.rem
+{
+	font-size: 12px;
+
+}
+/*lost password*/
+.lost
+{
+	font-size: 12px;
+	color: grey;
+	margin-top: 60px;position: absolute;margin-left: -70px
+}
+
+.bord
+{
+	border-radius: 1px;
+}
+
+/* Description box of prod*/
+.probox
+{
+	border-style: solid;
+	border-width: 1px;
+	width: 100%;
+	height: 80%;
+	border-color: white;
+	background-color: white;
+}
+
+.proimage
+{
+	border-style: solid;
+	border-width: 1px;
+	border-color: grey;
+	width:400px;
+	height: 500px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.proimage2
+{
+	border-width: 5px;border-color: #2263a6;width:320px;height:480px;border-style: solid;margin-left: 40px;margin-top: 10px;
+}
+
+.profeat
+{
+	border-width: 1px;border-style: solid;width: 50px;height: 150px;margin-top: -485px;
+	position: absolute;
+	margin-left: -40px;
+	background-color:#2263a6;
+	border-color: #2263a6;
+}
+.progaben
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 150px;
+	height: 40px;
+	position: absolute;
+	margin-top: -460px;
+	margin-left: 160px;
+	background-color:#2263a6;
+	color:white;
+	font-size: 13px;
+	text-align: center;
+	padding-top: 5px;
+	border-color: #2263a6;
+}
+
+
+.pro-vertical-text 
+{
+	transform: rotate(-90deg);
+	font-size: 16px;
+	text-align: center;
+	color:white;
+	margin-top: 80px
+}
+
+.procontent
+{
+	margin-left: 450px;
+}
+
+.problack
+{
+	color: black;
+}
+.procart
+{
+	border-style: solid;
+	width: 120px;
+	height: 30px;
+	background-color: #2263a6;
+	margin-left: 450px;
+	border-color:#2263a6;
+}
+.procart:hover
+{
+	background-color: green;
+	border-color: green;
+}
+
+.proinc
+{
+	background-color: #1e5691;
+	color: white;
+}
+.proicon
+{
+	font-size: 50px;
+	padding-right: 10px;
+}
+.proline
+{
+	border-width: 1px;
+	border-style: solid;
+	border-bottom-color:#eeeeee;
+	margin-top: 150px;
+}
