@@ -9,6 +9,6 @@ public class HomeController
 	@RequestMapping("/")
 	public String getHome()
 	{
-		return "Home";
+		return "Footer";
 	}
 }

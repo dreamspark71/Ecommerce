@@ -42,7 +42,7 @@ public class CategoryController
 	public String updateCategory(Model model,@PathVariable("categoryID")int categoryID)
 	{
 		model.addAttribute("category",categoryService.updateCategory(categoryID));
-		model.addAttribute("categoryList", categoryService.displayCategory());
+		model.addAttribute("displayUser", categoryService.displayCategory());
 		return "CategoryDB";
 	}
 	

@@ -1,23 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/Header.jsp"%>
-<div style="background-color: #eeeeee;padding-left:100px;">
-<br><br>
-<div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-style:solid;border-width:1px;width:100%;height:100%;border-color:white;background-color:white;margin-bottom:50px;">
-<center><p><h3>Category Database </p></center></h3>
-
-<form:form action="addCategory" modelAttribute="category">
-Enter Category Name	
-<form:input path="categoryName"/>
-<form:input path="categoryID" type="hidden" />
-<input type="submit" value="Add">
-</form:form>
 
 
- <h2>Category Table</h2>  
- <table class="table">
+<div class="container">
+<div class="container-fluid">
+	<div class="row">	
+		<form:form action="addCategory" modelAttribute="category">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">
+		Enter Category
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">	
+			<form:input path="categoryName"/>
+		</div>
+		<form:input path="categoryID" type="hidden" />
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">
+			<input type="submit" value="Add">
+		</div>
+		</form:form>
+	</div>	
+</div>
+<div class="table-responsive"> 
+ <table class="table" >
   	<tr>
   		<th>Category ID</th>
   		<th>Category Name</th>
@@ -34,6 +36,5 @@ Enter Category Name
 	</c:forEach>
   </table>	 
 </div>
-
-<%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
+<%@ include file="/WEB-INF/views/Footer.jsp"%> 

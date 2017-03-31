@@ -1,27 +1,63 @@
-<div class="smokewhite">
 <footer>
-<!-- Newsletter-->
-<h4 class="newsletter">NEWSLETTER<br></h4>
-<h5 class="newsletter greycolor">Subscribe to our newsletter to get discounts!</h5>
-  <div class="input-group col-lg-4">
-    <input type="text" class="form-control" style="width:50%;margin-left: 700px">
-    <span class="input-group-btn">
-      <button class="btn btn-default whitecolor blackbackgroundcolor" style="margin-left:335px;" type="button">Subscribe</button>
-    </span>
-  </div>
-<br><br>
-<div class="container">
-    <hr class="line4">
-    <a href="#" class="textfoot">HOME</a>
-    <a href="#" class="textfoot">SHOP</a>
-    <a href="#" class="textfoot">TERMS AND CONDITION</a>
-    <a href="#" class="textfoot">PRIVACY POLICY</a>
-    <a href="#" class="textfoot">F.A.Q</a>
-    <a href="#" class="textfoot">RETURN AND REPLACEMENTS</a>
-    <a href="#" class="textfoot">CONTACT US</a>
-</div>
-<br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 footnews">
+			<b>NEWSLETTER</b>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="color: grey">
+			Subcribe to our newsletter to get discounts!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+			<input type="text" class="form-control" style="border-radius: 1px;" >
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-2">
+			<button type="button" class="btn btn-default footbutton">Subcribe</button>
+		</div>
+	</div>
+	<div class="row" style="padding-top: 50px;">
+	</div>
+	<div class="footline" >
+	</div>	
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
+			<a href="#">HOME</a>
+		</div>
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
+			<a href="#">SHOP</a>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+			<a href="#">TERMS AND CONDITIONS</a>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+			<a href="#">PRIVACY POLICY</a>
+		</div>
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
+			<a href="#">F.A.Q.</a>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+			<a href="#">RETURN AND REFUND POLICY</a>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+			<a href="#">CONTACT US</a>
+		</div>
+	</div>
+</div>	
 </footer>
-</div>
 </body>
 </html>
