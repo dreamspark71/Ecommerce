@@ -5,14 +5,16 @@
 <div class="container-fluid">
 	<div class="row">	
 		<form:form action="addCategory" modelAttribute="category">
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">
-		Enter Category
+		<form:input path="categoryID" type="hidden" />
+		
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding:20px;">
+		Enter Category Name
 		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">	
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding:20px;">	
 			<form:input path="categoryName"/>
 		</div>
-		<form:input path="categoryID" type="hidden" />
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">
+		
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding:20px;">
 			<input type="submit" value="Add">
 		</div>
 		</form:form>

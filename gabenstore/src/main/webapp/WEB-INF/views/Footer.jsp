@@ -1,4 +1,8 @@
-<footer>
+<footer><footer>
+<div class="container-fluid">
+	<div class="row" style="padding-top: 80px;">
+	</div>
+</div>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -36,25 +40,25 @@
 	</div>	
 	<div class="row">
 		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
-			<a href="#">HOME</a>
+			<a href="#" class="foottext">HOME</a>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
-			<a href="#">SHOP</a>
+			<a href="#" class="foottext">SHOP</a>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-			<a href="#">TERMS AND CONDITIONS</a>
+			<a href="#" class="foottext">TERMS AND CONDITIONS</a>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-			<a href="#">PRIVACY POLICY</a>
+			<a href="#" class="foottext">PRIVACY POLICY</a>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
-			<a href="#">F.A.Q.</a>
+			<a href="#" class="foottext">F.A.Q.</a>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-			<a href="#">RETURN AND REFUND POLICY</a>
+			<a href="#" class="foottext">RETURN AND REFUND POLICY</a>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-			<a href="#">CONTACT US</a>
+			<a href="#" class="foottext">CONTACT US</a>
 		</div>
 	</div>
 </div>	

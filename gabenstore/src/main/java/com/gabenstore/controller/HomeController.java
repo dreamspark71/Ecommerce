@@ -9,6 +9,24 @@ public class HomeController
 	@RequestMapping("/")
 	public String getHome()
 	{
-		return "Footer";
+		return "Home";
+	}
+	
+	@RequestMapping("/Return")
+	public String getReturn()
+	{
+		return "Return";
+	}
+	
+	@RequestMapping("/FAQ")
+	public String getFAQ()
+	{
+		return "FAQ";
+	}
+	
+	@RequestMapping("/Policy")
+	public String getPolicy()
+	{
+		return "Policy";
 	}
 }

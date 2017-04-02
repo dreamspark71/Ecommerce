@@ -15,15 +15,23 @@ public class Product
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int productID;
 	private String productName;
-	private String productCategory;
 	private String productSubCategory;
 	private int productOriginalPrice;
 	private int productSalePrice;
 	private int productQuantity;
+	private String productTag;
 	private int categoryID;
 	@ManyToOne
 	@JoinColumn(name="categoryID",nullable=false,updatable=false,insertable=false)
 	private Category category;
+	
+	public String getProductTag() {
+		return productTag;
+	}
+	public void setProductTag(String productTag) {
+		this.productTag = productTag;
+	}
+	
 	
 	public int getCategoryID() {
 		return categoryID;
@@ -49,12 +57,7 @@ public class Product
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProductCategory() {
-		return productCategory;
-	}
-	public void setProductCategory(String productCategory) {
-		this.productCategory = productCategory;
-	}
+	
 	public String getProductSubCategory() {
 		return productSubCategory;
 	}

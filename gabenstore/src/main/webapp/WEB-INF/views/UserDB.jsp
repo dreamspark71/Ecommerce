@@ -5,19 +5,25 @@
 	<div class="row">	
 		<form:form action="addUser" modelAttribute="user">
 		<form:input path="userID" type="hidden" />
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">
-		Enter User
+		
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:20px;">
+		Enter User Name
 		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">	
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:20px;">	
 			<form:input path="userName"/>
 		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">	
+		
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:20px;">
+		Enter User Password
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:20px;">	
 			<form:input path="userPassword" type="password"/>
 		</div>
 		
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center" style="padding:20px;">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:20px;">
 			<input type="submit" value="Add">
 		</div>
+		
 		</form:form>
 	</div>	
 </div>
@@ -41,3 +47,4 @@
   </table>	 
 </div>
 </div>
+<%@ include file="/WEB-INF/views/Footer.jsp"%>
