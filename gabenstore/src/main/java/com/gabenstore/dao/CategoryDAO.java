@@ -7,4 +7,5 @@ public interface CategoryDAO
 	public List<Category> displayCategory();
 	public void deteleCategory(int categoryID);
 	public Category updateCategory(int categoryID);
+	public String  displayCategoryByJson();
 }

@@ -20,7 +20,7 @@ public class CategoryController
 	public String getCategoryDBPage(Model model)
 	{
 		model.addAttribute("category", new Category());
-		model.addAttribute("displayCategory", categoryService.displayCategory());
+		model.addAttribute("displayCategory", categoryService.displayCategoryByJson());
 		return "CategoryDB";
 	}
 	
@@ -42,7 +42,7 @@ public class CategoryController
 	public String updateCategory(Model model,@PathVariable("categoryID")int categoryID)
 	{
 		model.addAttribute("category",categoryService.updateCategory(categoryID));
-		model.addAttribute("displayUser", categoryService.displayCategory());
+		model.addAttribute("displayCategory", categoryService.displayCategory());
 		return "CategoryDB";
 	}
 	

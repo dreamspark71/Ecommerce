@@ -70,9 +70,7 @@
 	</div>	
 </div>
 
-
-
-<div class="table-responsive"> 
+<%-- <div class="table-responsive"> 
  <table class="table" >
   	<tr>
   		<th>Description ID</th>
@@ -104,5 +102,43 @@
 	</c:forEach>
   </table>	 
 </div>
+</div> --%>
+
+<div ng-app="myApp" ng-controller="categoryCtrl" class="table-responsive">
+<table class="table"> 
+	<tr>
+	<th>Description ID</th>
+  	<th>Product Name</th>
+  	<th>Description DRM</th>
+  	<th>Description Region</th>
+  	<th>Description Type</th>
+  	<th>Description About</th>
+  	<th>Description System Minimum</th>
+  	<th>Description System Recommended</th>
+  	<th>Description Key</th>
+  	<th>Description Edit</th>
+  	<th>Description Delete</th>
+	</tr>
+  <tr ng-repeat="disp in display">
+    <td>{{disp.descriptionID}}</td>
+	<td>{{disp.product.productName}}</td>
+	<td>{{disp.descriptionDRM}}</td>
+	<td>{{disp.descriptionRegion}}</td>
+	<td>{{disp.descriptionType}}</td>
+	<td>{{disp.descriptionAbout}}</td>
+	<td>{{disp.descriptionMinimum}}</td>
+	<td>{{disp.descriptionRecommended}}</td>
+	<td>{{disp.descriptionKey}}</td>
+	<td><a href="updateDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">EDIT</a></td>
+	<td><a href="deleteDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">DELETE</a></td>
+  </tr>
+</table>
 </div>
+ <script>
+var app = angular.module('myApp', []);
+app.controller('categoryCtrl', function($scope)
+{
+  $scope.display=${displayDescription};
+});
+</script>
 <%@ include file="/WEB-INF/views/Footer.jsp"%>

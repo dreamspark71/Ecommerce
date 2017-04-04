@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gabenstore.modal.Category;
 import com.gabenstore.modal.Product;
+import com.google.gson.Gson;
 
 @Repository
 public class ProductDAOImp implements ProductDAO 
@@ -32,6 +33,14 @@ public class ProductDAOImp implements ProductDAO
 	public Product updateProduct(int productID) {
 		List<Product> getList = sessionFactory.getCurrentSession().createQuery("from Product where productID = "+productID).getResultList();
 		return getList.get(0);
+	}
+
+	public String displayProductByJson() 
+	{
+		List<Product> list=sessionFactory.getCurrentSession().createQuery("from Product").getResultList();
+		Gson g=new Gson();
+		String jsonList=g.toJson(list);
+		return jsonList;
 	}
 
 }

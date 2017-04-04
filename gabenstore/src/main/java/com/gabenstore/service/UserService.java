@@ -32,4 +32,9 @@ public class UserService
 	{
 		return userDAOImp.updateUser(userID);
 	}
+	public String displayUserByJson()
+	{
+		return userDAOImp.displayUserByJson();
+	}
+	
 }

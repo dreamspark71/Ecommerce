@@ -32,4 +32,10 @@ public class DescriptionService
 	{
 		return descriptionDAOImp.updateDescription(descriptionID);
 	}
+	public String displayDescriptionByJson() 
+	{
+		return descriptionDAOImp.displayDescriptionByJson();
+	}
+
 }
+

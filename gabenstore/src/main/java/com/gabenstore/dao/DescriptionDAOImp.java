@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gabenstore.modal.Description;
+import com.google.gson.Gson;
 @Repository
 public class DescriptionDAOImp implements DescriptionDAO 
 {
@@ -33,6 +34,13 @@ public class DescriptionDAOImp implements DescriptionDAO
 	{
 		List<Description> getList=sessionFactory.getCurrentSession().createQuery("from Description where descriptionID ="+descriptionID).getResultList();
 		return getList.get(0);
+	}
+
+	public String displayDescriptionByJson() {
+		List<Description> list=sessionFactory.getCurrentSession().createQuery("from Description").getResultList();
+		Gson g=new Gson();
+		String jsonList=g.toJson(list);
+		return jsonList;
 	}
 
 }

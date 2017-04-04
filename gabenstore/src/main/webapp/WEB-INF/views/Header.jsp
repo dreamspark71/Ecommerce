@@ -10,6 +10,7 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <link rel="stylesheet" href="resources/theme1/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/theme1/css/body.css">
 <script src="resources/theme1/js/jquery-3.1.1.min.js"> </script>
+<script src="resources/theme1/js/angular.min.js"></script>
 <script src="resources/theme1/js/bootstrap.min.js"> </script>
 </head>
 <body>

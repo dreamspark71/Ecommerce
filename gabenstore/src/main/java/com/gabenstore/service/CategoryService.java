@@ -36,5 +36,8 @@ public class CategoryService
 		return categoryDAOImp.updateCategory(categoryID);
 	}
 	
-	
+	public String displayCategoryByJson() 
+	{
+		return categoryDAOImp.displayCategoryByJson();
+	}
 }

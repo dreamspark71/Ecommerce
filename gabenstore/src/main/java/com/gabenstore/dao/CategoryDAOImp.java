@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gabenstore.modal.Category;
+import com.google.gson.Gson;
 
 @Repository
 public class CategoryDAOImp implements CategoryDAO 
@@ -35,6 +36,12 @@ public class CategoryDAOImp implements CategoryDAO
 	{
 		List<Category> getList = sessionFactory.getCurrentSession().createQuery("from Category where categoryID = "+categoryID).getResultList();
 		return getList.get(0);	
+	}
+	public String displayCategoryByJson() {
+		List<Category> list=sessionFactory.getCurrentSession().createQuery("from Category").getResultList();
+		Gson g=new Gson();
+		String jsonList=g.toJson(list);
+		return jsonList;	
 	}
 
 	

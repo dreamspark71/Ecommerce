@@ -24,8 +24,9 @@ public class DescriptionController
 	public String getDescriptionDBPage(Model model)
 	{
 		model.addAttribute("description", new Description());
-		model.addAttribute("displayProduct", productService.displayProduct());
-		model.addAttribute("displayDescription", descriptionService.displayDescription());
+		model.addAttribute("displayProduct", productService.displayProductByJson());
+		model.addAttribute("displayProduct",productService.displayProduct());
+		model.addAttribute("displayDescription", descriptionService.displayDescriptionByJson());
 		return "DescriptionDB";
 	}
 	

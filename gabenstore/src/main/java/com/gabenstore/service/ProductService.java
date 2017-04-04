@@ -37,4 +37,8 @@ public class ProductService
 		return productDAOImp.updateProduct(productID);
 	}
 
+	public String displayProductByJson()
+	{
+		return productDAOImp.displayProductByJson();
+	}
 }

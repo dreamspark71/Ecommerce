@@ -10,4 +10,5 @@ public interface UserDAO
 	public List<User> displayUser();
 	public void deleteUser(int userID);
 	public User updateUser(int userID);
+	public String displayUserByJson();
 }

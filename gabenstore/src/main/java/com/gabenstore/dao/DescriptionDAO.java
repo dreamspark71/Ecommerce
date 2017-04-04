@@ -10,4 +10,5 @@ public interface DescriptionDAO
 	public List<Description> displayDescription();
 	public void deteleDescription(int descriptionID);
 	public Description updateDescription(int descriptionID);
+	public String displayDescriptionByJson();
 }

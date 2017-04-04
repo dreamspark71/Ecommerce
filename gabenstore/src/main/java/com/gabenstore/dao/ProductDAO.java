@@ -11,4 +11,5 @@ public interface ProductDAO
 	public List<Product> displayProduct();
 	public void deleteProduct(int productID);
 	public Product updateProduct(int productID);
+	public String displayProductByJson();
 }

@@ -23,8 +23,9 @@ public class ProductController
 	public String getProductDBPage(Model model)
 	{
 		model.addAttribute("product", new Product());
-		model.addAttribute("displayCategory", categoryService.displayCategory());
-		model.addAttribute("displayProduct", productService.displayProduct());
+		model.addAttribute("displayCategory", categoryService.displayCategoryByJson());
+		model.addAttribute("displayCategory",categoryService.displayCategory());
+		model.addAttribute("displayProduct", productService.displayProductByJson());
 		return "ProductDB";
 	}
 	
