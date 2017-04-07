@@ -1,0 +1,90 @@
+<%-- <div class="table-responsive"> 
+ <table class="table" >
+  	<tr>
+  		<th>Category ID</th>
+  		<th>Category Name</th>
+  		<th>Category Edit</th>
+  		<th>Category Delete</th>
+  	</tr>
+  	<c:forEach items="${displayCategory}" var="display">
+	<tr>
+		<td>${display.categoryID}</td>
+		<td>${display.categoryName}</td>
+		<td><a href="updateCategory-${display.categoryID}" class="btn btn-primary" role="button">EDIT</a></td>
+		<td><a href="deleteCategory-${display.categoryID}" class="btn btn-primary" role="button">DELETE</a></td>
+	</tr>
+	</c:forEach>
+  </table>	 
+</div>
+</div> --%>
+
+
+<%-- <div class="table-responsive"> 
+ <table class="table" >
+  	<tr>
+  		<th>Product ID</th>
+  		<th>Product Name</th>
+  		<th>Product Category</th>
+  		<th>Product SubCategory</th>
+  		<th>Product Original Price</th>
+  		<th>Product Sale Price</th>
+  		<th>Product Tag</th>
+  		<th>Product Quantity</th>
+  		<th>Product Edit</th>
+  		<th>Product Delete</th>
+  	</tr>
+  	<c:forEach items="${displayProduct}" var="display">
+	<tr>
+		<td>${display.productID}</td>
+		<td>${display.productName}</td>
+		<td>${display.category.categoryName}</td>
+		<td>${display.productSubCategory}</td>
+		<td>${display.productOriginalPrice}</td>
+		<td>${display.productSalePrice}</td>
+		<td>${display.productTag}</td>
+		<td>${display.productQuantity}</td>
+		<td><a href="updateProduct-${display.productID}" class="btn btn-primary" role="button">EDIT</a></td>
+		<td><a href="deleteProduct-${display.productID}" class="btn btn-primary" role="button">DELETE</a></td>
+	</tr>
+	</c:forEach>
+  </table>	 
+</div>
+</div>
+ --%>
+
+ 
+ 
+ <%-- <div class="table-responsive"> 
+ <table class="table" >
+  	<tr>
+  		<th>Description ID</th>
+  		<th>Product Name</th>
+  		<th>Description DRM</th>
+  		<th>Description Region</th>
+  		<th>Description Type</th>
+  		<th>Description About</th>
+  		<th>Description System Minimum</th>
+  		<th>Description System Recommended</th>
+  		<th>Description Key</th>
+  		<th>Description Edit</th>
+  		<th>Description Delete</th>
+  	</tr>
+  	<c:forEach items="${displayDescription}" var="display">
+	<tr>
+		<td>${display.descriptionID}</td>
+		<td>${display.product.productName}</td>
+		<td>${display.descriptionDRM}</td>
+		<td>${display.descriptionRegion}</td>
+		<td>${display.descriptionType}</td>
+		<td>${display.descriptionAbout}</td>
+		<td>${display.descriptionMinimum}</td>
+		<td>${display.descriptionRecommended}</td>
+		<td>${display.descriptionKey}</td>
+		<td><a href="updateDescription-${display.descriptionID}" class="btn btn-primary" role="button">EDIT</a></td>
+		<td><a href="deleteDescription-${display.descriptionID}" class="btn btn-primary" role="button">DELETE</a></td>
+	</tr>
+	</c:forEach>
+  </table>	 
+</div>
+</div> --%>
+ 

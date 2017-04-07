@@ -3,7 +3,7 @@
 <div class="container">
 <div class="container-fluid">
 	<div class="row">	
-		<form:form action="addProduct" modelAttribute="product">
+		<form:form action="addProduct" modelAttribute="product" enctype="multipart/form-data">
 		<form:input path="productID" type="hidden" />
 		
 		<div class="col-lg-6" style="padding:20px;">
@@ -55,45 +55,19 @@
 			<form:input path="productQuantity"/>
 		</div>
 		
+		<div class="col-lg-6" style="padding:20px;">
+		Upload Product Image 
+		</div>
+		<div class="col-lg-6" style="padding:20px;">	
+			<form:input path="productImage" type="file" accept=".jpg,.png,.jpeg" class="btn btn-default btn-primary"/>
+		</div>
+		
 		<div class="col-lg-4" style="padding:20px;">
-			<input type="submit" value="Add">
+			<input type="submit" value="Add" class="btn btn-default btn-primary">
 		</div>
 		</form:form>
 	</div>	
 </div>
-
-<%-- <div class="table-responsive"> 
- <table class="table" >
-  	<tr>
-  		<th>Product ID</th>
-  		<th>Product Name</th>
-  		<th>Product Category</th>
-  		<th>Product SubCategory</th>
-  		<th>Product Original Price</th>
-  		<th>Product Sale Price</th>
-  		<th>Product Tag</th>
-  		<th>Product Quantity</th>
-  		<th>Product Edit</th>
-  		<th>Product Delete</th>
-  	</tr>
-  	<c:forEach items="${displayProduct}" var="display">
-	<tr>
-		<td>${display.productID}</td>
-		<td>${display.productName}</td>
-		<td>${display.category.categoryName}</td>
-		<td>${display.productSubCategory}</td>
-		<td>${display.productOriginalPrice}</td>
-		<td>${display.productSalePrice}</td>
-		<td>${display.productTag}</td>
-		<td>${display.productQuantity}</td>
-		<td><a href="updateProduct-${display.productID}" class="btn btn-primary" role="button">EDIT</a></td>
-		<td><a href="deleteProduct-${display.productID}" class="btn btn-primary" role="button">DELETE</a></td>
-	</tr>
-	</c:forEach>
-  </table>	 
-</div>
-</div>
- --%>
  
  <div ng-app="myApp" ng-controller="categoryCtrl" class="table-responsive">
 <table class="table"> 

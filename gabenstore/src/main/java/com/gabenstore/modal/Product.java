@@ -1,5 +1,7 @@
 package com.gabenstore.modal;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import com.gabenstore.modal.Category;
 @Entity
 public class Product 
@@ -20,10 +26,19 @@ public class Product
 	private int productSalePrice;
 	private int productQuantity;
 	private String productTag;
+	@Transient
+	private MultipartFile productImage;
 	private int categoryID;
 	@ManyToOne
 	@JoinColumn(name="categoryID",nullable=false,updatable=false,insertable=false)
 	private Category category;
+	
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
 	
 	public String getProductTag() {
 		return productTag;

@@ -64,45 +64,12 @@
 		
 		
 		<div class="col-lg-4" style="padding:20px;">
-			<input type="submit" value="Add">
+			<input type="submit" value="Add" class="btn btn-default btn-primary">
 		</div>
 		</form:form>
 	</div>	
 </div>
 
-<%-- <div class="table-responsive"> 
- <table class="table" >
-  	<tr>
-  		<th>Description ID</th>
-  		<th>Product Name</th>
-  		<th>Description DRM</th>
-  		<th>Description Region</th>
-  		<th>Description Type</th>
-  		<th>Description About</th>
-  		<th>Description System Minimum</th>
-  		<th>Description System Recommended</th>
-  		<th>Description Key</th>
-  		<th>Description Edit</th>
-  		<th>Description Delete</th>
-  	</tr>
-  	<c:forEach items="${displayDescription}" var="display">
-	<tr>
-		<td>${display.descriptionID}</td>
-		<td>${display.product.productName}</td>
-		<td>${display.descriptionDRM}</td>
-		<td>${display.descriptionRegion}</td>
-		<td>${display.descriptionType}</td>
-		<td>${display.descriptionAbout}</td>
-		<td>${display.descriptionMinimum}</td>
-		<td>${display.descriptionRecommended}</td>
-		<td>${display.descriptionKey}</td>
-		<td><a href="updateDescription-${display.descriptionID}" class="btn btn-primary" role="button">EDIT</a></td>
-		<td><a href="deleteDescription-${display.descriptionID}" class="btn btn-primary" role="button">DELETE</a></td>
-	</tr>
-	</c:forEach>
-  </table>	 
-</div>
-</div> --%>
 
 <div ng-app="myApp" ng-controller="categoryCtrl" class="table-responsive">
 <table class="table"> 
@@ -118,6 +85,7 @@
   	<th>Description Key</th>
   	<th>Description Edit</th>
   	<th>Description Delete</th>
+  	<th>View</th>
 	</tr>
   <tr ng-repeat="disp in display">
     <td>{{disp.descriptionID}}</td>
@@ -131,6 +99,7 @@
 	<td>{{disp.descriptionKey}}</td>
 	<td><a href="updateDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">EDIT</a></td>
 	<td><a href="deleteDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">DELETE</a></td>
+	<td><a href="viewProduct-{{disp.productID}}" class="btn btn-primary" role="button">VIEW</a></td>
   </tr>
 </table>
 </div>

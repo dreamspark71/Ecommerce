@@ -46,4 +46,7 @@ public class UserController
 		model.addAttribute("displayUser", userService.displayUser());
 		return "UserDB";
 	}
+	
+	
+	
 }
