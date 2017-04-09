@@ -47,6 +47,18 @@ public class UserController
 		return "UserDB";
 	}
 	
+	@RequestMapping("/Register")
+	public String getForm(Model model)
+	{
+		model.addAttribute("user",new User());
+		return "Form";
+	}
 	
+	@RequestMapping("/addUserForm")
+	public String addUserForm(@ModelAttribute("user")User user)
+	{
+		userService.addUser(user);
+		return "redirect:/Register";
+	}
 	
 }

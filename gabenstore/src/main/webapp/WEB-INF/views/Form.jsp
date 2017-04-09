@@ -2,7 +2,7 @@
 
 <div style="background-color: #eeeeee">
 <br><br>
-<form:form modelAttribute="user" action="addUserByForm">
+<form:form modelAttribute="user" action="addUserForm">
 <div class="container">
   <div class="row" style="padding-left:50px;">
     <div class="col-lg-6 col-md-6 col-sm-3 col-xs-12 accountborder" style="">

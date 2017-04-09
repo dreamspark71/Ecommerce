@@ -1,5 +1,8 @@
 package com.gabenstore.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -75,16 +78,20 @@ public class DescriptionController
 		session.setAttribute("idProduct", d.getProductID());
 		model.addAttribute("description",jsonView);
 		model.addAttribute("review",new Review());
-		model.addAttribute("displayReview",reviewService.displayReview());
+		model.addAttribute("displayReview",reviewService.displayReviewByJson());
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		model.addAttribute("date",dateFormat.format(date));
 		return "ProductDescription";
 	}	
 	
 	@RequestMapping("/addReview")
-	public String addReview(@ModelAttribute("review")Review review,HttpSession session)
+	public String addReview(@ModelAttribute("review")Review review,HttpSession session,Model model)
 	{	
 		int a=(Integer) session.getAttribute("idProduct");
 		reviewService.addReview(review);
 		return "redirect:/viewProduct-"+a;
+		
 	}
 	
 }

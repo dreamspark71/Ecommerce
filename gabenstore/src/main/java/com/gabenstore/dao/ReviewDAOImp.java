@@ -6,7 +6,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gabenstore.modal.Product;
 import com.gabenstore.modal.Review;
+import com.google.gson.Gson;
 
 @Repository
 public class ReviewDAOImp implements ReviewDAO 
@@ -33,6 +35,14 @@ public class ReviewDAOImp implements ReviewDAO
 	public Review updateReview(int reviewID) {
 		List<Review> getList=sessionFactory.getCurrentSession().createQuery("from Review where reviewID="+reviewID).getResultList();
 		return getList.get(0);
+	}
+
+	public String displayReviewByJson() 
+	{
+		List<Review> list=sessionFactory.getCurrentSession().createQuery("from Review").getResultList();
+		Gson g=new Gson();
+		String jsonList=g.toJson(list);
+		return jsonList;
 	}
 
 }

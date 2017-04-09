@@ -1,5 +1,8 @@
 package com.gabenstore.modal;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +20,27 @@ public class Review
 	private String reviewReview;
 	private String reviewName;
 	private String reviewEmail;
-	
+	private boolean reviewTypeUser;
+	private Date reviewDate;
 	private int productID;
 	@ManyToOne
 	@JoinColumn(name="productID",nullable=false,insertable=false,updatable=false)
 	private Product product;
+	
+	
+	public Date getReviewDate() {
+		return reviewDate;
+	}
+	public void setReviewDate(Date reviewDate) {
+		this.reviewDate = reviewDate;
+	}
+	public boolean isReviewTypeUser() {
+		return reviewTypeUser;
+	}
+	public void setReviewTypeUser(boolean reviewTypeUser) {
+		this.reviewTypeUser = reviewTypeUser;
+	}
+	
 	public int getReviewID() {
 		return reviewID;
 	}

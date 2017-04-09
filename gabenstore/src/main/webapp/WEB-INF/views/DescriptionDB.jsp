@@ -38,28 +38,49 @@
 		Enter Description About
 		</div>
 		<div class="col-lg-6" style="padding:20px;">	
-			<form:input path="descriptionAbout"/>
+			<form:input path="descriptionAbout" />
 		</div>
 		
 		<div class="col-lg-6" style="padding:20px;">
 		Enter Description Minimum Requirement
 		</div>
 		<div class="col-lg-6" style="padding:20px;">	
-			<form:input path="descriptionMinimum"/>
+			<form:textarea path="descriptionMinimum"/>
 		</div>
 		
 		<div class="col-lg-6" style="padding:20px;">
 		Enter Description Recommended Requirement
 		</div>
 		<div class="col-lg-6" style="padding:20px;">	
-			<form:input path="descriptionRecommended"/>
+			<form:textarea path="descriptionRecommended"/>
+		</div>
+		
+		<div class="col-lg-6" style="padding:20px;">
+		Enter Description Windows Requirement
+		</div>
+		<div class="col-lg-6" style="padding:20px;">	
+			<form:textarea path="descriptionWindows" />
+		</div>
+		
+		<div class="col-lg-6" style="padding:20px;">
+		Enter Description Mac Requirement
+		</div>
+		<div class="col-lg-6" style="padding:20px;">	
+			<form:textarea path="descriptionMac"/>
+		</div>
+		
+		<div class="col-lg-6" style="padding:20px;">
+		Enter Description Linux Requirement
+		</div>
+		<div class="col-lg-6" style="padding:20px;">	
+			<form:textarea path="descriptionLinux"/>
 		</div>
 		
 		<div class="col-lg-6" style="padding:20px;">
 		Enter Description Key Features
 		</div>
 		<div class="col-lg-6" style="padding:20px;">	
-			<form:input path="descriptionKey"/>
+			<form:textarea path="descriptionKey" />
 		</div>
 		
 		
@@ -82,6 +103,9 @@
   	<th>Description About</th>
   	<th>Description System Minimum</th>
   	<th>Description System Recommended</th>
+  	<th>Description System Windows</th>
+  	<th>Description System Mac</th>
+  	<th>Description System Linux</th>
   	<th>Description Key</th>
   	<th>Description Edit</th>
   	<th>Description Delete</th>
@@ -96,6 +120,9 @@
 	<td>{{disp.descriptionAbout}}</td>
 	<td>{{disp.descriptionMinimum}}</td>
 	<td>{{disp.descriptionRecommended}}</td>
+	<td>{{disp.descriptionWindows}}</td>
+	<td>{{disp.descriptionMac}}</td>
+	<td>{{disp.descriptionLinux}}</td>
 	<td>{{disp.descriptionKey}}</td>
 	<td><a href="updateDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">EDIT</a></td>
 	<td><a href="deleteDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">DELETE</a></td>

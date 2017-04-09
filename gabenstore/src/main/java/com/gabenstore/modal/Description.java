@@ -1,5 +1,6 @@
 package com.gabenstore.modal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,15 +17,45 @@ public class Description
 	private String descriptionDRM;
 	private String descriptionRegion;
 	private String descriptionType;
+	@Column(columnDefinition="CLOB")
 	private String descriptionAbout;
-	private String descriptionMinimum;
-	private String descriptionRecommended;
-	private String descriptionKey;
+	@Column(columnDefinition="CLOB")
+	private String descriptionMinimum=null;
+	@Column(columnDefinition="CLOB")
+	private String descriptionRecommended=null;
+	@Column(columnDefinition="CLOB")
+	private String descriptionKey=null;
+	@Column(columnDefinition="CLOB")
+	private String descriptionWindows=null;
+	@Column(columnDefinition="CLOB")
+	private String descriptionMac=null;
+	@Column(columnDefinition="CLOB")
+	private String descriptionLinux=null;
 	private int productID;
 	@OneToOne
 	@JoinColumn(name="productID",nullable=false,updatable=false,insertable=false)
 	private Product product;
 	
+	
+	
+	public String getDescriptionWindows() {
+		return descriptionWindows;
+	}
+	public void setDescriptionWindows(String descriptionWindows) {
+		this.descriptionWindows = descriptionWindows;
+	}
+	public String getDescriptionMac() {
+		return descriptionMac;
+	}
+	public void setDescriptionMac(String descriptionMac) {
+		this.descriptionMac = descriptionMac;
+	}
+	public String getDescriptionLinux() {
+		return descriptionLinux;
+	}
+	public void setDescriptionLinux(String descriptionLinux) {
+		this.descriptionLinux = descriptionLinux;
+	}
 	public int getDescriptionID() {
 		return descriptionID;
 	}

@@ -53,8 +53,8 @@
 	</div>
 </div>
 
-<!-- Featured Games -->
-<div class="container">
+<!-- Featured Games  Visible in lg and md-->
+<div class="container hidden-sm hidden-xs">
   <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
       <div class="carousel slide multi-item-carousel" id="theCarousel">
@@ -180,14 +180,77 @@
                 </div>
             </div>
           </div>
-          
-          
+     
         </div>
         <a class="" href="#theCarousel" data-slide="prev"></a>
         <a class="" href="#theCarousel" data-slide="next"></a>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Featured games visible to sm and xs -->
+<div class="container hidden-lg hidden-md" style="margin-left: 50px;">
+    <div class="row">
+        <div class="row">      
+          <div class="controls pull-right hidden-xs">
+            <a class="" href="#carousel-example" data-slide="prev"></a>
+            <a class="" href="#carousel-example" data-slide="next"></a>
+          </div>
+        </div>
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">        
+            <div class="carousel-inner">
+                <div class="item active">
+                  <div class=" col-sm-12 col-xs-12">
+                    <div class="panel panel-default homefeatpan">
+                      <div class="panel-body">
+                        <div class="row homefeatpanborder">
+                          <img src="bf1.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
+                          <div class="homefeat">
+                            <p class="homevertical-text-sale">FEATURED</p>
+                          </div>
+                          <div class="homegaben">
+                            <p>gabenstore.com</p>
+                          </div>
+                        </div>
+                        <h5 class="homefeatline">BATTLE FILED 1</h5>
+                        <h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
+                        <h5 class="homefeattextpad homefeatcolor">RS 999
+                          <strike class="homestrikecolor" style="font-size: 12px">RS 1700</strike>
+                          <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
+                        </h5> 
+                      </div>                
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="item">            
+                  <div class="col-sm-12 col-xs-12">
+                    <div class="panel panel-default homefeatpan">
+                      <div class="panel-body">
+                        <div class="row homefeatpanborder">
+                          <img src="bf1.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
+                          <div class="homefeat">
+                            <p class="homevertical-text-sale">FEATURED</p>
+                          </div>
+                          <div class="homegaben">
+                            <p>gabenstore.com</p>
+                         </div>
+                        </div>
+                        <h5 class="homefeatline">BATTLE FILED 1</h5>
+                        <h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
+                        <h5 class="homefeattextpad homefeatcolor">RS 999
+                          <strike class="homestrikecolor" style="font-size: 12px">RS 1700</strike>
+                          <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
+                        </h5> 
+                      </div>                
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container-fluid">
@@ -227,8 +290,8 @@
 	</div>
 </div>
 
-<!-- Latest Games -->
-<div class="container">
+<!-- Latest Games Visible in lg and md-->
+<div class="container hidden-sm hidden-xs">
   <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
       <div class="carousel slide multi-item-carousel" id="theCarousel">
@@ -363,6 +426,71 @@
     </div>
   </div>
 </div>
+
+<!-- Latest Game visible to sm and xs -->
+<div class="container hidden-lg hidden-md" style="margin-left: 50px;">
+    <div class="row">
+        <div class="row">      
+          <div class="controls pull-right hidden-xs">
+            <a class="" href="#carousel-example" data-slide="prev"></a>
+            <a class="" href="#carousel-example" data-slide="next"></a>
+          </div>
+        </div>
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">        
+            <div class="carousel-inner">
+                <div class="item active">
+                  <div class=" col-sm-12 col-xs-12">
+                    <div class="panel panel-default homefeatpan">
+                      <div class="panel-body">
+                        <div class="row homefeatpanborder">
+                          <img src="bf1.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
+                          <div class="homefeat">
+                            <p class="homevertical-text-sale">FEATURED</p>
+                          </div>
+                          <div class="homegaben">
+                            <p>gabenstore.com</p>
+                          </div>
+                        </div>
+                        <h5 class="homefeatline">BATTLE FILED 1</h5>
+                        <h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
+                        <h5 class="homefeattextpad homefeatcolor">RS 999
+                          <strike class="homestrikecolor" style="font-size: 12px">RS 1700</strike>
+                          <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
+                        </h5> 
+                      </div>                
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="item">            
+                  <div class="col-sm-12 col-xs-12">
+                    <div class="panel panel-default homefeatpan">
+                      <div class="panel-body">
+                        <div class="row homefeatpanborder">
+                          <img src="bf1.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
+                          <div class="homefeat">
+                            <p class="homevertical-text-sale">FEATURED</p>
+                          </div>
+                          <div class="homegaben">
+                            <p>gabenstore.com</p>
+                         </div>
+                        </div>
+                        <h5 class="homefeatline">BATTLE FILED 1</h5>
+                        <h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
+                        <h5 class="homefeattextpad homefeatcolor">RS 999
+                          <strike class="homestrikecolor" style="font-size: 12px">RS 1700</strike>
+                          <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
+                        </h5> 
+                      </div>                
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 // Instantiate the Bootstrap carousel
 $('.multi-item-carousel').carousel({

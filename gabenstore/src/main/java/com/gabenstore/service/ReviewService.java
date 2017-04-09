@@ -33,4 +33,9 @@ public class ReviewService
 		return reviewDAOImp.updateReview(reviewID);
 	}
 	
+	public String displayReviewByJson()
+	{
+		return reviewDAOImp.displayReviewByJson();
+	}
+	
 }

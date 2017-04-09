@@ -1,5 +1,5 @@
 <%@ include file="/WEB-INF/views/Header.jsp"%>
-<link rel="stylesheet" href="resources/theme1/css/fontawesome-stars.css">
+
 <div class="productback" ng-app="myApp" ng-controller="descriptionCtrl">
 	<div class="container">
 		<div class="productcard">
@@ -13,21 +13,29 @@
 							<div class="productgaben">
 								<p>gabenstore.com</p>
 							</div>		
-							<img class="img-responsive productimage" src="resources/theme1/images/productImages/{{display.product.productID}}.jpg" alt="csgo">
+							<img class="img-responsive productimage" src="resources/theme1/images/productImages/{{display.product.productID}}.jpg" alt="{{display.product.productName}}"/>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" style="padding-top: 30px;">
-					<i class="fa fa-chevron-circle-left" aria-hidden="true" style="font-size:30px;color: #eeeeee"></i>
-					<i class="fa fa-chevron-circle-right" aria-hidden="true" style="font-size:30px;color: #eeeeee"></i>
-					<div class="row lead">
-        				<div id="stars" class="starrr"></div>
-        					<!-- You gave a rating of <span id="count">0</span> star(s) -->
-					</div>
+					<div class="row">
+						<div class="col-lg-2">
+							<i class="fa fa-chevron-circle-left" aria-hidden="true" style="font-size:30px;color: #eeeeee;margin-right:20px;"></i>
+							<i class="fa fa-chevron-circle-right" aria-hidden="true" style="font-size:30px;color: #eeeeee"></i>
+						</div>
+						<div class="col-lg-3 pull-right">
+							<div ng-if="review.reviewRating">
+        					<div star-rating rating="rev.reviewRating" read-only="true" max-rating="5" click="click2(param)" mouse-hover="mouseHover2(param)" mouse-leave="mouseLeave2(param)"></div>
+        					</div>
+						</div>
+					</div>	
+					<div class="productline" style="margin-top:20px;border-color:#eeeeee"></div>
 					<h3>{{display.product.productName}}</h3>
 					<h6>{{display.product.category.categoryName}},{{display.product.productSubCategory}}</h6>
+					<div ng-if="display.descriptionAbout">
 					<div class="producttext">
 						{{display.descriptionAbout}}
+					</div>
 					</div>
 					<div style="padding-bottom: 20px;"></div>
 					<h1 class="productblue">Rs. {{display.product.productSalePrice}}</h1>
@@ -75,56 +83,84 @@
                             </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="home" style="color: grey;">
+                                	<div ng-if="display.descriptionAbout">
                                 	{{display.descriptionAbout}}<br>                         
                                 	<div style="padding-bottom: 20px;"></div>
-									
+									</div>
 									<div style="padding-bottom: 20px;"></div>
 									Purchase type: <b>{{display.descriptionType}}<br></b>
 									DRM: <b>{{display.descriptionDRM}}<br></b>
 									Region: <b>{{display.descriptionRegion}}<br></b>
 									<div style="padding-bottom: 20px;"></div>
-									<u><b>SYSTEM REQUIREMENTS</b></u><br>
-									<div style="padding-bottom: 20px;"></div>
-									<b>Windows<br></b>
-									OS: Windows® 7/Vista/XP<br>
-									Processor: Intel® Core 2 Duo E6600 or AMD Phenom X3 8750 processor or better<br>
-									Memory: 2 GB RAM<br>
-									Graphics: Video card must be 256 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0<br>
-									DirectX: Version 9.0c<br>
-									Storage: 8 GB available space<br>
-									<div style="padding-bottom: 20px;"></div>
-									<b>Mac OS X</b><br>
-									OS: MacOS X 10.6.6 or higher<br>
-									Processor: Intel Core Duo Processor (2GHz or better)<br>
-									Memory: 2 GB RAM<br>
-									Graphics: ATI Radeon HD 2400 or better / NVidia 8600M or better<br>
-									Storage: 8 GB available space<br>
-									<div style="padding-bottom: 20px;"></div>
-									<b>SteamOS + Linux</b><br>
-									Processor: Dual core from Intel or AMD at 2.8 GHz<br>
-									Memory: 4 GB RAM<br>
-									Graphics: nVidia GeForce 8600/9600GT, ATI/AMD Radeon HD2600/3600 (Graphic Drivers: nVidia 310, AMD 12.11), OpenGL 2.1<br>
-									Storage: 8 GB available space<br>
-									Sound Card: OpenAL Compatible Sound Card<br>
+									<div ng-if="display.descriptionMinimum || display.descriptionRecommended ||display.descriptionMac || display.descriptionLinux ||display.descriptionWindows">
+										<u><b>SYSTEM REQUIREMENTS</b></u><br>
+										<div style="padding-bottom: 20px;"></div>
+									</div>
+									
+									<div ng-if="display.descriptionMinimum">
+										<b>Minimum Requirement</b><br>
+										{{display.descriptionMinimum}}
+										<div style="padding-bottom: 20px;"></div>
+									</div>
+									
+									
+									<div ng-if="display.descriptionRecommended">
+										<b>Recommended Requirement</b><br>
+										{{display.descriptionRecommended}}
+										<div style="padding-bottom: 20px;"></div>
+									</div>
+									
+									
+									<div ng-if="display.descriptionWindows">
+										<b>WINDOWS</b><br>
+										{{display.descriptionWindows}}
+										<div style="padding-bottom: 20px;"></div>
+									</div>
+									
+									
+									<div ng-if="display.descriptionMac">
+										<b>MacOS</b><br>
+										{{display.descriptionMac}}
+										<div style="padding-bottom: 20px;"></div>
+									</div>
+									
+									
+									<div ng-if="display.descriptionLinux">
+										<b>SteamOS + Linux</b><br>
+										{{display.descriptionLinux}}
+										<div style="padding-bottom: 20px;"></div>
+									</div>
+									
+									
+									<div ng-if="display.descriptionKey">
+										<b>KEY FEATURES</b><br>
+										{{display.descriptionKey}}
+									</div>
+									
                                 </div>
                                	<div role="tabpanel" class="tab-pane" id="profile">
-            						<div class="row">
+            						<div class="row" ng-repeat="rev in review">
+            							<div ng-if="rev.productID==display.productID">
             							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            								<img src="images.png" class="image-responsive">
+            								<img src="resources/theme1/images/images.png" class="image-responsive">
             							</div>
-            							<div class="col-lg-6 col-md-6 col-sm-3 col-xs-3">
+            							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             								<div class="row">
-            									GAMMA.ALT12
+            									{{rev.reviewName}}
             								</div>
-            								<div class="row">	
-            									got it instantly.
+            								<div class="row">
+            									{{rev.reviewReview}}	
             								</div>	
             							</div>
+            							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            								{{rev.reviewDate}}
+            							</div>
             							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 lead">
-            								<!-- <div id="stars" class="starrr" data-rating='4'>
-            								</div> -->
+            								<div star-rating rating="rev.reviewRating" read-only="true" max-rating="5" click="click2(param)" mouse-hover="mouseHover2(param)" mouse-leave="mouseLeave2(param)"></div>
 										</div>
-            						</div>		
+										</div>
+            						
+            						</div>			
             						<div class="productline">
 									</div>
 									<h5>ADD A REVIEW</h5>
@@ -134,6 +170,7 @@
 										YOUR RATING
 										<div star-rating rating="starRating1" read-only="false" max-rating="5" click="click1(param)" mouse-hover="mouseHover1(param)" mouse-leave="mouseLeave1(param)"></div>
 							           	<form:input type="hidden" class="form-control productbox1" path="reviewRating" value="{{starRating1}}"  />
+							        	<form:input path="reviewDate" type="hidden" value="${date}"/>
 										<p class="">YOUR REVIEW</p>
       									 <form:textarea class="form-control productbox" rows="5" id="comment" path="reviewReview" />
       									<div style="padding-bottom: 20px;"></div>
@@ -293,8 +330,9 @@ var app = angular.module('myApp', []);
 app.controller('descriptionCtrl', function($scope)
 {
   $scope.display=${description};
+  $scope.review=${displayReview};
   $scope.starRating1 = 4;
-  $scope.starRating2 = 5;
+  $scope.starRating2 =${displayReview};
   $scope.starRating3 = 2;
   $scope.hoverRating1 = $scope.hoverRating2 = $scope.hoverRating3 = 0;
 

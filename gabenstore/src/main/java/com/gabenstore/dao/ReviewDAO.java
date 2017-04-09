@@ -11,5 +11,6 @@ public interface ReviewDAO
 	public List<Review> displayReview();
 	public void deleteReview(int reviewID);
 	public Review updateReview(int reviewID);
+	public String displayReviewByJson();
 	
 }
