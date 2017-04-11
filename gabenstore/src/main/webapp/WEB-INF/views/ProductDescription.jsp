@@ -84,14 +84,16 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="home" style="color: grey;">
                                 	<div ng-if="display.descriptionAbout">
-                                	{{display.descriptionAbout}}<br>                         
-                                	<div style="padding-bottom: 20px;"></div>
+                                		{{display.descriptionAbout}}<br>                         
+                                		<div style="padding-bottom: 20px;"></div>
 									</div>
 									<div style="padding-bottom: 20px;"></div>
+						
 									Purchase type: <b>{{display.descriptionType}}<br></b>
 									DRM: <b>{{display.descriptionDRM}}<br></b>
 									Region: <b>{{display.descriptionRegion}}<br></b>
 									<div style="padding-bottom: 20px;"></div>
+									
 									<div ng-if="display.descriptionMinimum || display.descriptionRecommended ||display.descriptionMac || display.descriptionLinux ||display.descriptionWindows">
 										<u><b>SYSTEM REQUIREMENTS</b></u><br>
 										<div style="padding-bottom: 20px;"></div>
@@ -99,48 +101,48 @@
 									
 									<div ng-if="display.descriptionMinimum">
 										<b>Minimum Requirement</b><br>
-										{{display.descriptionMinimum}}
+										<pre class="propre">{{display.descriptionMinimum}}</pre>
 										<div style="padding-bottom: 20px;"></div>
 									</div>
 									
 									
 									<div ng-if="display.descriptionRecommended">
 										<b>Recommended Requirement</b><br>
-										{{display.descriptionRecommended}}
+										<pre class="propre">{{display.descriptionRecommended}}</pre>
 										<div style="padding-bottom: 20px;"></div>
 									</div>
 									
 									
 									<div ng-if="display.descriptionWindows">
 										<b>WINDOWS</b><br>
-										{{display.descriptionWindows}}
+										<pre class="propre">{{display.descriptionWindows}}</pre>
 										<div style="padding-bottom: 20px;"></div>
 									</div>
 									
 									
 									<div ng-if="display.descriptionMac">
 										<b>MacOS</b><br>
-										{{display.descriptionMac}}
+										<pre class="propre">{{display.descriptionMac}}</pre>
 										<div style="padding-bottom: 20px;"></div>
 									</div>
 									
 									
 									<div ng-if="display.descriptionLinux">
 										<b>SteamOS + Linux</b><br>
-										{{display.descriptionLinux}}
+										<pre class="propre">{{display.descriptionLinux}}</pre>
 										<div style="padding-bottom: 20px;"></div>
 									</div>
 									
 									
 									<div ng-if="display.descriptionKey">
 										<b>KEY FEATURES</b><br>
-										{{display.descriptionKey}}
+										<pre class="propre">{{display.descriptionKey}}</pre>
 									</div>
 									
                                 </div>
                                	<div role="tabpanel" class="tab-pane" id="profile">
             						<div class="row" ng-repeat="rev in review">
-            							<div ng-if="rev.productID==display.productID">
+            						
             							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             								<img src="resources/theme1/images/images.png" class="image-responsive">
             							</div>

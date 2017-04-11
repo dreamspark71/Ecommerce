@@ -6,7 +6,7 @@
 		<form:input path="categoryID" type="hidden" />
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding:20px;">
-		Enter Category Name
+		Enter Category Name 
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding:20px;">	
 			<form:input path="categoryName"/>
@@ -28,7 +28,7 @@
 	<th>Category Edit</th>
 	<th>Category Delete</th>
 	</tr>
-  <tr ng-repeat="disp in display">
+  <tr ng-repeat="disp in display|orderBy:'categoryName'">
     <td>{{disp.categoryID}}</td>
     <td>{{disp.categoryName}}</td>
     <td><a href="updateCategory-{{disp.categoryID}}" class="btn btn-primary" role="button">EDIT</a></td>

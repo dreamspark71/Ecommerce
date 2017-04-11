@@ -3,6 +3,8 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,10 +13,13 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <link rel="stylesheet" href="resources/theme1/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/theme1/css/body.css">
 <link rel="stylesheet" href="resources/theme1/css/font-awesome.min.css">  
-
+<link rel="stylesheet" href="resources/theme1/css/multirange.css">
 <script src="resources/theme1/js/jquery-3.1.1.min.js"> </script>
 <script src="resources/theme1/js/angular.min.js"></script>
+<script src="resources/theme1/js/multirange.js"></script>
 <script src="resources/theme1/js/bootstrap.min.js"> </script>
+<script src="resources/theme1/js/jquery.bootpag.js"></script>
+
 </head>
 <body>
 <div id="collapse1" class="panel-collapse headcollapse">
@@ -28,8 +33,47 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 		</div>
 		<div class="col-lg-3 col-md-2 col-sm-1 col-xs-0">
 		</div>
+		
 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-5 headpadtext">
-			<a href="#" class="headtextstyle">MY ACCOUNT |</a>
+			<c:if test="${pageContext.request.userPrincipal.name==null}">
+				<a href="Register" class="headtextstyle">MY ACCOUNT |</a>
+			</c:if>
+			<c:if test="${pageContext.request.userPrincipal.name!=null}">
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<span class="dropdown">
+							<a href="#" class="dropdown-toggle headtextstyle" data-toggle="dropdown">
+								${pageContext.request.userPrincipal.name} 
+								
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="CategoryDB">Category Management</a></li>
+								<li><a href="ProductDB">Product Management</a></li>
+								<li><a href="UserDB">User Management</a></li>
+								<li><a href="DescriptionDB">Description Management</a></li>
+								<li class="divider"></li>
+								<li><a href="logout">Logout</a></li>
+							</ul>
+						</span>
+					</sec:authorize>
+					
+					 <sec:authorize access="hasRole('ROLE_USER')">
+						<span class="dropdown">
+							<a href="#" class="dropdown-toggle headtextstyle" data-toggle="dropdown">
+								${pageContext.request.userPrincipal.name} 
+								
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Profile</a></li>
+								<li><a href="#">Cart</a></li>
+								<li><a href="#">Wish List</a></li>
+								<li><a href="#">Recent Orders</a></li>
+								<li class="divider"></li>
+								<li><a href="logout">Logout</a></li>
+							</ul>
+						</span>
+					</sec:authorize>
+			 </c:if>
+			
 			<a href="#" class="headtextstyle">CHECKOUT |</a>
 			<a href="#" class="headtextstyle">CONTACT US</a>
 		</div>

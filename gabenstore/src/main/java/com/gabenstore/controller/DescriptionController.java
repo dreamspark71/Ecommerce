@@ -78,8 +78,8 @@ public class DescriptionController
 		session.setAttribute("idProduct", d.getProductID());
 		model.addAttribute("description",jsonView);
 		model.addAttribute("review",new Review());
-		model.addAttribute("displayReview",reviewService.displayReviewByJson());
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		model.addAttribute("displayReview",reviewService.displayReviewByJson(productID));
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = new Date();
 		model.addAttribute("date",dateFormat.format(date));
 		return "ProductDescription";

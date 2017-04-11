@@ -37,9 +37,9 @@ public class ReviewDAOImp implements ReviewDAO
 		return getList.get(0);
 	}
 
-	public String displayReviewByJson() 
+	public String displayReviewByJson(int productID) 
 	{
-		List<Review> list=sessionFactory.getCurrentSession().createQuery("from Review").getResultList();
+		List<Review> list=sessionFactory.getCurrentSession().createQuery("from Review where productID="+productID).getResultList();
 		Gson g=new Gson();
 		String jsonList=g.toJson(list);
 		return jsonList;
