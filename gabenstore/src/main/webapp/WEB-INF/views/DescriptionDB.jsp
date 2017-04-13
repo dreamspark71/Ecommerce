@@ -126,7 +126,7 @@
 	<td>{{disp.descriptionKey}}</td>
 	<td><a href="updateDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">EDIT</a></td>
 	<td><a href="deleteDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">DELETE</a></td>
-	<td><a href="viewProduct-{{disp.productID}}" class="btn btn-primary" role="button">VIEW</a></td>
+	<td><a href="viewProduct-{{disp.descriptionID}}" class="btn btn-primary" role="button">VIEW</a></td>
   </tr>
 </table>
 </div>

@@ -138,11 +138,10 @@
 										<b>KEY FEATURES</b><br>
 										<pre class="propre">{{display.descriptionKey}}</pre>
 									</div>
-									
                                 </div>
+                               	
                                	<div role="tabpanel" class="tab-pane" id="profile">
             						<div class="row" ng-repeat="rev in review">
-            						
             							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             								<img src="resources/theme1/images/images.png" class="image-responsive">
             							</div>
@@ -160,11 +159,13 @@
             							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 lead">
             								<div star-rating rating="rev.reviewRating" read-only="true" max-rating="5" click="click2(param)" mouse-hover="mouseHover2(param)" mouse-leave="mouseLeave2(param)"></div>
 										</div>
-										</div>
+									</div>
             						
-            						</div>			
+            						
+            									
             						<div class="productline">
 									</div>
+									
 									<h5>ADD A REVIEW</h5>
 									<form:form modelAttribute="review" action="addReview">
 									<form:input path="productID" type="hidden" value="{{display.product.productID}}"/>
@@ -196,6 +197,7 @@
       										</div>
       									</div>
       									</form:form>
+      								</div>	
                                 </div>
                             </div>
                     	</div>
@@ -286,13 +288,11 @@
 		  		</div>
 		  	</div>
   		</div>	
-	</div>
+	
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
 
 
-
-</script>
 
 <script>
 	$(function() {

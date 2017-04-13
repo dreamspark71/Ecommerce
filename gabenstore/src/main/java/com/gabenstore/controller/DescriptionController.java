@@ -69,16 +69,16 @@ public class DescriptionController
 		return "DescriptionDB";
 	}
 	 
-	@RequestMapping("/viewProduct-{productID}")
-	public String viewDescription(@PathVariable("productID")int productID,Model model,HttpSession session)
+	@RequestMapping("/viewProduct-{descriptionID}")
+	public String viewDescription(@PathVariable("descriptionID")int descriptionID,Model model,HttpSession session)
 	{
-		Description d=descriptionService.updateDescription(productID);
+		Description d=descriptionService.updateDescription(descriptionID);
 		Gson g=new Gson();
 		String jsonView=g.toJson(d);
 		session.setAttribute("idProduct", d.getProductID());
 		model.addAttribute("description",jsonView);
 		model.addAttribute("review",new Review());
-		model.addAttribute("displayReview",reviewService.displayReviewByJson(productID));
+		model.addAttribute("displayReview",reviewService.displayReviewByJson(d.getProductID()));
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = new Date();
 		model.addAttribute("date",dateFormat.format(date));

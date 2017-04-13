@@ -14,7 +14,7 @@ public class User
 	private String userName;
 	private String userPassword;
 	private boolean enable=true;
-	private String role="user";
+	private String role="ROLE_USER";
 	
 	public int getUserID() {
 		return userID;

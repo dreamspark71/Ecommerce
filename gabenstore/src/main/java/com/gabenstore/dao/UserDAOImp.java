@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gabenstore.modal.Cart;
 import com.gabenstore.modal.User;
 import com.google.gson.Gson;
 
@@ -18,6 +19,10 @@ public class UserDAOImp implements UserDAO
 	public void addUser(User user) 
 	{
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		Cart cart=new Cart();
+		cart.setCartID(user.getUserID());
+		cart.setUserID(user.getUserID());
+		sessionFactory.getCurrentSession().saveOrUpdate(cart);
 	}
 
 	public List<User> displayUser() 

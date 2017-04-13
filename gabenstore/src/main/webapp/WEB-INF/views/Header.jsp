@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"  isELIgnored="false"%>
-
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -16,9 +15,9 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <link rel="stylesheet" href="resources/theme1/css/multirange.css">
 <script src="resources/theme1/js/jquery-3.1.1.min.js"> </script>
 <script src="resources/theme1/js/angular.min.js"></script>
-<script src="resources/theme1/js/multirange.js"></script>
 <script src="resources/theme1/js/bootstrap.min.js"> </script>
-<script src="resources/theme1/js/jquery.bootpag.js"></script>
+<script src="resources/theme1/js/multirange.js"></script>
+<script src="resources/theme1/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
 </head>
 <body>

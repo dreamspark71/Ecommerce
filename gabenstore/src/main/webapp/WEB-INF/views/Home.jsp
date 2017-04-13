@@ -30,7 +30,7 @@
   </a>
 </div>
 
-<div style="background-color: #eeeeee">
+<div ng-app="myApp" ng-controller="categoryCtrl" style="background-color: #eeeeee">
 <div class="container-fluid">
 	<div class="row" style="padding-bottom: 50px;">
 	</div>
@@ -84,6 +84,7 @@
             </div>
           </div>
           
+          
           <div class="item">            
             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
             	<div class="panel panel-default homefeatpan">
@@ -107,80 +108,9 @@
                 </div>
             </div>
           </div>
+       
           
-
-          <div class="item">            
-            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-            	<div class="panel panel-default homefeatpan">
-                  <div class="panel-body">
-                  	<div class="row homefeatpanborder">
-                  		 <img src="resources/theme1/images/overwatch.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
-                  		 <div class="homefeat">
-                        	<p class="homevertical-text-sale">FEATURED</p>
-                      	 </div>
-                      	 <div class="homegaben">
-                        	<p>gabenstore.com</p>
-                      	 </div>
-                    </div>
-                    <h5 class="homefeatline">OVERWATCH</h5>
-                    <h6 class="greycolor homefeattextpad">FPS,STEAM</h6>
-                    <h5 class="homefeattextpad homefeatcolor">RS 1999
-                       <strike class="homestrikecolor" style="font-size: 12px">RS 1400</strike>
-                      <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    </h5> 
-                  </div>                
-                </div>
-            </div>
-          </div>
-          
-          <div class="item">            
-            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-            	<div class="panel panel-default homefeatpan">
-                  <div class="panel-body">
-                  	<div class="row homefeatpanborder">
-                  		 <img src="resources/theme1/images/bf1.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
-                  		 <div class="homefeat">
-                        	<p class="homevertical-text-sale">FEATURED</p>
-                      	 </div>
-                      	 <div class="homegaben">
-                        	<p>gabenstore.com</p>
-                      	 </div>
-                    </div>
-                    <h5 class="homefeatline">BATTLE FILED 1</h5>
-                    <h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-                    <h5 class="homefeattextpad homefeatcolor">RS 999
-                       <strike class="homestrikecolor" style="font-size: 12px">RS 1700</strike>
-                      <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    </h5> 
-                  </div>                
-                </div>
-            </div>
-          </div>
-          
-          <div class="item">            
-            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-            	<div class="panel panel-default homefeatpan">
-                  <div class="panel-body">
-                  	<div class="row homefeatpanborder">
-                  		 <img src="resources/theme1/images/nier.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
-                  		 <div class="homefeat">
-                        	<p class="homevertical-text-sale">FEATURED</p>
-                      	 </div>
-                      	 <div class="homegaben">
-                        	<p>gabenstore.com</p>
-                      	 </div>
-                    </div>
-                    <h5 class="homefeatline">NIER AUTOMATA</h5>
-                    <h6 class="greycolor homefeattextpad">ROLE,STEAM</h6>
-                    <h5 class="homefeattextpad homefeatcolor">RS 799
-                       <strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    </h5> 
-                  </div>                
-                </div>
-            </div>
-          </div>
-     
+              
         </div>
         <a class="" href="#theCarousel" data-slide="prev"></a>
         <a class="" href="#theCarousel" data-slide="next"></a>
@@ -769,7 +699,6 @@
 $('.multi-item-carousel').carousel({
   interval: 4000
 });
-
 // for every slide in carousel, copy the next slide's item in the slide.
 // Do the same for the next, next item.
 $('.multi-item-carousel .item').each(function(){
@@ -792,7 +721,6 @@ $('.multi-item-carousel .item').each(function(){
 $('.multi-item-carousel1').carousel({
   interval: 4000
 });
-
 // for every slide in carousel, copy the next slide's item in the slide.
 // Do the same for the next, next item.
 $('.multi-item-carousel1 .item').each(function(){
@@ -828,5 +756,13 @@ $('.multi-item-carousel1 .item').each(function(){
   	</div>
   </div>
 </div>
+ <script>
+var app = angular.module('myApp', []);
+app.controller('categoryCtrl', function($scope)
+{
+  $scope.display=${featured};
+  $scope.disp=${latest};
+});
+</script>
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>

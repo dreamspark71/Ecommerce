@@ -41,4 +41,14 @@ public class ProductService
 	{
 		return productDAOImp.displayProductByJson();
 	}
+	
+	public String displayProductFeatured()
+	{
+		return productDAOImp.displayProductFeatured();
+	}
+	
+	public String displayProductLatest()
+	{
+		return productDAOImp.displayProductLatest();
+	}
 }

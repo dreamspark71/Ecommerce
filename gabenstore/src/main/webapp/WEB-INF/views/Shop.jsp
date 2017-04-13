@@ -1,5 +1,6 @@
 <%@ include file="/WEB-INF/views/Header.jsp"%>
-<div class="shopback">
+
+<div ng-app="myApp" ng-controller="categoryCtrl" class="shopback">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -89,58 +90,20 @@
 			</div>
 			
 			<div class="row hidden-sm hidden-xs">
-				<div class="col-lg-2">
+				<div class="col-lg-2" ng-repeat="disp in display">
 					<div class="shopitem">
 						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
+							<img src="resources/theme1/images/productImages/{{disp.productID}}.jpg" class="image-responsive" style="width: 126px;height: 166px">
 						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
+						<h5 class="homefeatline">{{disp.productName}}</h5>
+                    	<h6 class="greycolor homefeattextpad">{{disp.category.categoryName}},{{disp.productSubCategory}}</h6>
+						<h5 class="homefeattextpad homefeatcolor">Rs. {{disp.productSalePrice}}
+                       		<strike class="homestrikecolor" style="font-size: 12px">Rs. {{disp.productOriginalPrice}}</strike>
                       		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
                     	</h5> 
 					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="shopitem">
-						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
-						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    	</h5> 
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="shopitem">
-						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
-						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    	</h5> 
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="shopitem">
-						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
-						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    	</h5> 
-					</div>
-				</div>
+					<div style="margin-top:30px"></div>
+				</div>	
 			</div>
 
 			<div class="row hidden-lg hidden-md hidden-xs">
@@ -190,22 +153,19 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6"></div>
-				<div class="col-lg-6">
-					<ul class="pagination" id="page-selection">
-					 
-					</ul>
-				</div>
+				
 			</div>
 	</div>
+</div>
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
+ <script>
+ var app = angular.module('myApp', []);
+ app.controller('categoryCtrl', function($scope)
+ {
+   $scope.display=${displayProduct};
+ });
+ </script>
 
- <!-- <script>
-        // init bootpag
-        $('#page-selection').bootpag({
-            total: 5
-        }).on("page", function(event, /* page number here */ num){
-             $("#content").html("Insert content"); // some ajax content loading...
-        });
-    </script> -->
+
+
