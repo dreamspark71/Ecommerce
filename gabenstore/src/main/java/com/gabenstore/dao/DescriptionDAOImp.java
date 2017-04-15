@@ -42,5 +42,11 @@ public class DescriptionDAOImp implements DescriptionDAO
 		String jsonList=g.toJson(list);
 		return jsonList;
 	}
+	
+	public Description getDescriptionByProduct(int productID)
+	{
+		List<Description>list=sessionFactory.getCurrentSession().createQuery("from Description where productID="+productID).getResultList();
+		return list.get(0);
+	}
 
 }

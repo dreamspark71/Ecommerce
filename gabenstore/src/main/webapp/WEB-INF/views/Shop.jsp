@@ -91,6 +91,7 @@
 			
 			<div class="row hidden-sm hidden-xs">
 				<div class="col-lg-2" ng-repeat="disp in display">
+					<a href="#" data-toggle="tooltip" title="Add To Cart"><i class="fa fa-heart-o pull-right" aria-hidden="true"></i></a>
 					<div class="shopitem">
 						<div class="shopimage">
 							<img src="resources/theme1/images/productImages/{{disp.productID}}.jpg" class="image-responsive" style="width: 126px;height: 166px">
@@ -99,7 +100,7 @@
                     	<h6 class="greycolor homefeattextpad">{{disp.category.categoryName}},{{disp.productSubCategory}}</h6>
 						<h5 class="homefeattextpad homefeatcolor">Rs. {{disp.productSalePrice}}
                        		<strike class="homestrikecolor" style="font-size: 12px">Rs. {{disp.productOriginalPrice}}</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
+                      	<a href="addToCartShop-{{disp.productID}}" data-toggle="tooltip" title="Add To Cart" ><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
                     	</h5> 
 					</div>
 					<div style="margin-top:30px"></div>
@@ -166,6 +167,12 @@
    $scope.display=${displayProduct};
  });
  </script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 
 
 
+					

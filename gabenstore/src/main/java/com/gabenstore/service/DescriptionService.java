@@ -36,6 +36,12 @@ public class DescriptionService
 	{
 		return descriptionDAOImp.displayDescriptionByJson();
 	}
+	
+	public Description getDescriptionByProduct(int productID)
+	{
+		return descriptionDAOImp.getDescriptionByProduct(productID);
+	}
+	
 
 }
 

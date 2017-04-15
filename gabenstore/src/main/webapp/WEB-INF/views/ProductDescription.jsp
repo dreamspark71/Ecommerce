@@ -6,10 +6,12 @@
 			<div class="row">
 				<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 					<div class="productcard1">
+					<span class="fa fa-heart-o pull-right" aria-hidden="true"></span>
 						<div class="productfeat">
 							<p class="productvertical-text-sale">FEATURED</p>
 						</div>
 						<div class="productcard3">
+							
 							<div class="productgaben">
 								<p>gabenstore.com</p>
 							</div>		
@@ -44,7 +46,7 @@
 					<div style="padding-bottom: 20px;"></div>
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-							<button type="button" class="btn btn-primary" style="border-radius: 1px">ADD TO CART</button>
+						<a href="addToCartViewProduct-{{display.productID}}"><button type="button" class="btn btn-primary" style="border-radius: 1px">ADD TO CART</button></a>
 						</div>
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">

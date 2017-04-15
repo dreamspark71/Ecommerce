@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/Header.jsp"%>
 
-<div class="cartback">
+<div ng-app="myApp" ng-controller="categoryCtrl" class="cartback">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -30,23 +30,24 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			<div  class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			<div ng-repeat="disp in display">
 				<div class="cartitem">
-					<a href="#">
-						<span class="fa fa-times-circle-o" style="position: absolute; font-size: 20px;margin-top: 25px;margin-left:-5px;color: black"></span>
+					<a href="/delete-{{disp.cartItemsID}}">
+						<i class="fa fa-times-circle-o" style="position: absolute; font-size: 20px;margin-top: 25px;margin-left:-5px;color: black"></i>
 					</a>
 					<div class="col-lg-1 col-md-1 col-xs-2 col-sm-1">
 						<div class="cartimage">
-							<img src="resources/theme1/images/bf1.jpg" class="image-responsive" style="width: 46px;height: 74px;">
+							<img src="resources/theme1/images/productImages/{{disp.productID}}.jpg" class="image-responsive" style="width: 46px;height: 74px;" alt="{{disp.productName}}">
 						</div>
 					</div>	
 					
-					<div class="col-lg-3 col-md-1 col-xs-2 col-sm-2 cartpad">
-						<p>BATTLE FILED1</p>
+					<div class="col-lg-3 col-md-1 col-xs-2 col-sm-2 ">
+						<p>{{disp.productName}}</p>
 					</div>
 					
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-1 cartpad">
-						<p>RS. 525</p>
+						<p>Rs. {{disp.cartAmount}}</p>
 					</div>
 					
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 cartpad">
@@ -62,11 +63,13 @@
 					</div>
 
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cartpad" style="padding-left: 50px;">
-						<p>RS. 525</p>
+						<p>RS. {{disp.cartAmount}}</p>
 					</div>
-
+				</div>
+				<div style="margin-top:10px"></div>	
 				</div>
 			</div>
+			
 			<div class="hidden-lg hidden-md" style="margin-top: 100px;"></div>
 			<div class="col-lg-4 col-md-4 col-md-12 col-xs-12">
 				<div class="carttotalcard">
@@ -130,4 +133,11 @@
     });
 });
 
+</script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('categoryCtrl', function($scope)
+{
+  $scope.display=${displayCart};
+});
 </script>

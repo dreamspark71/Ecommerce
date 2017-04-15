@@ -17,6 +17,9 @@ public class CartItems
 	private int productID;
 	private int cartItemQuantity;
 	private int cartAmount;
+	private int userID;
+	private String productName;
+	private boolean cartItemFlag=false;
 	
 	@ManyToOne
 	@JoinColumn(name="cartID",nullable=false,insertable=false,updatable=false)
@@ -25,6 +28,42 @@ public class CartItems
 	@ManyToOne
 	@JoinColumn(name="productID",nullable=false,insertable=false,updatable=false)
 	private Product product;
+
+	@ManyToOne
+	@JoinColumn(name="userID",nullable=false,insertable=false,updatable=false)
+	private User user;
+	
+	public boolean isCartItemFlag() {
+		return cartItemFlag;
+	}
+
+	public void setCartItemFlag(boolean cartItemFlag) {
+		this.cartItemFlag = cartItemFlag;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 
 	public int getCartItemsID() {
 		return cartItemsID;

@@ -42,12 +42,12 @@ public class ProductService
 		return productDAOImp.displayProductByJson();
 	}
 	
-	public String displayProductFeatured()
+	public List<Product> displayProductFeatured()
 	{
 		return productDAOImp.displayProductFeatured();
 	}
 	
-	public String displayProductLatest()
+	public List<Product> displayProductLatest()
 	{
 		return productDAOImp.displayProductLatest();
 	}

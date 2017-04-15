@@ -18,12 +18,23 @@
 
 	<!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
+		
+		<!-- ROLE_ADMIN -->		
 		<intercept-url pattern="/CategoryDB" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/DescriptionDB" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/ProductDB" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/UserDB" access="hasRole('ROLE_ADMIN')"/>
+        
+        <!-- ROLE_ANONYMOUS -->
         <intercept-url pattern="/logout" access="hasRole('IS_AUTHENTICATED_ANONYMOUSLY')" />
-
+		
+		<!-- ROLE_USER -->
+		<intercept-url pattern="/addToCartHome-{productID}" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/viewCart" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/addToCartShop-{productID}" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/addToCartViewProduct-{productID}" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/delete-{cartItemsID}" access="hasRole('ROLE_USER')" />
+		
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" /> 
 		<form-login

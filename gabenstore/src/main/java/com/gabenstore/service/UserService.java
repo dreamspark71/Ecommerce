@@ -1,5 +1,6 @@
 package com.gabenstore.service;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -37,5 +38,9 @@ public class UserService
 		return userDAOImp.displayUserByJson();
 	}
 	
+	public User getUserByName(String s)
+	{
+		 return userDAOImp.getUserByName(s);
+	}
 	
 }

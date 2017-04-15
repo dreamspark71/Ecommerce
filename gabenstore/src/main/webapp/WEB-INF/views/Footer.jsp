@@ -43,7 +43,7 @@
 			<a href="#" class="foottext">HOME</a>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
-			<a href="#" class="foottext">SHOP</a>
+			<a href="/gabenstore/Shop" class="foottext">SHOP</a>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 			<a href="#" class="foottext">TERMS AND CONDITIONS</a>

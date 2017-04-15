@@ -43,20 +43,15 @@ public class ProductDAOImp implements ProductDAO
 		return jsonList;
 	}
 	
-	public String displayProductFeatured()
+	public List<Product> displayProductFeatured()
 	{
-		List<Product> list=sessionFactory.getCurrentSession().createQuery("from Product where productTag='FEATURED'").getResultList();
-		Gson g=new Gson();
-		String jsonList=g.toJson(list);
-		return jsonList;
+		return sessionFactory.getCurrentSession().createQuery("from Product where productTag='FEATURED'").getResultList();		
 	}
 	
-	public String displayProductLatest()
+	public List<Product> displayProductLatest()
 	{
-		List<Product> list=sessionFactory.getCurrentSession().createQuery("from Product where productTag='LATEST'").getResultList();
-		Gson g=new Gson();
-		String jsonList=g.toJson(list);
-		return jsonList;
+		return sessionFactory.getCurrentSession().createQuery("from Product where productTag='LATEST'").getResultList();
 	}
-
+		
+	
 }

@@ -1,5 +1,6 @@
 package com.gabenstore.dao;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -33,8 +34,7 @@ public class UserDAOImp implements UserDAO
 	public void deleteUser(int userID) {
 		User userDelete=new User();
 		userDelete.setUserID(userID);
-		sessionFactory.getCurrentSession().delete(userDelete);
-		
+		sessionFactory.getCurrentSession().delete(userDelete);		
 	}
 
 	public User updateUser(int userID) {
@@ -48,6 +48,12 @@ public class UserDAOImp implements UserDAO
 		Gson g=new Gson();
 		String jsonList=g.toJson(list);
 		return jsonList;
+	}
+	
+	public User getUserByName(String s)
+	{		
+		List<User> list=sessionFactory.getCurrentSession().createQuery("from User where userName='"+s+"'").getResultList();
+		return list.get(0);
 	}
 
 }
