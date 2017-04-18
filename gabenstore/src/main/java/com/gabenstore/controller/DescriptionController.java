@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.gabenstore.modal.Description;
 import com.gabenstore.modal.Product;
+import com.gabenstore.modal.RatingView;
 import com.gabenstore.modal.Review;
 import com.gabenstore.service.DescriptionService;
 import com.gabenstore.service.ProductService;
+import com.gabenstore.service.RatingViewService;
 import com.gabenstore.service.ReviewService;
 import com.google.gson.Gson;
 
@@ -35,6 +37,8 @@ public class DescriptionController
 	ProductService productService;
 	@Autowired
 	ReviewService reviewService;
+	@Autowired
+	RatingViewService ratingViewService;
 	
 	@RequestMapping("/DescriptionDB")
 	public String getDescriptionDBPage(Model model)
@@ -79,6 +83,10 @@ public class DescriptionController
 		model.addAttribute("description",jsonView);
 		model.addAttribute("review",new Review());
 		model.addAttribute("displayReview",reviewService.displayReviewByJson(d.getProductID()));
+		model.addAttribute("topFeatured",productService.displayTopFeatured());
+		/*RatingView rv=ratingViewService.displayRating(descriptionID);
+		String jsong=g.toJson(rv);
+		model.addAttribute("rating",jsong);*/
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = new Date();
 		model.addAttribute("date",dateFormat.format(date));

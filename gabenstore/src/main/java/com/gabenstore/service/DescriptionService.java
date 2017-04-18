@@ -24,14 +24,17 @@ public class DescriptionService
 	{
 		return descriptionDAOImp.displayDescription();
 	}
+	
 	public void deteleDescription(int descriptionID) 
 	{
 		descriptionDAOImp.deteleDescription(descriptionID);
 	}
+	
 	public Description updateDescription(int descriptionID) 
 	{
 		return descriptionDAOImp.updateDescription(descriptionID);
 	}
+	
 	public String displayDescriptionByJson() 
 	{
 		return descriptionDAOImp.displayDescriptionByJson();

@@ -23,16 +23,16 @@ public class DescriptionDAOImp implements DescriptionDAO
 		return sessionFactory.getCurrentSession().createQuery("from Description").getResultList();
 	}
 
-	public void deteleDescription(int descriptionID) 
+	public void deteleDescription(int productID) 
 	{
 		Description deleteDescription =new Description();
-		deleteDescription.setDescriptionID(descriptionID);
+		deleteDescription.setProductID(productID);
 		sessionFactory.getCurrentSession().delete(deleteDescription);	
 	}
 
 	public Description updateDescription(int descriptionID) 
 	{
-		List<Description> getList=sessionFactory.getCurrentSession().createQuery("from Description where descriptionID ="+descriptionID).getResultList();
+		List<Description> getList=sessionFactory.getCurrentSession().createQuery("from Description where productID ="+descriptionID).getResultList();
 		return getList.get(0);
 	}
 

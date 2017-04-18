@@ -52,6 +52,11 @@ public class ProductDAOImp implements ProductDAO
 	{
 		return sessionFactory.getCurrentSession().createQuery("from Product where productTag='LATEST'").getResultList();
 	}
-		
+	
+	public List<Product> displayTopFeatured()
+	{
+		return sessionFactory.getCurrentSession().createQuery("from Product where productTag='FEATURED' order by rand()").setMaxResults(3).getResultList();	
+	}
+	
 	
 }

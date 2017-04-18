@@ -21,14 +21,14 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 
 </head>
 <body>
-<div id="collapse1" class="panel-collapse headcollapse">
+<div id="collapse1" class="collapse headcollapse">
     <div class="panel-body">
     </div>
 </div>
 <div class="container-fluid">
 	<div class="row"> 
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 headpadimage">
-			<img class="img-responsive" src="resources/theme1/images/gaben.png" alt="Gabenstore">
+		<a href="/gabenstore/"><img class="img-responsive" src="resources/theme1/images/gaben.png" alt="Gabenstore"></a>
 		</div>
 		<div class="col-lg-3 col-md-2 col-sm-1 col-xs-0">
 		</div>
@@ -62,11 +62,7 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 								
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Profile</a></li>
-								<li><a href="#">Cart</a></li>
-								<li><a href="#">Wish List</a></li>
-								<li><a href="#">Recent Orders</a></li>
-								<li class="divider"></li>
+								<li><a href="/gabenstore/Account">Profile</a></li>
 								<li><a href="logout">Logout</a></li>
 							</ul>
 						</span>

@@ -38,4 +38,11 @@ public class ReviewService
 		return reviewDAOImp.displayReviewByJson(productID);
 	}
 	
+	public List<Review> displayRated()
+	{
+		return reviewDAOImp.displayRated();
+	}
+	
+	
+	
 }

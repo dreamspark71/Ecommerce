@@ -11,57 +11,41 @@ import javax.persistence.OneToOne;
 @Entity
 public class Description 
 {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int descriptionID;
+	
 	private String descriptionDRM;
+	
 	private String descriptionRegion;
+	
 	private String descriptionType;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionAbout;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionMinimum=null;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionRecommended=null;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionKey=null;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionWindows=null;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionMac=null;
+	
 	@Column(columnDefinition="CLOB")
 	private String descriptionLinux=null;
+	
+	@Id
 	private int productID;
+	
 	@OneToOne
 	@JoinColumn(name="productID",nullable=false,updatable=false,insertable=false)
 	private Product product;
 	
-	
-	
-	public String getDescriptionWindows() {
-		return descriptionWindows;
-	}
-	public void setDescriptionWindows(String descriptionWindows) {
-		this.descriptionWindows = descriptionWindows;
-	}
-	public String getDescriptionMac() {
-		return descriptionMac;
-	}
-	public void setDescriptionMac(String descriptionMac) {
-		this.descriptionMac = descriptionMac;
-	}
-	public String getDescriptionLinux() {
-		return descriptionLinux;
-	}
-	public void setDescriptionLinux(String descriptionLinux) {
-		this.descriptionLinux = descriptionLinux;
-	}
-	public int getDescriptionID() {
-		return descriptionID;
-	}
-	public void setDescriptionID(int descriptionID) {
-		this.descriptionID = descriptionID;
-	}
 	public String getDescriptionDRM() {
 		return descriptionDRM;
 	}
@@ -103,6 +87,24 @@ public class Description
 	}
 	public void setDescriptionKey(String descriptionKey) {
 		this.descriptionKey = descriptionKey;
+	}
+	public String getDescriptionWindows() {
+		return descriptionWindows;
+	}
+	public void setDescriptionWindows(String descriptionWindows) {
+		this.descriptionWindows = descriptionWindows;
+	}
+	public String getDescriptionMac() {
+		return descriptionMac;
+	}
+	public void setDescriptionMac(String descriptionMac) {
+		this.descriptionMac = descriptionMac;
+	}
+	public String getDescriptionLinux() {
+		return descriptionLinux;
+	}
+	public void setDescriptionLinux(String descriptionLinux) {
+		this.descriptionLinux = descriptionLinux;
 	}
 	public int getProductID() {
 		return productID;

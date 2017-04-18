@@ -88,3 +88,4 @@
 </div>
 </div> --%>
  
+ create or replace view ViewRating as (select p.productID,p.productName,avg(r.reviewRating) as avg,max(r.reviewRating) as max from product p,review r  where p.productID=r.productID GROUP BY p.productName, p.productID)

@@ -24,7 +24,7 @@
 		</div>
 		<div style="padding-bottom: 30px;"></div>
 		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			<div class="col-lg-3 col-md-3 hidden-xs hidden-sm">
 				<div class="shopsearch">
 					<b><p class="shoppad">SEARCH GAMES</p></b>
 					<p class="shopline"></p>
@@ -88,75 +88,110 @@
 					</div> 
 				</div>
 			</div>
-			
-			<div class="row hidden-sm hidden-xs">
-				<div class="col-lg-2" ng-repeat="disp in display">
-					<a href="#" data-toggle="tooltip" title="Add To Cart"><i class="fa fa-heart-o pull-right" aria-hidden="true"></i></a>
+
+			<div class="row hidden-lg hidden-md">
+			<div class="col-sm-6 col-xs-6">
+				<div class="shopsearch1" style="width: 100%">
+					<b><p class="shoppad">SEARCH GAMES</p></b>
+					<p class="shopline"></p>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<input type="text" class="form-control" style="margin-top: 5px;border-radius: 1px;" placeholder="Search Products..">
+					</div>
+					<div class="col-lg-3 col-lg-3 col-xs-3 col-sm-3">
+						<button type="button" class="btn btn-primary" style="margin-top: 10px;border-radius: 1px;">SEARCH</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-6">
+				<div class="shopsearch1" style="width: 100%">
+					<b><p class="shoppad">FILTER BY PRICE</p></b>
+					<p class="shopline"></p>	
+				<div class="col-sm-6 col-xs-6">
+					<button type="button" class="btn btn-primary" style="margin-top: 10px;border-radius: 1px;">FILTER</button>
+				</div>
+				</div>
+			</div> 
+			</div>
+
+			<div style="padding-bottom:30px;" class="hidden-lg hidden-md"></div>
+			<div class="shopcategory1 hidden-lg hidden-md">	
+				<div class="row">
+					<div class="col-sm-12 col-xs-12">
+						<b><p class="shoppad">GAMES CATEGORIES</p></b>	
+						<p class="shopline"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 col-xs-4">
+						<a href="#" class="shoptext">ACTION</a>
+					</div>
+					<div class="col-sm-3 col-xs-4">
+						<a href="#" class="shoptext">ADVENTURE</a>
+					</div>
+					<div class="col-sm-3 col-xs-4">
+						<a href="#" class="shoptext">FPS</a>
+					</div>
+					<div class="col-sm-3 col-xs-4">
+						<a href="#" class="shoptext">MMO</a>
+					</div>
+					<div class="col-sm-3 col-xs-4">
+						<a href="#" class="shoptext">ARCADE</a>
+					</div>
+					<div class="col-sm-3 col-xs-4">
+						<a href="#" class="shoptext">STRATEGY</a>
+					</div>
+				</div>
+				<div style="padding-bottom: 20px"></div>
+			</div>
+			<div style="margin-top: 10px" class="hidden-lg hidden-md"></div>
+
+			<div class="row">
+			<div ng-repeat="disp in display">
+				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
 					<div class="shopitem">
+					<a data-toggle="tooltip" title="Wishlist" href="addWishShop-{{disp.productID}}" ><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
 						<div class="shopimage">
-							<img src="resources/theme1/images/productImages/{{disp.productID}}.jpg" class="image-responsive" style="width: 126px;height: 166px">
+						<a href="viewProduct-{{disp.productID}}"><img src="resources/theme1/images/productImages/{{disp.productID}}.jpg" class="image-responsive" style="width: 126px;height: 166px" alt="{{disp.productName}}"></a>
 						</div>
 						<h5 class="homefeatline">{{disp.productName}}</h5>
                     	<h6 class="greycolor homefeattextpad">{{disp.category.categoryName}},{{disp.productSubCategory}}</h6>
 						<h5 class="homefeattextpad homefeatcolor">Rs. {{disp.productSalePrice}}
                        		<strike class="homestrikecolor" style="font-size: 12px">Rs. {{disp.productOriginalPrice}}</strike>
-                      	<a href="addToCartShop-{{disp.productID}}" data-toggle="tooltip" title="Add To Cart" ><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
+                      		<a href="addToCartShop-{{disp.productID}}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
                     	</h5> 
 					</div>
-					<div style="margin-top:30px"></div>
-				</div>	
-			</div>
-
-			<div class="row hidden-lg hidden-md hidden-xs">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-3">
-					<div class="shopitem">
-						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
-						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    	</h5> 
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="shopitem">
-						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
-						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    	</h5> 
-					</div>
+					<div style="padding-top:10px"></div>
 				</div>
 			</div>
-			
-			<div class="row hidden-lg hidden-md hidden-sm">
-				<div class="col-xs-3"></div>
-				<div class="col-xs-4">
-					<div class="shopitem">
-						<div class="shopimage">
-							<img src="bf1.jpg" class="image-responsive" style="width: 126px;height: 166px">
-						</div>
-						<h5 class="homefeatline">GHOST RECON WILDLANDS</h5>
-                    	<h6 class="greycolor homefeattextpad">ACTION,STEAM</h6>
-						<h5 class="homefeattextpad homefeatcolor">RS 1999
-                       		<strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      		<i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    	</h5> 
-					</div>
-				</div>
-			</div>
-			<div class="row">
+		</div>
+		
 				
+			<div class="row">
+				<div class="col-lg-6">
+					<ul class="pagination" id="page-selection">
+					</ul>
+				</div>
 			</div>
 	</div>
+</div>
+<div class="container-fluid">
+  <div class="row"> 
+  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-left:300px">
+  		<div class="homepan">
+  			<c:forEach items="${topFeatured}" var="disp">
+  				${disp.productName}
+  			</c:forEach>
+  		</div>
+  	</div>
+  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  		<div class="homepan">
+  		</div>
+  	</div>
+  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  		<div class="homepan">
+  		</div>
+  	</div>
+  </div>
 </div>
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>

@@ -4,7 +4,6 @@
 <div class="container-fluid">
 	<div class="row">	
 		<form:form action="addDescription" modelAttribute="description">
-		<form:input path="descriptionID" type="hidden" />
 		
 		<div class="col-lg-6" style="padding:20px;">
 		Enter Product Name
@@ -112,7 +111,7 @@
   	<th>View</th>
 	</tr>
   <tr ng-repeat="disp in display">
-    <td>{{disp.descriptionID}}</td>
+    <td>{{disp.productID}}</td>
 	<td>{{disp.product.productName}}</td>
 	<td>{{disp.descriptionDRM}}</td>
 	<td>{{disp.descriptionRegion}}</td>
@@ -124,9 +123,9 @@
 	<td>{{disp.descriptionMac}}</td>
 	<td>{{disp.descriptionLinux}}</td>
 	<td>{{disp.descriptionKey}}</td>
-	<td><a href="updateDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">EDIT</a></td>
-	<td><a href="deleteDescription-{{disp.descriptionID}}" class="btn btn-primary" role="button">DELETE</a></td>
-	<td><a href="viewProduct-{{disp.descriptionID}}" class="btn btn-primary" role="button">VIEW</a></td>
+	<td><a href="updateDescription-{{disp.productID}}" class="btn btn-primary" role="button">EDIT</a></td>
+	<td><a href="deleteDescription-{{disp.productID}}" class="btn btn-primary" role="button">DELETE</a></td>
+	<td><a href="viewProduct-{{disp.productID}}" class="btn btn-primary" role="button">VIEW</a></td>
   </tr>
 </table>
 </div>

@@ -18,8 +18,6 @@ public class CartDAOImp implements CartDAO
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	
-
 	public String displayCart(int userID) {
 		List<CartItems> listcart=sessionFactory.getCurrentSession().createQuery("from CartItems where userID="+userID).getResultList();
 		Gson g=new Gson();

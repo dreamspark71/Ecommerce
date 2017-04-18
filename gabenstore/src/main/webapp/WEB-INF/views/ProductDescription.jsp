@@ -26,8 +26,8 @@
 							<i class="fa fa-chevron-circle-right" aria-hidden="true" style="font-size:30px;color: #eeeeee"></i>
 						</div>
 						<div class="col-lg-3 pull-right">
-							<div ng-if="review.reviewRating">
-        					<div star-rating rating="rev.reviewRating" read-only="true" max-rating="5" click="click2(param)" mouse-hover="mouseHover2(param)" mouse-leave="mouseLeave2(param)"></div>
+							<div ng-if="ratereview.avg.length!=0">
+        					<div star-rating rating="ratereview.avg" read-only="true" max-rating="5" click="click2(param)" mouse-hover="mouseHover2(param)" mouse-leave="mouseLeave2(param)"></div>
         					</div>
 						</div>
 					</div>	
@@ -276,20 +276,25 @@
             </div>
 		</div>
 		<div style="padding-bottom: 50px;"></div>
-		<div class="row"> 
-		  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  		<div class="homepan">
-		  		</div>
-		  	</div>
-		  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  		<div class="homepan">
-		  		</div>
-		  	</div>
-		  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  		<div class="homepan">
-		  		</div>
-		  	</div>
-  		</div>	
+		<div class="container-fluid">
+  <div class="row"> 
+  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+  		<div class="homepan">
+  			<c:forEach items="${topFeatured}" var="disp">
+  				${disp.productName}
+  			</c:forEach>
+  		</div>
+  	</div>
+  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  		<div class="homepan">
+  		</div>
+  	</div>
+  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  		<div class="homepan">
+  		</div>
+  	</div>
+  </div>
+</div>	
 	
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
@@ -335,6 +340,7 @@ app.controller('descriptionCtrl', function($scope)
 {
   $scope.display=${description};
   $scope.review=${displayReview};
+  /* $scope.ratereview=${rating}; */
   $scope.starRating1 = 4;
   $scope.starRating2 =${displayReview};
   $scope.starRating3 = 2;

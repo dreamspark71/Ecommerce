@@ -51,4 +51,9 @@ public class ProductService
 	{
 		return productDAOImp.displayProductLatest();
 	}
+	
+	public List<Product> displayTopFeatured()
+	{
+		return productDAOImp.displayTopFeatured();
+	}
 }

@@ -34,6 +34,14 @@
 		<intercept-url pattern="/addToCartShop-{productID}" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/addToCartViewProduct-{productID}" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/delete-{cartItemsID}" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/addWishHome-{productID}" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/Account" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/BillAddress" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/Orders" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/AccountAddress" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/AccountWishlist" access="hasRole('ROLE_USER')" />
+		
+		
 		
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" /> 

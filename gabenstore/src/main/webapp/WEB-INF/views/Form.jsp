@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row" style="padding-left:50px;">
     <div class="col-lg-6 col-md-6 col-sm-3 col-xs-12 accountborder" style="">
-      <p class="accountline accountlog" style="">LOGIN
+      <p class="formline accountlog" style="">LOGIN
       <span class="glyphicon glyphicon-log-in pull-right"></span>
       </p>
       <p class="accountgreycolor accounttext">USERNAME OR EMAIL ADDRESS*</p>
@@ -23,7 +23,7 @@
     
 <form:form modelAttribute="user" action="addUserForm">    
     <div class="col-lg-6 col-md-6 col-sm-3 col-xs-12 accountborder">
-      <p class="accountline accountlog" style="">REGISTER
+      <p class="formline accountlog" style="">REGISTER
       <span class="glyphicon glyphicon-log-in pull-right"></span>
       </p>
        <p class="accountgreycolor accounttext">EMAIL ADDRESS*</p>

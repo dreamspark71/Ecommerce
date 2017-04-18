@@ -70,7 +70,7 @@
           		</c:if>	        		                    
             		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
             			<div class="panel panel-default homefeatpan">
-            			<span class="fa fa-heart-o pull-right" aria-hidden="true" ></span>
+            			<a href="addWishHome-${display.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   			<div class="panel-body">
                   				<div class="row homefeatpanborder">
 	                  		 	<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
@@ -434,10 +434,16 @@ $(document).ready(function(){
   <div class="row"> 
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
   		<div class="homepan">
+  			<c:forEach items="${topFeatured}" var="disp">
+  				${disp.productName}
+  			</c:forEach>
   		</div>
   	</div>
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
   		<div class="homepan">
+  			<c:forEach items="${rated}" var="disp1">
+  				${disp1.reviewID}
+  			</c:forEach>
   		</div>
   	</div>
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">

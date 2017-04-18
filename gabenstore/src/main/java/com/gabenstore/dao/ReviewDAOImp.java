@@ -44,5 +44,12 @@ public class ReviewDAOImp implements ReviewDAO
 		String jsonList=g.toJson(list);
 		return jsonList;
 	}
+	
+	public List<Review> displayRated()
+	{
+		return sessionFactory.getCurrentSession().createQuery("select avg(reviewRating) from Review GROUP BY productID").setMaxResults(3).getResultList();
+	}
+	
+	
 
 }

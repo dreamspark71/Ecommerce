@@ -430,7 +430,7 @@
 	background-color: white;
 	margin-bottom: 50px;	
 }
-.accountline
+.formline
 {
 	border-style: solid;
 	border-color: grey;
@@ -631,4 +631,122 @@
 	width: 130px;
 	height: 170px;
 	margin-left: 20px;
+}
+
+.shopsearch1
+{
+	border-color: white;
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+	height: 150px;
+	background-color: white;
+}
+.shopcategory1
+{
+	border-color: white;
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+}
+
+.accountcard
+{
+	border-width: 1px;border-style: solid;width: 100%;
+	height:100%;
+	background-color: white;
+	border-color: white;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.accounttext
+{
+	color: grey;
+	font-size: 12px;
+}
+.accountline
+{
+	border-color: #eeeeee;
+	border-style: solid;
+	width: 50%;
+	padding-top: 0px;
+	border-top-width: 0px;
+	border-right-width:0px;
+	border-left-width: 0px;
+	border-bottom-width: 2px; 
+}
+
+.accounttext1
+{
+	color: grey;
+}
+.accountbox
+{
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+	border-width: 1px;
+	width: 95%;
+	height: 100px;
+}
+.accountbox1
+{
+	border-style: solid;
+	border-color: #2263a6;
+	background-color: white;
+	border-width: 1px;
+	width:70px;
+	height: 90px;
+	margin-left: 10px;
+	margin-top: 4px;
+
+}
+.accountpad
+{
+	padding-top: 30px;
+}
+
+.billline
+{
+	border-color: #eeeeee;
+	border-style: solid;
+	width: 100%;
+	padding-top: 0px;
+	border-top-width: 0px;
+	border-right-width:0px;
+	border-left-width: 0px;
+	border-bottom-width: 2px; 
+}
+.billtext
+{
+	margin-bottom: 0px;
+	font-size: 12px;
+}
+.billtextbox
+{
+	border-radius: 1px;
+	background-color: #f4f4f4;
+}
+
+.billcard
+{
+	border-width: 1px;border-style: solid;width: 100%;
+	height:100%;
+	background-color: white;
+	border-color: white;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.accounttext
+{
+	color: black;
+	text-decoration: none!important;
+	color:grey;
+	font-size: 12px;
 }
