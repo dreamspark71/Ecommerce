@@ -20,4 +20,9 @@ public class RatingViewDAOImp implements RatingViewDAO
 		return list.get(0);
 	}
 
+	public List<RatingView> displayRatingTop() 
+	{
+		return sessionFactory.getCurrentSession().createQuery("from RatingView").setMaxResults(3).getResultList();		
+	}
+
 }

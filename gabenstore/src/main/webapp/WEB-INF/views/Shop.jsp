@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/Header.jsp"%>
 
-<div ng-app="myApp" ng-controller="categoryCtrl" class="shopback">
+<div ng-app="myApp" ng-controller="MyCtrl" class="shopback">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -144,9 +144,10 @@
 				<div style="padding-bottom: 20px"></div>
 			</div>
 			<div style="margin-top: 10px" class="hidden-lg hidden-md"></div>
-
+	
 			<div class="row">
-			<div ng-repeat="disp in display">
+			<div ng-repeat="disp in data | filter:q | startFrom:currentPage*pageSize | limitTo:pageSize">
+				<div ng-if="$index+1*pageSize*currentPage < ${count}">					
 				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
 					<div class="shopitem">
 					<a data-toggle="tooltip" title="Wishlist" href="addWishShop-{{disp.productID}}" ><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
@@ -157,23 +158,30 @@
                     	<h6 class="greycolor homefeattextpad">{{disp.category.categoryName}},{{disp.productSubCategory}}</h6>
 						<h5 class="homefeattextpad homefeatcolor">Rs. {{disp.productSalePrice}}
                        		<strike class="homestrikecolor" style="font-size: 12px">Rs. {{disp.productOriginalPrice}}</strike>
-                      		<a href="addToCartShop-{{disp.productID}}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
+                      		<a href="addToCartShop-{{disp.productID}}" data-toggle="tooltip" title="Add To Cart" class="pull-right"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
                     	</h5> 
 					</div>
 					<div style="padding-top:10px"></div>
 				</div>
+				</div>
 			</div>
 		</div>
 		
-				
-			<div class="row">
-				<div class="col-lg-6">
-					<ul class="pagination" id="page-selection">
-					</ul>
-				</div>
+			<div class="row">	
+			<div class="col-lg-6"></div>
+			<div class="col-lg-3">		
+				<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn btn-primary" style="border-radius: 1px;">
+        			Previous
+    			</button>
+    			<span style="font-size:16px">{{currentPage+1}}/{{numberOfPages()}}</span>
+    			<button ng-disabled="currentPage >= getData().length/pageSize/6 - 1" ng-click="currentPage=currentPage+1" class="btn btn-primary" style="border-radius: 1px;">
+        			Next
+    			</button> 								
+			</div>
 			</div>
 	</div>
 </div>
+<div style="padding-top:30px"></div>
 <div class="container-fluid">
   <div class="row"> 
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-left:300px">
@@ -185,23 +193,75 @@
   	</div>
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
   		<div class="homepan">
+  			<c:forEach items="${ratedTop}" var="disp1">
+  				${disp1.productName}
+  			</c:forEach>
   		</div>
   	</div>
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
   		<div class="homepan">
+  			<c:forEach items="${topSale}" var="disp2">
+  				${disp2.productName}
+  			</c:forEach>
   		</div>
   	</div>
   </div>
 </div>
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
- <script>
- var app = angular.module('myApp', []);
- app.controller('categoryCtrl', function($scope)
- {
-   $scope.display=${displayProduct};
- });
- </script>
+<script >
+var app=angular.module('myApp', []);
+
+//alternate - https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
+//alternate - http://fdietz.github.io/recipes-with-angular-js/common-user-interface-patterns/paginating-through-client-side-data.html
+
+app.controller('MyCtrl', ['$scope', '$filter', function ($scope, $filter) {
+ $scope.currentPage = 0;
+ $scope.pageSize = 12;
+ $scope.data = ${displayProduct};
+ $scope.q = '';
+ 
+ $scope.getData = function () {
+   // needed for the pagination calc
+   // https://docs.angularjs.org/api/ng/filter/filter
+   return $filter('filter')($scope.data, $scope.q)
+  /* 
+    // manual filter
+    // if u used this, remove the filter from html, remove above line and replace data with getData()
+    
+     var arr = [];
+     if($scope.q == '') {
+         arr = $scope.data;
+     } else {
+         for(var ea in $scope.data) {
+             if($scope.data[ea].indexOf($scope.q) > -1) {
+                 arr.push( $scope.data[ea] );
+             }
+         }
+     }
+     return arr;
+    */
+ }
+ 
+ $scope.numberOfPages=function(){
+     return Math.ceil($scope.getData().length/$scope.pageSize/6);                
+ }
+ 
+ for (var i=0; i<65; i++) {
+     $scope.data.push("Item "+i);
+ }
+}]);
+
+//We already have a limitTo filter built-in to angular,
+//let's make a startFrom filter
+app.filter('startFrom', function() {
+ return function(input, start) {
+     start = +start; //parse to int
+     return input.slice(start);
+ }
+});
+
+</script>
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   

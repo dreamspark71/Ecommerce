@@ -30,5 +30,10 @@ public class CartService
 	{
 		 cartDAOImp.deletecart(cartItemsID);
 	}	
+	
+	public CartItems displayCartProduct(int productID)
+	{
+		return cartDAOImp.displayCartProduct(productID);
+	}
 }
 

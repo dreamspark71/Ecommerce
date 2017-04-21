@@ -18,7 +18,7 @@
 								<p class="accountline"></p>
 								<a href="/gabenstore/AccountWishlist" class="accounttext">WISHLIST</a>
 								<p class="accountline"></p>
-								<a href="" class="accounttext">ACCOUNT DETAILS</a>
+								<a href="/gabenstore/AccountDetails" class="accounttext">ACCOUNT DETAILS</a>
 								<p class="accountline"></p>
 								<a href="logout" class="accounttext">LOGOUT</a>
 						</div>
@@ -36,11 +36,14 @@
 								<div class="col-lg-3" style="margin-top:30px">
 									<a href="viewProduct-{{disp.productID}}">{{disp.productName}}</a>
 								</div>
-								<div class="col-lg-3" style="margin-top:30px">
+								<div class="col-lg-2" style="margin-top:30px">
 									Rs. {{disp.productPrice}}
 								</div>
-								<div class="col-lg-3" style="margin-top:30px">
-									<a href="deleteWish-{{disp.wishID}}">Remove</a>
+								<div class="col-lg-2" style="margin-top:30px">
+									<a href="deleteWish-{{disp.wishID}}" class="btn btn-primary" style="border-radius: 1px">REMOVE</a>
+								</div>
+								<div class="col-lg-2" style="margin-top:30px">
+									<a href="addToCartWish-{{disp.productID}}" class="btn btn-primary" style="border-radius: 1px">ADD TO CART</a>
 								</div>
 								</div>
 								<div style="padding-top:10px"></div>

@@ -14,7 +14,24 @@ public class RatingView
 	private String productName;
 	private int avg;
 	private int max;
+	private int productSalePrice;
+	private int productOriginalPrice;
+	private String productSubCategory;
+	private String categoryName;
 	
+	
+	public String getProductSubCategory() {
+		return productSubCategory;
+	}
+	public void setProductSubCategory(String productSubCategory) {
+		this.productSubCategory = productSubCategory;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 	public int getProductID() {
 		return productID;
 	}
@@ -38,6 +55,18 @@ public class RatingView
 	}
 	public void setMax(int max) {
 		this.max = max;
+	}
+	public int getProductSalePrice() {
+		return productSalePrice;
+	}
+	public void setProductSalePrice(int productSalePrice) {
+		this.productSalePrice = productSalePrice;
+	}
+	public int getProductOriginalPrice() {
+		return productOriginalPrice;
+	}
+	public void setProductOriginalPrice(int productOriginalPrice) {
+		this.productOriginalPrice = productOriginalPrice;
 	}
 	
 	

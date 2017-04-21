@@ -55,5 +55,6 @@ public class UserDAOImp implements UserDAO
 		List<User> list=sessionFactory.getCurrentSession().createQuery("from User where userName='"+s+"'").getResultList();
 		return list.get(0);
 	}
+	
 
 }

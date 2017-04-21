@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gabenstore.modal.CartItems;
+
 import com.gabenstore.modal.User;
 import com.google.gson.Gson;
 
@@ -19,10 +20,10 @@ public class CartDAOImp implements CartDAO
 	SessionFactory sessionFactory;
 	
 	public String displayCart(int userID) {
-		List<CartItems> listcart=sessionFactory.getCurrentSession().createQuery("from CartItems where userID="+userID).getResultList();
+		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where userID="+userID).getResultList();
 		Gson g=new Gson();
-		String jsonList=g.toJson(listcart);
-		return jsonList;
+		String json=g.toJson(list);
+		return json;
 	}
 
 	public void deletecart(int cartItemsID) {
@@ -40,4 +41,9 @@ public class CartDAOImp implements CartDAO
 		sessionFactory.getCurrentSession().saveOrUpdate(cartItems);		
 	}
 
+	public CartItems displayCartProduct(int productID)
+	{
+		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemFlag='FALSE' and productID="+productID).getResultList();
+		return list.get(0);
+	}
 }

@@ -14,7 +14,7 @@
 								<p class="accountline"></p>
 								<a href="/gabenstore/AccountWishlist" class="accounttext">WISHLIST</a>
 								<p class="accountline"></p>
-								<a href="/" class="accounttext">ACCOUNT DETAILS</a>
+								<a href="/gabenstore/AccountDetails" class="accounttext">ACCOUNT DETAILS</a>
 								<p class="accountline"></p>
 								<a href="logout" class="accounttext">LOGOUT</a>
 						</div>

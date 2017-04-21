@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 					<div class="productcard1">
-					<span class="fa fa-heart-o pull-right" aria-hidden="true"></span>
+					<a href="addWishView-{{display.productID}}"><span class="fa fa-heart-o pull-right" aria-hidden="true"></span></a>
 						<div class="productfeat">
 							<p class="productvertical-text-sale">FEATURED</p>
 						</div>
@@ -26,7 +26,7 @@
 							<i class="fa fa-chevron-circle-right" aria-hidden="true" style="font-size:30px;color: #eeeeee"></i>
 						</div>
 						<div class="col-lg-3 pull-right">
-							<div ng-if="ratereview.avg.length!=0">
+							<div ng-if="ratereview != 0">
         					<div star-rating rating="ratereview.avg" read-only="true" max-rating="5" click="click2(param)" mouse-hover="mouseHover2(param)" mouse-leave="mouseLeave2(param)"></div>
         					</div>
 						</div>
@@ -46,21 +46,17 @@
 					<div style="padding-bottom: 20px;"></div>
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-						<a href="addToCartViewProduct-{{display.productID}}"><button type="button" class="btn btn-primary" style="border-radius: 1px">ADD TO CART</button></a>
+						<form:form action="addToCartViewProduct-${displaydesp.productID}" modelAttribute="cartItems">
+						<input type="submit" class="btn btn-primary" style="border-radius: 1px" value="ADD TO CART"></button>
 						</div>
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
-								<div class="input-group number-spinner">
-									<span class="input-group-btn data-dwn">
-										<button class="btn btn-default btn-primary productbuttontext1" data-dir="dwn">-</button>
-									</span>
-									<input type="text" class="form-control text-center productbuttontext" value="1" min="1" max="10">
-									<span class="input-group-btn data-up">
-										<button class="btn btn-default btn-primary productbuttontext1" data-dir="up">+</button>
-									</span>
-								</div>
+								<input type="button" onclick="decrementValue()" value="-" class="btn btn-primary" style="border-radius: 1px" />
+								<form:input type="text" class="text-center" value="1" maxlength="2" max="10" size="1" id="number" path="cartItemQuantity"/>
+								<input type="button" onclick="incrementValue()" value="+" class="btn btn-primary" style="border-radius: 1px"/>
 							</div>
 						</div>
+						</form:form>
 					</div>	
 					<div style="margin-bottom: 50px;"></div>
 					<h5>Categories:{{display.product.category.categoryName}},{{display.product.productSubCategory}}</h5>
@@ -175,7 +171,7 @@
 										YOUR RATING
 										<div star-rating rating="starRating1" read-only="false" max-rating="5" click="click1(param)" mouse-hover="mouseHover1(param)" mouse-leave="mouseLeave1(param)"></div>
 							           	<form:input type="hidden" class="form-control productbox1" path="reviewRating" value="{{starRating1}}"  />
-							        	<form:input path="reviewDate" type="hidden" value="${date}"/>
+							        	
 										<p class="">YOUR REVIEW</p>
       									 <form:textarea class="form-control productbox" rows="5" id="comment" path="reviewReview" />
       									<div style="padding-bottom: 20px;"></div>
@@ -207,15 +203,18 @@
 				</div>
 			</div>
 		</div>
+		<div class="container">
 		<div style="padding-top: 20px;"></div>
 		<b><h3>RELATED PRODUCTS</h3></b>
-		<div style="padding-top: 20px;"></div>
-		<div class="row">
+		<div style="padding-top: 20px"></div>
+		<div class="row">		
+		<div style="margin-left:30px"></div>
+		<c:forEach items="${related}" var="relate">	
 			<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
             	<div class="panel panel-default homefeatpan">
                   <div class="panel-body">
                   	<div class="row homefeatpanborder">
-                  		 <img src="nier.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
+                  	<a href="/gabenstore/viewProduct-${relate.productID}"><img src="resources/theme1/images/productImages/${relate.productID}.jpg"  class="img-responsive homeimagesize" alt="${relate.productName}" /></a>
                   		 <div class="homefeat">
                         	<p class="homevertical-text-sale1">SALE</p>
                       	 </div>
@@ -223,57 +222,17 @@
                         	<p>gabenstore.com</p>
                       	 </div>
                     </div>
-                    <h5 class="homefeatline">NIER AUTOMATA</h5>
-                    <h6 class="greycolor homefeattextpad">ROLE,STEAM</h6>
-                    <h5 class="homefeattextpad homefeatcolor">RS 799
-                       <strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
+                    <h5 class="homefeatline">${relate.productName}</h5>
+                    <h6 class="greycolor homefeattextpad">${relate.categoryName},${relate.productSubCategory}</h6>
+                    <h5 class="homefeattextpad homefeatcolor">Rs.${relate.productSalePrice}
+                       <strike class="homestrikecolor" style="font-size: 12px">Rs.${relate.productOriginalPrice}</strike>
                       <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
                     </h5> 
                   </div>                
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-            	<div class="panel panel-default homefeatpan">
-                  <div class="panel-body">
-                  	<div class="row homefeatpanborder">
-                  		 <img src="nier.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
-                  		 <div class="homefeat">
-                        	<p class="homevertical-text-sale1">SALE</p>
-                      	 </div>
-                      	 <div class="homegaben">
-                        	<p>gabenstore.com</p>
-                      	 </div>
-                    </div>
-                    <h5 class="homefeatline">NIER AUTOMATA</h5>
-                    <h6 class="greycolor homefeattextpad">ROLE,STEAM</h6>
-                    <h5 class="homefeattextpad homefeatcolor">RS 799
-                       <strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    </h5> 
-                  </div>                
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-            	<div class="panel panel-default homefeatpan">
-                  <div class="panel-body">
-                  	<div class="row homefeatpanborder">
-                  		 <img src="nier.jpg"  class="img-responsive homeimagesize" alt="Ghost" />
-                  		 <div class="homefeat">
-                        	<p class="homevertical-text-sale1">SALE</p>
-                      	 </div>
-                      	 <div class="homegaben">
-                        	<p>gabenstore.com</p>
-                      	 </div>
-                    </div>
-                    <h5 class="homefeatline">NIER AUTOMATA</h5>
-                    <h6 class="greycolor homefeattextpad">ROLE,STEAM</h6>
-                    <h5 class="homefeattextpad homefeatcolor">RS 799
-                       <strike class="homestrikecolor" style="font-size: 12px">RS 1000</strike>
-                      <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
-                    </h5> 
-                  </div>                
-                </div>
-            </div>
+        </c:forEach>
+                      
 		</div>
 		<div style="padding-bottom: 50px;"></div>
 		<div class="container-fluid">
@@ -287,52 +246,46 @@
   	</div>
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
   		<div class="homepan">
+  			<c:forEach items="${ratedTop}" var="disp1">
+  				${disp1.productName}
+  			</c:forEach>
   		</div>
   	</div>
   	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
   		<div class="homepan">
+  			<c:forEach items="${topSale}" var="disp2">
+  				${disp2.productName}
+  			</c:forEach>
   		</div>
   	</div>
   </div>
 </div>	
-	
+</div>	
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
 
 
 
-<script>
-	$(function() {
-    var action;
-    $(".number-spinner button").mousedown(function () {
-        btn = $(this);
-        input = btn.closest('.number-spinner').find('input');
-        btn.closest('.number-spinner').find('button').prop("disabled", false);
+<script type="text/javascript">
+function incrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value<10){
+        value++;
+            document.getElementById('number').value = value;
+    }
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value>1){
+        value--;
+            document.getElementById('number').value = value;
+    }
 
-    	if (btn.attr('data-dir') == 'up') {
-            action = setInterval(function(){
-                if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
-                    input.val(parseInt(input.val())+1);
-                }else{
-                    btn.prop("disabled", true);
-                    clearInterval(action);
-                }
-            }, 50);
-    	} else {
-            action = setInterval(function(){
-                if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
-                    input.val(parseInt(input.val())-1);
-                }else{
-                    btn.prop("disabled", true);
-                    clearInterval(action);
-                }
-            }, 50);
-    	}
-    }).mouseup(function(){
-        clearInterval(action);
-    });
-});
-
+}
 </script>
 <script>
 var app = angular.module('myApp', []);
@@ -340,7 +293,7 @@ app.controller('descriptionCtrl', function($scope)
 {
   $scope.display=${description};
   $scope.review=${displayReview};
-  /* $scope.ratereview=${rating}; */
+  $scope.ratereview=${rating};
   $scope.starRating1 = 4;
   $scope.starRating2 =${displayReview};
   $scope.starRating3 = 2;

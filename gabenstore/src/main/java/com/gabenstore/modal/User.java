@@ -15,7 +15,23 @@ public class User
 	private String userPassword;
 	private boolean enable=true;
 	private String role="ROLE_USER";
+	private String userFirst=null;
+	private String userLast=null;
 	
+	
+	
+	public String getUserFirst() {
+		return userFirst;
+	}
+	public void setUserFirst(String userFirst) {
+		this.userFirst = userFirst;
+	}
+	public String getUserLast() {
+		return userLast;
+	}
+	public void setUserLast(String userLast) {
+		this.userLast = userLast;
+	}
 	public int getUserID() {
 		return userID;
 	}

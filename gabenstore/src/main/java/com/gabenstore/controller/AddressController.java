@@ -26,6 +26,7 @@ public class AddressController
 	public String getBillAddress(Model model,Principal p)
 	{
 		model.addAttribute("address",new Address());
+		model.addAttribute("displayUser", userService.getUserByName(p.getName()).getUserID());
 		return "Address";
 	}
 	

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gabenstore.modal.Category;
+import com.gabenstore.modal.CategoryView;
 import com.gabenstore.modal.Product;
 import com.google.gson.Gson;
 
@@ -58,5 +59,14 @@ public class ProductDAOImp implements ProductDAO
 		return sessionFactory.getCurrentSession().createQuery("from Product where productTag='FEATURED' order by rand()").setMaxResults(3).getResultList();	
 	}
 	
+	public List<Product> displayTopSale()
+	{
+		return sessionFactory.getCurrentSession().createQuery("from Product where productTag='SALE' order by rand()").setMaxResults(3).getResultList();
+	}
+	
+	public List<CategoryView> displayRelated(String categoryName)
+	{
+		return sessionFactory.getCurrentSession().createQuery("from CategoryView where categoryName='"+categoryName+"' order by rand()").setMaxResults(3).getResultList();
+	}
 	
 }

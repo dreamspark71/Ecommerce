@@ -7,4 +7,5 @@ import com.gabenstore.modal.RatingView;
 public interface RatingViewDAO 
 {
 	public RatingView displayRating(int productID);
+	public List<RatingView> displayRatingTop();
 }

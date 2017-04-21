@@ -1,5 +1,7 @@
 package com.gabenstore.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -63,20 +65,18 @@ public class UserController
 	@RequestMapping("/addUserForm")
 	public String addUserForm(@ModelAttribute("user")User user)
 	{
-		userService.addUser(user);
-		
+		userService.addUser(user);	
 		return "redirect:/Register";
 	}
 	
-	 @RequestMapping("/logout")
-	    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        if (auth != null){    
-	            new SecurityContextLogoutHandler().logout(request, response, auth);
-	        }
-	        return "redirect:/login?logout";
-	    }
-	
-	
+	@RequestMapping("/logout")
+	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/login?logout";
+	}
+
 	
 }

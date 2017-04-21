@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.gabenstore.dao.ProductDAOImp;
 import com.gabenstore.modal.Category;
+import com.gabenstore.modal.CategoryView;
 import com.gabenstore.modal.Product;
 
 @Service
@@ -56,4 +57,15 @@ public class ProductService
 	{
 		return productDAOImp.displayTopFeatured();
 	}
+	
+	public List<Product> displayTopSale()
+	{
+		return productDAOImp.displayTopSale();
+	}
+	
+	public List<CategoryView> displayRelated(String categoryName)
+	{
+		return productDAOImp.displayRelated(categoryName);
+	}
+	
 }

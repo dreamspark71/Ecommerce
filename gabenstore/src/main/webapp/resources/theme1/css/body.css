@@ -498,7 +498,7 @@
 
 .cartback
 {
-	background-color: #eeeeee;padding-top: 30px;padding-bottom: 30px
+	background-color: #eeeeee;padding-top: 30px;
 }
 .cartcard
 {
@@ -547,7 +547,7 @@
 
 .shopback
 {
-	background-color: #eeeeee;padding-top: 30px;padding-bottom: 30px
+	background-color: #eeeeee;padding-top: 30px
 }
 .shopcard
 {
@@ -749,4 +749,16 @@
 	text-decoration: none!important;
 	color:grey;
 	font-size: 12px;
+}
+
+.homepan5
+{
+	width: 260px;
+	height: 400px;
+}
+.homeline5
+{
+	border-bottom: solid;
+    border-bottom-color:grey;
+    border-width: 1px; 
 }

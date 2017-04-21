@@ -88,4 +88,7 @@
 </div>
 </div> --%>
  
- create or replace view ViewRating as (select p.productID,p.productName,avg(r.reviewRating) as avg,max(r.reviewRating) as max from product p,review r  where p.productID=r.productID GROUP BY p.productName, p.productID)
+	
+	 create or replace view RatingView as (select p.productID,p.productName,p.productSalePrice,p.productOriginalPrice,avg(r.reviewRating) as avg,max(r.reviewRating) as max,c.categoryName,p.productsubcategory from product p,review r,category c  where p.productID=r.productID and p.categoryId=c.categoryID GROUP BY p.productName, p.productID,c.categoryName ORDER BY avg DESC)
+	 create or replace view CartView as (select sum(c.cartAmount) as amount,sum(c.cartItemquantity) as quantity,c.productname,c.userid,c.productid,c.cartitemflag,c.cartid from cartitems c group by c.productname,c.userid,c.productid,c.cartitemFlag,c.cartid)
+	 create or replace view CategoryView as(select  p.productID,c.categoryName,p.productName,p.productOriginalPrice,p.productSalePrice,p.productsubcategory from category c,product p where c.categoryID=p.categoryID)

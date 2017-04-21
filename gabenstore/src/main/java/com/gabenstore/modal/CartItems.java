@@ -20,7 +20,17 @@ public class CartItems
 	private int userID;
 	private String productName;
 	private boolean cartItemFlag=false;
+	private int cartTotalAmount;
 	
+	
+	public int getCartTotalAmount() {
+		return cartTotalAmount;
+	}
+
+	public void setCartTotalAmount(int cartTotalAmount) {
+		this.cartTotalAmount = cartTotalAmount;
+	}
+
 	@ManyToOne
 	@JoinColumn(name="cartID",nullable=false,insertable=false,updatable=false)
 	private Cart cart;

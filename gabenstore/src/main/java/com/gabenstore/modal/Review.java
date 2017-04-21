@@ -1,6 +1,7 @@
 package com.gabenstore.modal;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Review 
@@ -21,12 +24,20 @@ public class Review
 	private String reviewName;
 	private String reviewEmail;
 	private boolean reviewTypeUser;
+	@DateTimeFormat(pattern="dd/MM/YYYY")
+	@Column(columnDefinition="Date")
 	private Date reviewDate;
 	private int productID;
 	@ManyToOne
 	@JoinColumn(name="productID",nullable=false,insertable=false,updatable=false)
 	private Product product;
 	
+	public Review()
+	{
+		long millis=System.currentTimeMillis(); 
+		Date d = new Date(millis);
+		reviewDate=d;
+	}
 	
 	public Date getReviewDate() {
 		return reviewDate;

@@ -56,4 +56,16 @@ public class WishController
 		wishService.addWish(wishList);
 		return "redirect:/Shop";
 	}
+	
+	@RequestMapping("/addWishView-{productID}")
+	public String addWishView(Principal p,@ModelAttribute("wishList")WishList wishList,@PathVariable("productID")int productID)
+	{
+		int uid=userService.getUserByName(p.getName()).getUserID();
+		wishList.setUserID(uid);
+		wishList.setProductName(productService.updateProduct(productID).getProductName());
+		wishList.setProductPrice(productService.updateProduct(productID).getProductSalePrice());
+		wishList.setProductID(productID);
+		wishService.addWish(wishList);
+		return "redirect:/viewProduct-"+productID;
+	}
 }

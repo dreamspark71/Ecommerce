@@ -3,6 +3,7 @@ package com.gabenstore.controller;
 import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.SessionFactory;
@@ -34,17 +35,32 @@ public class CartController
 	SessionFactory sessionFactory;
 	
 	@RequestMapping("/addToCartHome-{productID}")
-	public String addToCartHome(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID)
+	public String addToCartHome(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID,Model model,HttpServletRequest request)
 	{
-		int uid=userService.getUserByName(p.getName()).getUserID();
-		cartItems.setUserID(uid);
-		cartItems.setCartID(uid);
-		cartItems.setProductID(productID);
-		cartItems.setProductName(productService.updateProduct(productID).getProductName());
-		cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
-		cartItems.setCartItemQuantity(1);
-		cartService.addCart(cartItems);
-		return "redirect:/";
+		try
+		{
+			CartItems c=cartService.displayCartProduct(productID);
+			Gson g=new Gson();
+			String json=g.toJson(c);
+			model.addAttribute("cart","You already have this item in cart");
+			return "redirect:/";
+		}
+		catch(Exception e)
+		{
+			int uid=userService.getUserByName(p.getName()).getUserID();
+			cartItems.setUserID(uid);
+			cartItems.setCartID(uid);
+			cartItems.setProductID(productID);
+			cartItems.setProductName(productService.updateProduct(productID).getProductName());
+			cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
+			cartItems.setCartItemQuantity(1);
+			int price=productService.updateProduct(productID).getProductSalePrice();
+			int quant=cartItems.getCartItemQuantity();
+			cartItems.setCartTotalAmount(price*quant);
+			cartService.addCart(cartItems);
+			return "redirect:/";
+		}
+		
 	}
 	
 	@RequestMapping("/viewCart")
@@ -56,17 +72,31 @@ public class CartController
 	}
 	
 	@RequestMapping("/addToCartShop-{productID}")
-	public String addToCartShop(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID)
+	public String addToCartShop(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID,Model model)
 	{
-		int uid=userService.getUserByName(p.getName()).getUserID();
-		cartItems.setUserID(uid);
-		cartItems.setCartID(uid);
-		cartItems.setProductID(productID);
-		cartItems.setProductName(productService.updateProduct(productID).getProductName());
-		cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
-		cartItems.setCartItemQuantity(1);
-		cartService.addCart(cartItems);
-		return "redirect:/Shop";
+		try
+		{
+			CartItems c=cartService.displayCartProduct(productID);
+			Gson g=new Gson();
+			String json=g.toJson(c);
+			model.addAttribute("cart","You already have this item in cart");
+			return "redirect:/Shop";
+		}
+		catch(Exception e)
+		{
+			int uid=userService.getUserByName(p.getName()).getUserID();
+			cartItems.setUserID(uid);
+			cartItems.setCartID(uid);
+			cartItems.setProductID(productID);
+			cartItems.setProductName(productService.updateProduct(productID).getProductName());
+			cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
+			cartItems.setCartItemQuantity(1);
+			int price=productService.updateProduct(productID).getProductSalePrice();
+			int quant=cartItems.getCartItemQuantity();
+			cartItems.setCartTotalAmount(price*quant);
+			cartService.addCart(cartItems);
+			return "redirect:/Shop";
+		}
 	}
 	
 	@RequestMapping("/delete-{cartItemsID}")
@@ -77,17 +107,57 @@ public class CartController
 	}
 	
 	@RequestMapping("/addToCartViewProduct-{productID}")
-	public String addToCartViewProduct(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID)
+	public String addToCartViewProduct(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID,Model model)
 	{
-		int uid=userService.getUserByName(p.getName()).getUserID();
-		cartItems.setUserID(uid);
-		cartItems.setCartID(uid);
-		cartItems.setProductID(productID);
-		cartItems.setProductName(productService.updateProduct(productID).getProductName());
-		cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
-		cartItems.setCartItemQuantity(1);
-		cartService.addCart(cartItems);
-		return "redirect:/viewProduct-"+productID;
+		try
+		{
+			CartItems c=cartService.displayCartProduct(productID);
+			Gson g=new Gson();
+			String json=g.toJson(c);
+			model.addAttribute("cart","You already have this item in cart");
+			return "redirect:/viewProduct-"+productID;
+		}
+		catch(Exception e)
+		{
+			int uid=userService.getUserByName(p.getName()).getUserID();
+			cartItems.setUserID(uid);
+			cartItems.setCartID(uid);
+			cartItems.setProductID(productID);
+			cartItems.setProductName(productService.updateProduct(productID).getProductName());
+			cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
+			int price=productService.updateProduct(productID).getProductSalePrice();
+			int quant=cartItems.getCartItemQuantity();
+			cartItems.setCartTotalAmount(price*quant);
+			cartService.addCart(cartItems);
+			return "redirect:/viewProduct-"+productID;
+		}
 	}
 	
+	@RequestMapping("/addToCartWish-{productID}")
+	public String addToCartWish(Principal p,@ModelAttribute("cartItems")CartItems cartItems,@PathVariable("productID")int productID,Model model)
+	{
+		try
+		{
+			CartItems c=cartService.displayCartProduct(productID);
+			Gson g=new Gson();
+			String json=g.toJson(c);
+			model.addAttribute("cart","You already have this item in cart");
+			return "redirect:/AccountWishlist";
+		}
+		catch(Exception e)
+		{
+			int uid=userService.getUserByName(p.getName()).getUserID();
+			cartItems.setUserID(uid);
+			cartItems.setCartID(uid);
+			cartItems.setProductID(productID);
+			cartItems.setProductName(productService.updateProduct(productID).getProductName());
+			cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
+			cartItems.setCartItemQuantity(1);
+			int price=productService.updateProduct(productID).getProductSalePrice();
+			int quant=cartItems.getCartItemQuantity();
+			cartItems.setCartTotalAmount(price*quant);
+			cartService.addCart(cartItems);
+			return "redirect:/AccountWishlist";
+		}
+	}
 }

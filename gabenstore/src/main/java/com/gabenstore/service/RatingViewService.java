@@ -21,4 +21,9 @@ public class RatingViewService
 	{
 		return ratingViewDAOImp.displayRating(productID);
 	}
+	
+	public List<RatingView> displayRatingTop()
+	{
+		return ratingViewDAOImp.displayRatingTop();
+	}
 }
