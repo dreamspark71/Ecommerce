@@ -46,4 +46,13 @@ public class CartDAOImp implements CartDAO
 		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemFlag='FALSE' and productID="+productID).getResultList();
 		return list.get(0);
 	}
+	
+	public List<CartItems> displayAddedCart(int userID)
+	{
+		return sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemFlag='FALSE' and userID="+userID).getResultList();
+	}
+	
+	public List<CartItems> displayCart1(int userID) {
+		return sessionFactory.getCurrentSession().createQuery("from CartItems where userID="+userID).getResultList();
+	}
 }

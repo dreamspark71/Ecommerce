@@ -35,5 +35,15 @@ public class CartService
 	{
 		return cartDAOImp.displayCartProduct(productID);
 	}
+	
+	public List<CartItems> displayAddedCart(int userID)
+	{
+		return cartDAOImp.displayAddedCart(userID);
+	}
+	
+	public List<CartItems> displayCart1(int userID)
+	{
+		return cartDAOImp.displayCart1(userID);
+	}
 }
 

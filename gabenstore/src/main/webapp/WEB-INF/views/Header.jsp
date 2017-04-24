@@ -23,8 +23,90 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <body>
 <div id="collapse1" class="collapse headcollapse">
     <div class="panel-body">
+		<div class="container">
+        <c:if test="${pageContext.request.userPrincipal.name==null}">
+			<div class="col-lg-9">
+				<span style="font-size:50px">You have No Items in Cart</span>
+			</div>
+			<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+            	<a href="/gabenstore/viewCart"><button type="button" class="btn " style="margin-left: 150px;margin-top: 50px;border-radius: 1px;background-color: grey;color: white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> VIEW CART</button></a>
+            	<button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button>
+          	</div>		
+		</c:if>
+		<c:if test="${pageContext.request.userPrincipal.name!=null}">
+			<c:if test="${cartCount eq 0}">
+				<div class="col-lg-9">
+					<span style="font-size:50px">You have No Items in Cart</span>
+				</div>
+				<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+            		<a href="/gabenstore/viewCart"><button type="button" class="btn " style="margin-left: 150px;margin-top: 50px;border-radius: 1px;background-color: grey;color: white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> VIEW CART</button></a>
+            		<button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button>
+          		</div>		
+			</c:if>
+			<c:if test="${cartCount gt 0}">
+        		<div class="row">
+          			<div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+            			<div class="carousel slide multi-item-carousel5" id="theCarousel">
+              				<div class="carousel-inner">
+              					<c:forEach items="${panelCart}" var="display" varStatus="loopCount">
+              						<c:if test="${loopCount.count eq 1}">
+                						<div class="item active">
+                					</c:if>
+                					<c:if test="${loopCount.count ne 1}">
+                						<div class="item">
+                					</c:if>
+                  					<div class="col-xs-4 col-lg-4 col-md-4 col-sm-4">
+                    					<div style="border-style: solid;border-width: 2px;width: 220px;height: 130px;border-color: white;background-color: white">
+                      						<div class="row">
+                        						<div class="col-xs-6 col-lg-6 col-md-6 col-sm-6">
+                          							<img src="resources/theme1/images/productImages/${display.productID}.jpg" style="height: 126px;width: 100px;margin-right:-2px">
+                        						</div>
+                        						<div class="col-xs-6 col-lg-6 col-md-6 col-sm-6">
+                          							<p>${display.productName}</p>
+                          							<p>Qt.${display.cartItemQuantity}</p>
+                        						</div>
+                      						</div>
+                    					</div>
+                  					</div>
+                				</div>
+                				</c:forEach>
+              			</div>
+              			<a class="left carousel-control" href="#theCarousel" data-slide="prev" style="margin-left: -80px;"><i class="glyphicon glyphicon-chevron-left"></i></a>
+              			<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+            		</div>
+          		</div>   
+          		<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+            	<a href="/gabenstore/viewCart"><button type="button" class="btn " style="margin-left: 150px;margin-top: 50px;border-radius: 1px;background-color: grey;color: white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> VIEW CART</button></a>
+            		<button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button>
+          		</div>
+          </c:if>
+        </c:if>
+      </div>
+    </div>    	
     </div>
 </div>
+<script>
+//Instantiate the Bootstrap carousel
+$('.multi-item-carousel5').carousel({
+  interval: false
+});
+
+// for every slide in carousel, copy the next slide's item in the slide.
+// Do the same for the next, next item.
+$('.multi-item-carousel5 .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  if (next.next().length>0) {
+    next.next().children(':first-child').clone().appendTo($(this));
+  } else {
+  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});
+</script>
 <div class="container-fluid">
 	<div class="row"> 
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 headpadimage">
@@ -70,11 +152,17 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 			 </c:if>
 			
 			<a href="#" class="headtextstyle">CHECKOUT |</a>
-			<a href="#" class="headtextstyle">CONTACT US</a>
+			<a href="/gabenstore/contact" class="headtextstyle">CONTACT US</a>
 		</div>
 		<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
       		<a data-toggle="collapse" href="#collapse1" >
         		<img class="img-responsive headbook" src="resources/theme1/images/book1.jpg" alt="book1">
+        		<c:if test="${pageContext.request.userPrincipal.name==null}">
+        			<div style="position: absolute;margin-top: -80px;margin-left: 30px;color:white;font-size:20px">${cartCount}</div>
+        		</c:if>
+        		<c:if test="${pageContext.request.userPrincipal.name!=null}">
+        			<div style="position: absolute;margin-top: -80px;margin-left: 30px;color:white;font-size:20px">${cartCount}</div>
+        		</c:if>
       		</a>
 		</div>
 	</div>
@@ -104,17 +192,14 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
         			<li class="dropdown">
           				<a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORY<span class="caret"></span></a>
           				<ul class="dropdown-menu">
-            				<li><a href="#">ACTION</a></li>
-            				<li><a href="#">ADVENTURE</a></li>
-            				<li><a href="#">RPS</a></li>
-            				<li><a href="#">SIMULATION</a></li>
-            				<li><a href="#">SPORTS</a></li>
-            				<li><a href="#">FPS</a></li>
+          					<c:forEach items="${globalCategory}" var="category">
+            				<li><a href="#">${category.categoryName}</a></li>
+            				</c:forEach>
           				</ul>
        				</li>
         			<li><a href="#">STEAM</a></li>
         			<li><a href="#">MICROSOFT</a></li>
-        			<li><a href="#">REQUEST A GAME</a></li>
+        			<!-- <li><a href="Request">REQUEST A GAME</a></li> -->
       			</ul>      
     		</div>
   		</div>

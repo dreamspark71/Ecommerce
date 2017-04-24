@@ -68,6 +68,7 @@ public class CartController
 	{
 		int uid=userService.getUserByName(p.getName()).getUserID();
 		model.addAttribute("displayCart",cartService.displayCart(uid));
+		model.addAttribute("displayCart1", cartService.displayCart1(uid));
 		return "Cart";
 	}
 	

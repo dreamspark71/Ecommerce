@@ -182,29 +182,78 @@
 	</div>
 </div>
 <div style="padding-top:30px"></div>
-<div class="container-fluid">
+<!--3 panels-->
+<div class="container">
   <div class="row"> 
-  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-left:300px">
-  		<div class="homepan">
-  			<c:forEach items="${topFeatured}" var="disp">
-  				${disp.productName}
-  			</c:forEach>
-  		</div>
-  	</div>
-  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-  		<div class="homepan">
-  			<c:forEach items="${ratedTop}" var="disp1">
-  				${disp1.productName}
-  			</c:forEach>
-  		</div>
-  	</div>
-  	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-  		<div class="homepan">
-  			<c:forEach items="${topSale}" var="disp2">
-  				${disp2.productName}
-  			</c:forEach>
-  		</div>
-  	</div>
+
+    <div class="panel panel-default homepan5 col-sm-12 col-lg-12 col-md-12 col-xs-12" style="margin-right: 50px;">
+      <div class="panel-body">
+        <p class="homeline5"><b>FEATURED GAMES</b></p>
+        <c:forEach items="${topFeatured}" var="disp" varStatus="loopCount">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
+              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
+            <p style="margin-bottom: 2px;">${disp.productName}</p>
+            <p style="margin-bottom: 0px;font-size: 12px;">${disp.category.categoryName},${disp.productSubCategory}</p>
+            <p class="homefeatcolor">Rs. ${disp.productSalePrice} <strike class="homestrikecolor" style="font-size: 12px">Rs. ${disp.productOriginalPrice}</strike></p>
+          </div>
+        </div>
+        <c:if test="${loopCount.count ne 3}">
+        <div class="homeline5" style="margin-top: 3px;margin-bottom: 3px;"></div>
+        </c:if>
+        </c:forEach>
+      </div>
+    </div>
+    
+    <div class="panel panel-default homepan5 col-sm-12 col-lg-12 col-md-12 col-xs-12" style="margin-right: 50px;">
+      <div class="panel-body ">
+        <p class="homeline5"><b>TOP RATED GAMES</b></p>
+        <c:forEach items="${ratedTop}" var="disp" varStatus="loopCount">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
+              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
+            <p style="margin-bottom: 2px;">${disp.productName}</p>
+            <p style="margin-bottom: 0px;font-size: 12px;">${disp.categoryName},${disp.productSubCategory}</p>
+            <p class="homefeatcolor">Rs. ${disp.productSalePrice} <strike class="homestrikecolor" style="font-size: 12px">Rs. ${disp.productOriginalPrice}</strike></p>
+          </div>
+        </div>
+        <c:if test="${loopCount.count ne 3}">
+        <div class="homeline5" style="margin-top: 3px;margin-bottom: 3px;"></div>
+        </c:if>
+        </c:forEach>
+      </div>
+    </div>
+
+    <div class="panel panel-default homepan5 col-sm-12 col-lg-12 col-md-12 col-xs-12">
+      <div class="panel-body ">
+        <p class="homeline5"><b>ON SALE </b></p>
+        <c:forEach items="${topSale}" var="disp" varStatus="loopCount">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
+              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
+            <p style="margin-bottom: 2px;">${disp.productName}</p>
+            <p style="margin-bottom: 0px;font-size: 12px;">${disp.category.categoryName},${disp.productSubCategory}</p>
+            <p class="homefeatcolor">Rs. ${disp.productSalePrice} <strike class="homestrikecolor" style="font-size: 12px">Rs. ${disp.productOriginalPrice}</strike></p>
+          </div>
+        </div>
+        <c:if test="${loopCount.count ne 3}">
+        <div class="homeline5" style="margin-top: 3px;margin-bottom: 3px;"></div>
+        </c:if>
+        </c:forEach>
+      </div>
+    </div>
   </div>
 </div>
 <%@ include file="/WEB-INF/views/Footer.jsp"%>

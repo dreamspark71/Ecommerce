@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gabenstore.modal.Address;
+
 import com.gabenstore.modal.User;
 import com.gabenstore.service.AddressService;
 import com.gabenstore.service.DescriptionService;
@@ -41,6 +42,7 @@ public class HomeController
 	ReviewService reviewService;
 	@Autowired
 	RatingViewService ratingViewService;
+	
 	
 	@RequestMapping("/")
 	public String getHome(Model model)
@@ -150,8 +152,13 @@ public class HomeController
 		{
 			model.addAttribute("error", "Incorrect Current Password");
 			return "AccountDetails";
-		}
-		
+		}		
 	}
-			
+	
+	@RequestMapping("/contact")
+	public String Contact()
+	{
+		return "Contact";
+	}
 }
+

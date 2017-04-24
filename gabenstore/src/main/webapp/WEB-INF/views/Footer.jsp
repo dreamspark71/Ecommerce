@@ -58,7 +58,7 @@
 			<a href="/gabenstore/Return" class="foottext">RETURN AND REFUND POLICY</a>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-			<a href="#" class="foottext">CONTACT US</a>
+			<a href="/gabenstore/contact" class="foottext">CONTACT US</a>
 		</div>
 	</div>
 </div>	
