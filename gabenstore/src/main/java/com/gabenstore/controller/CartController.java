@@ -68,7 +68,15 @@ public class CartController
 	{
 		int uid=userService.getUserByName(p.getName()).getUserID();
 		model.addAttribute("displayCart",cartService.displayCart(uid));
-		model.addAttribute("displayCart1", cartService.displayCart1(uid));
+		
+		List<CartItems> cart=cartService.displayCart1(uid);
+		int finalprice=0;
+		for(int i=0;i<cart.size();i++)
+		{
+			CartItems item=cart.get(i);
+			finalprice=finalprice+item.getCartTotalAmount();
+		}
+		model.addAttribute("grandtotal",finalprice);
 		return "Cart";
 	}
 	
@@ -160,5 +168,22 @@ public class CartController
 			cartService.addCart(cartItems);
 			return "redirect:/AccountWishlist";
 		}
+	}
+	
+	@RequestMapping("/updateCart")
+	public String updateCart(Principal  p,Model model,HttpServletRequest request,@ModelAttribute("cartItems")CartItems cartItems )
+	{
+		int user=userService.getUserByName(p.getName()).getUserID();
+		
+		List<CartItems> k=cartService.displayCart1(user);
+		
+		for (CartItems i : k)
+		{
+			String quant=request.getParameter(i.getProductName());
+			System.out.println(quant);
+			cartService.updateCart(i.getCartItemsID());
+		}
+		
+		return "redirect:/viewCart";
 	}
 }

@@ -33,8 +33,8 @@ public class CartDAOImp implements CartDAO
 	}
 
 	public CartItems updateCart(int cartItemsID) {
-		// TODO Auto-generated method stub
-		return null;
+		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemsID="+cartItemsID).getResultList();
+		return list.get(0);
 	}
 
 	public void addCart(CartItems cartItems) {

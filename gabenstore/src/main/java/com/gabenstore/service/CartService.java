@@ -45,5 +45,10 @@ public class CartService
 	{
 		return cartDAOImp.displayCart1(userID);
 	}
+	
+	public CartItems updateCart(int cartItemsID)
+	{
+		return cartDAOImp.updateCart(cartItemsID);
+	}
 }
 
