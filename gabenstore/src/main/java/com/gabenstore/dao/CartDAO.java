@@ -9,5 +9,5 @@ public interface CartDAO
 	public void addCart(CartItems cartItems);
 	public String displayCart(int userID);
 	public void deletecart(int cartItemsID);
-	public CartItems updateCart(int cartItemsID); 
+	public void updateCart(int cartItemsID,int cartTotalAmount,int cartQuantity); 
 }

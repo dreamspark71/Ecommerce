@@ -99,7 +99,7 @@
 							<a href="updateCart"><input type="submit" class="btn btn-primary" style="border-radius: 1px; width: 100%" value="UPDATE CART"/></a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-							<button type="button" class="btn btn-primary" style="background-color: black; border-color: black; border-radius: 1px; width: 100%">CHECKOUT</button>
+							<a href="/gabenstore/Checkout"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; border-radius: 1px; width: 100%">CHECKOUT</button></a>
 						</div>
 					</div>
 				</div>

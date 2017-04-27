@@ -20,7 +20,7 @@ public class CartDAOImp implements CartDAO
 	SessionFactory sessionFactory;
 	
 	public String displayCart(int userID) {
-		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where userID="+userID).getResultList();
+		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemFlag='FALSE' and userID="+userID).getResultList();
 		Gson g=new Gson();
 		String json=g.toJson(list);
 		return json;
@@ -32,10 +32,7 @@ public class CartDAOImp implements CartDAO
 		sessionFactory.getCurrentSession().delete(cartDelete);	
 	}
 
-	public CartItems updateCart(int cartItemsID) {
-		List<CartItems> list=sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemsID="+cartItemsID).getResultList();
-		return list.get(0);
-	}
+	
 
 	public void addCart(CartItems cartItems) {
 		sessionFactory.getCurrentSession().saveOrUpdate(cartItems);		
@@ -53,6 +50,16 @@ public class CartDAOImp implements CartDAO
 	}
 	
 	public List<CartItems> displayCart1(int userID) {
-		return sessionFactory.getCurrentSession().createQuery("from CartItems where userID="+userID).getResultList();
+		return sessionFactory.getCurrentSession().createQuery("from CartItems where cartItemFlag='FALSE' and userID="+userID).getResultList();
+	}
+
+	public void updateCart(int cartItemsID, int cartTotalAmount, int cartQuantity) 
+	{
+		sessionFactory.getCurrentSession().createQuery("UPDATE CartItems set cartItemQuantity="+cartQuantity+",cartTotalAmount="+cartTotalAmount+"where cartItemsID="+cartItemsID).executeUpdate();
+	}
+	
+	public void updateCartOrders(int userID)
+	{
+		sessionFactory.getCurrentSession().createQuery("UPDATE CartItems set cartItemFlag='TRUE' where userID="+userID).executeUpdate();
 	}
 }

@@ -30,7 +30,7 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 			</div>
 			<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
             	<a href="/gabenstore/viewCart"><button type="button" class="btn " style="margin-left: 150px;margin-top: 50px;border-radius: 1px;background-color: grey;color: white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> VIEW CART</button></a>
-            	<button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button>
+            	<a href="/gabenstore/Checkout"><button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button></a>
           	</div>		
 		</c:if>
 		<c:if test="${pageContext.request.userPrincipal.name!=null}">
@@ -40,7 +40,7 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 				</div>
 				<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
             		<a href="/gabenstore/viewCart"><button type="button" class="btn " style="margin-left: 150px;margin-top: 50px;border-radius: 1px;background-color: grey;color: white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> VIEW CART</button></a>
-            		<button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button>
+            		<a href="/gabenstore/Checkout"><button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button></a>
           		</div>		
 			</c:if>
 			<c:if test="${cartCount gt 0}">
@@ -77,7 +77,7 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
           		</div>   
           		<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
             	<a href="/gabenstore/viewCart"><button type="button" class="btn " style="margin-left: 150px;margin-top: 50px;border-radius: 1px;background-color: grey;color: white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> VIEW CART</button></a>
-            		<button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button>
+            		<a href="/gabenstore/Checkout"><button type="button" class="btn btn-primary" style="margin-left: 150px;margin-top:10px;border-radius: 1px;color: white"><i class="fa fa-pencil" aria-hidden="true"></i> CHECKOUT</button></a>
           		</div>
           </c:if>
         </c:if>
@@ -151,7 +151,7 @@ $('.multi-item-carousel5 .item').each(function(){
 					</sec:authorize>
 			 </c:if>
 			
-			<a href="#" class="headtextstyle">CHECKOUT |</a>
+			<a href="/gabenstore/Checkout" class="headtextstyle">CHECKOUT |</a>
 			<a href="/gabenstore/contact" class="headtextstyle">CONTACT US</a>
 		</div>
 		<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">

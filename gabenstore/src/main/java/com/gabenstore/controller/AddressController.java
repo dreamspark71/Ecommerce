@@ -37,4 +37,11 @@ public class AddressController
 		return "redirect:/AccountAddress";
 	}
 	
+	@RequestMapping("/addAddressCheckout")
+	public String addAddressCheckout(@ModelAttribute("address")Address address,Principal p,Model model)
+	{
+		addressService.addAddress(address);	
+		return "redirect:/Checkout";
+	}
+	
 }

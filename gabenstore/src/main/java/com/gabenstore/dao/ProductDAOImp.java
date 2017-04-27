@@ -69,4 +69,9 @@ public class ProductDAOImp implements ProductDAO
 		return sessionFactory.getCurrentSession().createQuery("from CategoryView where categoryName='"+categoryName+"' order by rand()").setMaxResults(3).getResultList();
 	}
 	
+	public void updateQuantity(int productID,int productQuantity)
+	{
+		sessionFactory.getCurrentSession().createQuery("UPDATE Product set productQuantity="+productQuantity+"where productID="+productID).executeUpdate();
+	}
+	
 }

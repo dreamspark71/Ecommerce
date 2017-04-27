@@ -1,10 +1,12 @@
 package com.gabenstore.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.log.UserDataHelper.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,9 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gabenstore.modal.Address;
-
+import com.gabenstore.modal.CartItems;
 import com.gabenstore.modal.User;
 import com.gabenstore.service.AddressService;
+import com.gabenstore.service.CartService;
 import com.gabenstore.service.DescriptionService;
 import com.gabenstore.service.ProductService;
 import com.gabenstore.service.RatingViewService;
@@ -42,6 +45,8 @@ public class HomeController
 	ReviewService reviewService;
 	@Autowired
 	RatingViewService ratingViewService;
+	@Autowired
+	CartService cartService;
 	
 	
 	@RequestMapping("/")
@@ -160,5 +165,35 @@ public class HomeController
 	{
 		return "Contact";
 	}
+	
+	@RequestMapping("/Checkout")
+	public String getCheckout(Model model,Principal p)
+	{
+		model.addAttribute("address",new Address());
+		int uid=userService.getUserByName(p.getName()).getUserID();
+		model.addAttribute("displayUser",uid);
+		model.addAttribute("displayCart",cartService.displayCart(uid));
+		try{
+			Address add=addressService.displayAddress(uid);
+			Gson g=new Gson();
+			String jsonList=g.toJson(add);
+			model.addAttribute("Address",jsonList);
+			}
+			catch (Exception e) {
+				model.addAttribute("msg",0);
+			}
+		List<CartItems> cart=cartService.displayCart1(uid);
+		int finalprice=0;
+		for(int i=0;i<cart.size();i++)
+		{
+			CartItems item=cart.get(i);
+			finalprice=finalprice+item.getCartTotalAmount();
+		}
+		model.addAttribute("grandtotal",finalprice);
+		return "Checkout";
+	}
+	
+	
+	
 }
 

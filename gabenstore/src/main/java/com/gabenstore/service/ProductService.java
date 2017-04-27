@@ -68,4 +68,9 @@ public class ProductService
 		return productDAOImp.displayRelated(categoryName);
 	}
 	
+	public void updateQuantity(int productID,int productQuantity)
+	{
+		productDAOImp.updateQuantity(productID, productQuantity);
+	}
+	
 }

@@ -46,9 +46,14 @@ public class CartService
 		return cartDAOImp.displayCart1(userID);
 	}
 	
-	public CartItems updateCart(int cartItemsID)
+	public void updateCart(int cartItemsID, int cartTotalAmount, int cartQuantity)
 	{
-		return cartDAOImp.updateCart(cartItemsID);
+		cartDAOImp.updateCart(cartItemsID, cartTotalAmount, cartQuantity);
+	}
+	
+	public void updateCartOrders(int userID)
+	{
+		cartDAOImp.updateCartOrders(userID);
 	}
 }
 

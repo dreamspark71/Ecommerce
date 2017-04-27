@@ -179,11 +179,29 @@ public class CartController
 		
 		for (CartItems i : k)
 		{
-			String quant=request.getParameter(i.getProductName());
-			System.out.println(quant);
-			cartService.updateCart(i.getCartItemsID());
+			int quant=Integer.parseInt(request.getParameter(i.getProductName()));
+			int price=i.getCartAmount();
+			int total=price*quant;
+			cartService.updateCart(i.getCartItemsID(),total,quant);
 		}
 		
 		return "redirect:/viewCart";
+	}
+	
+	@RequestMapping("/placeOrders")
+	public String placeOrders(Principal p)
+	{
+		int uid=userService.getUserByName(p.getName()).getUserID();
+		List<CartItems> list=cartService.displayCart1(uid);
+		for(CartItems i: list)
+		{
+			int pid=i.getProductID();
+			int quant=i.getCartItemQuantity();
+			int productQuantity=productService.updateProduct(pid).getProductQuantity();
+			int finalQuantity=productQuantity-quant;
+			cartService.updateCartOrders(uid);
+			productService.updateQuantity(pid,finalQuantity);
+		}
+		return "Orders";
 	}
 }
