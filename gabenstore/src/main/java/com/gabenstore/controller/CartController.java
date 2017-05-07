@@ -86,8 +86,6 @@ public class CartController
 		try
 		{
 			CartItems c=cartService.displayCartProduct(productID);
-			Gson g=new Gson();
-			String json=g.toJson(c);
 			model.addAttribute("cart","You already have this item in cart");
 			return "redirect:/Shop";
 		}

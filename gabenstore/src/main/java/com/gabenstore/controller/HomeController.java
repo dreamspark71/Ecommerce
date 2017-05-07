@@ -20,6 +20,7 @@ import com.gabenstore.modal.CartItems;
 import com.gabenstore.modal.User;
 import com.gabenstore.service.AddressService;
 import com.gabenstore.service.CartService;
+import com.gabenstore.service.CategoryService;
 import com.gabenstore.service.DescriptionService;
 import com.gabenstore.service.ProductService;
 import com.gabenstore.service.RatingViewService;
@@ -47,6 +48,8 @@ public class HomeController
 	RatingViewService ratingViewService;
 	@Autowired
 	CartService cartService;
+	@Autowired
+	CategoryService categoryService;
 	
 	
 	@RequestMapping("/")
@@ -93,6 +96,7 @@ public class HomeController
 		model.addAttribute("topFeatured",productService.displayTopFeatured());
 		model.addAttribute("ratedTop",ratingViewService.displayRatingTop());
 		model.addAttribute("topSale",productService.displayTopSale());
+		model.addAttribute("category",categoryService.displayCategoryByJson());
 		return "Shop";
 	}
 	
@@ -108,9 +112,9 @@ public class HomeController
 		try{
 		int uid=userService.getUserByName(p.getName()).getUserID();
 		Address add=addressService.displayAddress(uid);
-		Gson g=new Gson();
-		String jsonList=g.toJson(add);
-		model.addAttribute("address",jsonList);
+		/*Gson g=new Gson();
+		String jsonList=g.toJson(add);*/
+		model.addAttribute("address",add);
 		}
 		catch (Exception e) {
 			model.addAttribute("msg",0);
@@ -151,7 +155,8 @@ public class HomeController
 		if(current.equals(currentpass))
 		{
 			userService.addUser(user);
-			return "redirect:/AccountDetails";
+			model.addAttribute("error","Password Changed Sucessfully");
+			return "AccountDetails";
 		}
 		else
 		{
@@ -175,9 +180,9 @@ public class HomeController
 		model.addAttribute("displayCart",cartService.displayCart(uid));
 		try{
 			Address add=addressService.displayAddress(uid);
-			Gson g=new Gson();
-			String jsonList=g.toJson(add);
-			model.addAttribute("Address",jsonList);
+			/*Gson g=new Gson();
+			String jsonList=g.toJson(add);*/
+			model.addAttribute("Address",add);
 			}
 			catch (Exception e) {
 				model.addAttribute("msg",0);

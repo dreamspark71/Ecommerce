@@ -40,7 +40,7 @@
 		<intercept-url pattern="/Orders" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/AccountAddress" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/AccountWishlist" access="hasRole('ROLE_USER')" />
-		
+		<intercept-url pattern="/Checkout" access="hasRole('ROLE_USER')" />
 		
 		
 		<!-- access denied page -->

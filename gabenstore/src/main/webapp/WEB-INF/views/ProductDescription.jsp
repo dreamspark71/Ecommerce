@@ -8,13 +8,13 @@
 					<div class="productcard1">
 					<a href="addWishView-{{display.productID}}"><span class="fa fa-heart-o pull-right" aria-hidden="true"></span></a>
 						<div class="productfeat">
-							<p class="productvertical-text-sale">FEATURED</p>
+							<p class="productvertical-text-sale">{{display.product.productTag}}</p>
 						</div>
 						<div class="productcard3">
 							
-							<div class="productgaben">
+							<!-- <div class="productgaben">
 								<p>gabenstore.com</p>
-							</div>		
+							</div> -->		
 							<img class="img-responsive productimage" src="resources/theme1/images/productImages/{{display.product.productID}}.jpg" alt="{{display.product.productName}}"/>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 					</div>	
 					<div class="productline" style="margin-top:20px;border-color:#eeeeee"></div>
 					<h3>{{display.product.productName}}</h3>
-					<h6>{{display.product.category.categoryName}},{{display.product.productSubCategory}}</h6>
+					<h6><a href="Shop?search={{display.product.category.categoryName}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</h6></a>
 					<div ng-if="display.descriptionAbout">
 					<div class="producttext">
 						{{display.descriptionAbout}}
@@ -59,7 +59,7 @@
 						</form:form>
 					</div>	
 					<div style="margin-bottom: 50px;"></div>
-					<h5>Categories:{{display.product.category.categoryName}},{{display.product.productSubCategory}}</h5>
+					<h5>Categories:<a href="Shop?search={{display.product.category.categoryName}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</a></h5>
 					<div class="row" style="font-size: 20px;">
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 			<a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
@@ -212,21 +212,22 @@
 		<c:forEach items="${related}" var="relate">	
 			<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
             	<div class="panel panel-default homefeatpan">
+            	<a href="addWishHome-${relate.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   <div class="panel-body">
                   	<div class="row homefeatpanborder">
                   	<a href="/gabenstore/viewProduct-${relate.productID}"><img src="resources/theme1/images/productImages/${relate.productID}.jpg"  class="img-responsive homeimagesize" alt="${relate.productName}" /></a>
                   		 <div class="homefeat">
-                        	<p class="homevertical-text-sale1">SALE</p>
+                        	<p class="homevertical-text-sale">RELATED</p>
                       	 </div>
-                      	 <div class="homegaben">
+                      	  <!-- <div class="homegaben">
                         	<p>gabenstore.com</p>
-                      	 </div>
+                      	 </div>  --> 
                     </div>
                     <h5 class="homefeatline">${relate.productName}</h5>
-                    <h6 class="greycolor homefeattextpad">${relate.categoryName},${relate.productSubCategory}</h6>
+                    <h6 class="greycolor homefeattextpad"><a href="Shop?search=${relate.categoryName}" style="text-decoration: none!important;color: black">${relate.categoryName}</a>,<a href="Shop?search=${relate.productSubCategory}" style="text-decoration: none!important;color: black">${relate.productSubCategory}</a></h6>
                     <h5 class="homefeattextpad homefeatcolor">Rs.${relate.productSalePrice}
                        <strike class="homestrikecolor" style="font-size: 12px">Rs.${relate.productOriginalPrice}</strike>
-                      <i class="glyphicon homeglyph glyphicon-plus-sign"></i>
+                      <a href="addToCartHome-${relate.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
                     </h5> 
                   </div>                
                 </div>
@@ -246,7 +247,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
-              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+              <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
@@ -269,7 +270,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
-              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+              <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
@@ -292,7 +293,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
-              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+              <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">

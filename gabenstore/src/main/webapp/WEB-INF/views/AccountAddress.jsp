@@ -25,15 +25,13 @@
 						<div class="col-lg-9">
 							The following addresses will be used on the checkout page by default.<br>
 							<a href="/gabenstore/BillAddress"><button type="button" class="btn" style="border-radius: 1px;background-color: black;color:white" >Edit</button></a><br>
-								<div ng-if="disp.length!=0">
-								{{disp.addressFirst}} {{disp.addressLast}}<br>
-								<div ng-if="disp.addressCompany">{{disp.addressCompany}}<br></div>
-								{{disp.addressAddress}}<br>
-								{{disp.addressCity}},{{disp.addressState}},{{disp.addressPostal}}<br>
-								{{disp.addressCountry}}<br>
-								{{disp.addressPhone}}<br>
-								{{disp.addressEmail}}
-								</div>						
+								${address.addressFirst} ${address.addressLast}<br>
+								${address.addressCompany}
+								${address.addressAddress}<br>
+								${address.addressState} ${address.addressCountry}<br>
+								${address.addressCity} ${address.addressPostal}<br>
+								${address.addressPhone}
+								 								
 						</div>
 						
 					</div>
@@ -47,6 +45,6 @@
 var app = angular.module('myApp', []);
 app.controller('categoryCtrl', function($scope)
 {
-  $scope.disp=${address};
+  /* $scope.disp=${address}; */
 });
 </script>

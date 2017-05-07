@@ -76,14 +76,14 @@
                   				<div class="row homefeatpanborder">
 	                  		 		<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
 	                  		 		<div class="homefeat">
-	                        			<p class="homevertical-text-sale">FEATURED</p>
+	                        			<p class="homevertical-text-sale">${display.productTag}</p>
 	                      	 		</div>
-	                      	 		<div class="homegaben">
+	                      	 		<!-- <div class="homegaben">
 	                        			<p>gabenstore.com</p>
-	                      	 		</div>
+	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad">${display.category.categoryName},${display.productSubCategory}</h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -118,19 +118,19 @@
           		</c:if>	        		                    
             		<div class="col-sm-6">
             			<div class="panel panel-default homefeatpan">
-            			<span class="fa fa-heart-o pull-right"  aria-hidden="true"></span>
+            			<a href="addWishHome-${display.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   			<div class="panel-body">
                   				<div class="row homefeatpanborder">
 	                  		 	<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
 	                  		 		<div class="homefeat">
-	                        			<p class="homevertical-text-sale">FEATURED</p>
+	                        			<p class="homevertical-text-sale">${display.productTag}</p>
 	                      	 		</div>
-	                      	 		<div class="homegaben">
+	                      	 		<!-- <div class="homegaben">
 	                        			<p>gabenstore.com</p>
-	                      	 		</div>
+	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad">${display.category.categoryName},${display.productSubCategory}</h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -170,19 +170,19 @@
           		</c:if>	        		                    
             		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
             			<div class="panel panel-default homefeatpan">
-            			<span class="fa fa-heart-o pull-right"  aria-hidden="true"></span>
+            			<a href="addWishHome-${display.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   			<div class="panel-body">
                   				<div class="row homefeatpanborder">
 	                  		 	<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
 	                  		 		<div class="homefeat">
-	                        			<p class="homevertical-text-sale">FEATURED</p>
+	                        			<p class="homevertical-text-sale">${display.productTag}</p>
 	                      	 		</div>
-	                      	 		<div class="homegaben">
+	                      	 		<!-- <div class="homegaben">
 	                        			<p>gabenstore.com</p>
-	                      	 		</div>
+	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad">${display.category.categoryName},${display.productSubCategory}</h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -252,19 +252,19 @@
           		</c:if>	        		                    
             		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
             			<div class="panel panel-default homefeatpan">
-            			<span class="fa fa-heart-o pull-right"  aria-hidden="true"></span>
+            			<a href="addWishHome-${display.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   			<div class="panel-body">
                   				<div class="row homefeatpanborder">
 	                  		 	<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
 	                  		 		<div class="homefeat">
-                        				<p class="homevertical-text-sale1">SALE</p>
+                        				<p class="homevertical-text-sale" style="margin-top:50px">${display.productTag}</p>
                       	 			</div>
-	                      	 		<div class="homegaben">
+	                      	 		<!-- <div class="homegaben">
 	                        			<p>gabenstore.com</p>
-	                      	 		</div>
+	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad">${display.category.categoryName},${display.productSubCategory}</h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -299,19 +299,19 @@
           		</c:if>	        		                    
             		<div class="col-sm-6 col-xs-12">
             			<div class="panel panel-default homefeatpan">
-            			<span class="fa fa-heart-o pull-right"  aria-hidden="true"></span>
+            			<a href="addWishHome-${display.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   			<div class="panel-body">
                   				<div class="row homefeatpanborder">
 	                  		 	<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
 	                  		 		<div class="homefeat">
-                        				<p class="homevertical-text-sale1">SALE</p>
+                        				<p class="homevertical-text-sale">${display.productTag}</p>
                       	 			</div>
-	                      	 		<div class="homegaben">
+	                      	 		<!-- <div class="homegaben">
 	                        			<p>gabenstore.com</p>
-	                      	 		</div>
+	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad">${display.category.categoryName},${display.productSubCategory}</h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -350,19 +350,19 @@
           		</c:if>	        		                    
             		<div class="col-sm-6 col-xs-12">
             			<div class="panel panel-default homefeatpan">
-            			<span class="fa fa-heart-o pull-right"  aria-hidden="true"></span>
+            			<a href="addWishHome-${display.productID}" data-toggle="tooltip" title="Wishlist"><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
                   			<div class="panel-body">
                   				<div class="row homefeatpanborder">
 	                  		 	<a href="/gabenstore/viewProduct-${display.productID}"><img src="resources/theme1/images/productImages/${display.productID}.jpg"  class="img-responsive homeimagesize" alt="${display.productName}" /></a>
 	                  		 		<div class="homefeat">
-                        				<p class="homevertical-text-sale1">SALE</p>
+                        				<p class="homevertical-text-sale">${display.productTag}</p>
                       	 			</div>
-	                      	 		<div class="homegaben">
+	                      	 		<!-- <div class="homegaben">
 	                        			<p>gabenstore.com</p>
-	                      	 		</div>
+	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad">${display.category.categoryName},${display.productSubCategory}</h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -441,7 +441,7 @@ $(document).ready(function(){
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
-              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+              <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
@@ -464,7 +464,7 @@ $(document).ready(function(){
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
-              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+              <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
@@ -487,7 +487,7 @@ $(document).ready(function(){
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
-              <img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px">
+              <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">

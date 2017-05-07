@@ -34,13 +34,13 @@
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">EMAIL</p>
-							<form:input type="email" class="form-control billtextbox" path="userName" value="${pageContext.request.userPrincipal.name}"/>
+							<form:input type="email" class="form-control billtextbox" path="userName" value="${pageContext.request.userPrincipal.name}" readonly="true"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p>PASSWORD CHANGE</p>		
 							<p class="billline"></p>
 							
-							<p class="billtext">CURRENT PASSWORD</p>
+							<p class="billtext">CURRENT PASSWORD</p>${error}
 							<input type="password" class="form-control billtextbox" name="current" />
 							<div style="padding-top: 10px"></div>
 							

@@ -2,6 +2,9 @@
 <div  ng-app="myApp" ng-controller="categoryCtrl" class="cartback">
 	<div class="container">
 		<div class="row">
+		<div ng-if="display.length==0">
+			You have no items in cart
+		</div>
 			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 				<div class="checkoutcard">
 					<div class="row">
@@ -11,39 +14,39 @@
 							<p class="billline"></p>
 							<form:input class="form-control" path="userID" value="${displayUser}" type="hidden"/>
 							<p class="billtext">FIRST NAME</p>
-							<form:input class="form-control billtextbox" path="addressFirst" value="{{address.addressFirst}}"/>
+							<form:input class="form-control billtextbox" path="addressFirst" value="${address.addressFirst}"/>
 							<div style="padding-top: 10px"></div>
 							
 							 <p class="billtext">LAST NAME</p>
-							<form:input type="text" class="form-control billtextbox" path="addressLast" value="{{address.addressLast}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressLast" value="${address.addressLast}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">COMPANY</p>
-							<form:input type="text" class="form-control billtextbox" path="addressCompany" value="{{address.addressCompany}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressCompany" value="${address.addressCompany}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">COUNTRY</p>
-							<form:input type="text" class="form-control billtextbox" path="addressCountry" value="{{address.addressCountry}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressCountry" value="${address.addressCountry}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">ADDRESS</p>
-							<form:input type="text" class="form-control billtextbox" path="addressAddress" value="{{address.addressAddress}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressAddress" value="${address.addressAddress}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">TOWN/CITY</p>
-							<form:input type="text" class="form-control billtextbox" path="addressCity" value="{{address.addressCity}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressCity" value="${address.addressCity}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">STATE/COUNTY</p>
-							<form:input type="text" class="form-control billtextbox" path="addressState" value="{{address.addressState}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressState" value="${address.addressState}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">PINCODE / ZIP</p>
-							<form:input type="text" class="form-control billtextbox" path="addressPostal" value="{{address.addressPostal}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressPostal" value="${address.addressPostal}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">PHONE</p>
-							<form:input type="text" class="form-control billtextbox" path="addressPhone" value="{{address.addressPhone}}"/>
+							<form:input type="text" class="form-control billtextbox" path="addressPhone" value="${address.addressPhone}"/>
 							<div style="padding-top: 10px"></div>
 							
 							<p class="billtext">EMAIL</p>
@@ -85,6 +88,5 @@ var app = angular.module('myApp', []);
 app.controller('categoryCtrl', function($scope)
 {
   $scope.display=${displayCart};
-  $scope.address=${Address};
 });
 </script>

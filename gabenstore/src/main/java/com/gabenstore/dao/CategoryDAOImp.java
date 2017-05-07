@@ -37,6 +37,7 @@ public class CategoryDAOImp implements CategoryDAO
 		List<Category> getList = sessionFactory.getCurrentSession().createQuery("from Category where categoryID = "+categoryID).getResultList();
 		return getList.get(0);	
 	}
+	
 	public String displayCategoryByJson() {
 		List<Category> list=sessionFactory.getCurrentSession().createQuery("from Category").getResultList();
 		Gson g=new Gson();

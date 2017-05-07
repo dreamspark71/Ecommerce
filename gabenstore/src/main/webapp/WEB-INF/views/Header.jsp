@@ -192,13 +192,18 @@ $('.multi-item-carousel5 .item').each(function(){
         			<li class="dropdown">
           				<a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORY<span class="caret"></span></a>
           				<ul class="dropdown-menu">
+          					<li><a href="Shop">All</a></li>
           					<c:forEach items="${globalCategory}" var="category">
-            				<li><a href="#">${category.categoryName}</a></li>
+          					<c:if test="${category.categoryName != 'STEAM WALLET'}">
+          					<c:if test="${category.categoryName != 'MICROSOFT'}">			
+            					<li><a href="Shop?search=${category.categoryName}">${category.categoryName}</a></li>
+            				</c:if>
+            				</c:if>
             				</c:forEach>
           				</ul>
        				</li>
-        			<li><a href="#">STEAM</a></li>
-        			<li><a href="#">MICROSOFT</a></li>
+        			<li><a href="Shop?search=WALLET">STEAM</a></li>
+        			<li><a href="Shop?search=MICROSOFT">MICROSOFT</a></li>
         			<!-- <li><a href="Request">REQUEST A GAME</a></li> -->
       			</ul>      
     		</div>
