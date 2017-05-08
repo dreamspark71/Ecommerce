@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/Header.jsp"%>
 
-<div ng-app="myApp" ng-controller="MyCtrl" class="shopback">
+<div ng-app="myApp" ng-controller="categoryCtrl" class="shopback">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -8,16 +8,13 @@
 					<p style="font-size: 30px">SHOP</p>
 				</div>
 				<div style="padding-bottom: 30px;"></div>
-				<div class="dropdown">
-    				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius: 1px">SORT
-    				<span class="caret"></span></button>
-    				<ul class="dropdown-menu">
-      					<li><a href="#">Sort by popularity</a></li>
-      					<li><a href="#">Sort by rating</a></li>
-      					<li><a href="#">Sort by price:low to high</a></li>
-      					<li><a href="#">Sort by price:high to low</a></li>
-    				</ul>
-  				</div>
+				 <select ng-model="order" >
+            		<option value="productID" ng-selected="!order">Recently Added</option>
+            		<option value="productSalePrice">Price (low to high)</option>
+            		<option value="-productSalePrice">Price (high to low)</option>
+            		<option value="productName">Name A-Z</option>
+            		<option value="-productName">Name Z-A</option>
+        		</select>
   				<div style="padding-bottom: 10px;"></div>
   				<p style="font-size: 12px;">SHOWING 1-16 OF 99 RESULTS</p>
 			</div>
@@ -45,7 +42,7 @@
 					<a href="Shop" class="shoptext">All</a>
 					<p class="shopline1"></p>
 					
-					<div ng-repeat="disp in display" >
+					<div ng-repeat="disp in dispcategory" >
 					<a href="Shop?search={{disp.categoryName}}" class="shoptext">{{disp.categoryName}}</a>
 					<p class="shopline1"></p>
 					</div>
@@ -103,9 +100,7 @@
 			<div style="margin-top: 10px" class="hidden-lg hidden-md"></div>
 	
 			<div class="row">
-			<div ng-repeat="disp in data | filter:searchtext | startFrom:currentPage*pageSize | limitTo:pageSize|filter:lel">
-				<div ng-if="$index+1*pageSize*currentPage < ${count}">				
-				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" dir-paginate="disp in display | filter:searchtext | itemsPerPage: 12 | filter:search|orderBy:order" current-page="currentPage">
 					<div class="shopitem">
 					<a data-toggle="tooltip" title="Wishlist" href="addWishShop-{{disp.productID}}" ><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
 						<div class="shopimage">
@@ -120,21 +115,14 @@
 					</div>
 					<div style="padding-top:10px"></div>
 				</div>
-				</div>
-			</div>
+				
+			<!-- </div> -->
+			
 		</div>
 		
 			<div class="row">	
 			<div class="col-lg-6"></div>
-			<div class="col-lg-3">		
-				<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn btn-primary" style="border-radius: 1px;">
-        			Previous
-    			</button>
-    			<span style="font-size:16px">{{currentPage+1}}/{{numberOfPages()}}</span>
-    			<button ng-disabled="currentPage >= getData().length/pageSize/6 - 1" ng-click="currentPage=currentPage+1" class="btn btn-primary" style="border-radius: 1px;">
-        			Next
-    			</button> 								
-			</div>
+			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="resources/theme1/js/dirPagination.tpl.html"></dir-pagination-controls>
 			</div>
 	</div>
 </div>
@@ -213,57 +201,19 @@
     </div>
   </div>
 </div>
+{{page}}
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
-<script >
-var app=angular.module('myApp', []);
-app.controller('MyCtrl', ['$scope', '$filter', function ($scope, $filter,$location) {
- $scope.currentPage = 0;
- $scope.pageSize = 12;
- $scope.data = ${displayProduct};
- $scope.q = '';
- $scope.lel = location.search.substr(8).slice(0,3);
- $scope.display=${category};	
- $scope.getData = function () {
-   // needed for the pagination calc
-   // https://docs.angularjs.org/api/ng/filter/filter
-   return $filter('filter')($scope.data, $scope.q)
-  /* 
-    // manual filter
-    // if u used this, remove the filter from html, remove above line and replace data with getData()
-    
-     var arr = [];
-     if($scope.q == '') {
-         arr = $scope.data;
-     } else {
-         for(var ea in $scope.data) {
-             if($scope.data[ea].indexOf($scope.q) > -1) {
-                 arr.push( $scope.data[ea] );
-             }
-         }
-     }
-     return arr;
-    */
- }
- 
- $scope.numberOfPages=function(){
-     return Math.ceil($scope.getData().length/$scope.pageSize/6);                
- }
- 
- for (var i=0; i<65; i++) {
-     $scope.data.push("Item "+i);
- }
-}]);
-
-//We already have a limitTo filter built-in to angular,
-//let's make a startFrom filter
-app.filter('startFrom', function() {
- return function(input, start) {
-     start = +start; //parse to int
-     return input.slice(start);
- }
+<script>
+var app = angular.module('myApp', ['angularUtils.directives.dirPagination']);
+app.controller('categoryCtrl', function($scope,$location)
+{
+  $scope.display=${displayProduct};
+  $scope.search = location.search.substr(8).slice(0,3);
+  
+  $scope.dispcategory=${category};
+  $scope.currentPage = 1;
 });
-
 </script>
 <script>
 $(document).ready(function(){

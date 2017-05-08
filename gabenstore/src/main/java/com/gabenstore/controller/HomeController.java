@@ -171,6 +171,13 @@ public class HomeController
 		return "Contact";
 	}
 	
+	@RequestMapping("/dummy")
+	public String Dummy(Model model)
+	{
+		model.addAttribute("displayProduct",productService.displayProductByJson());
+		return "Dummy";
+	}
+	
 	@RequestMapping("/Checkout")
 	public String getCheckout(Model model,Principal p)
 	{

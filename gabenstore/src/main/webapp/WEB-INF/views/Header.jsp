@@ -17,7 +17,7 @@ pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <script src="resources/theme1/js/angular.min.js"></script>
 <script src="resources/theme1/js/bootstrap.min.js"> </script>
 <script src="resources/theme1/js/multirange.js"></script>
-<script src="resources/theme1/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="resources/theme1/js/dirPagination.js"></script>
 
 </head>
 <body>
