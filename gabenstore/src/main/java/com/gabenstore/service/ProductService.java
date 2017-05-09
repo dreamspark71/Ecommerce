@@ -73,4 +73,13 @@ public class ProductService
 		productDAOImp.updateQuantity(productID, productQuantity);
 	}
 	
+	public String productSearch(int categoryID)
+	{
+		return productDAOImp.productSearch(categoryID);
+	}
+	
+	public String productSearchSub(String productSubCategory)
+	{
+		return productDAOImp.productSearchSub(productSubCategory);
+	}
 }

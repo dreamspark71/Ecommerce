@@ -196,14 +196,14 @@ $('.multi-item-carousel5 .item').each(function(){
           					<c:forEach items="${globalCategory}" var="category">
           					<c:if test="${category.categoryName != 'STEAM WALLET'}">
           					<c:if test="${category.categoryName != 'MICROSOFT'}">			
-            					<li><a href="Shop?search=${category.categoryName}">${category.categoryName}</a></li>
+            					<li><a href="Shop-${category.categoryID}">${category.categoryName}</a></li>
             				</c:if>
             				</c:if>
             				</c:forEach>
           				</ul>
        				</li>
-        			<li><a href="Shop?search=WALLET">STEAM</a></li>
-        			<li><a href="Shop?search=MICROSOFT">MICROSOFT</a></li>
+        			<li><a href="Shop-65">STEAM</a></li>
+        			<li><a href="Shop-66">MICROSOFT</a></li>
         			<!-- <li><a href="Request">REQUEST A GAME</a></li> -->
       			</ul>      
     		</div>

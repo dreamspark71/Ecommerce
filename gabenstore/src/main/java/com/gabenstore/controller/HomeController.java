@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gabenstore.modal.Address;
@@ -205,7 +206,29 @@ public class HomeController
 		return "Checkout";
 	}
 	
+	@RequestMapping("/Shop-{categoryID}")
+	public String productSearch(@PathVariable("categoryID")int categoryID,Model model)
+	{
+		model.addAttribute("displayProduct",productService.productSearch(categoryID));
+		model.addAttribute("category", categoryService.displayCategoryByJson());
+		model.addAttribute("topFeatured",productService.displayTopFeatured());
+		model.addAttribute("ratedTop",ratingViewService.displayRatingTop());
+		model.addAttribute("topSale",productService.displayTopSale());
+		
+		return "Shop";
+	}
 	
+	@RequestMapping("/ShopSub-{productSubCategory}")
+	public String productSearch(@PathVariable("productSubCategory")String productSubCategory,Model model)
+	{
+		model.addAttribute("displayProduct",productService.productSearchSub(productSubCategory));
+		model.addAttribute("category", categoryService.displayCategoryByJson());
+		model.addAttribute("topFeatured",productService.displayTopFeatured());
+		model.addAttribute("ratedTop",ratingViewService.displayRatingTop());
+		model.addAttribute("topSale",productService.displayTopSale());
+		
+		return "Shop";
+	}
 	
 }
 

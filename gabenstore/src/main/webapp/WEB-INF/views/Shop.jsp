@@ -43,15 +43,16 @@
 					<p class="shopline1"></p>
 					
 					<div ng-repeat="disp in dispcategory" >
-					<a href="Shop?search={{disp.categoryName}}" class="shoptext">{{disp.categoryName}}</a>
+					<a href="Shop-{{disp.categoryID}}" class="shoptext">{{disp.categoryName}}</a>
 					<p class="shopline1"></p>
 					</div>
 					
-					<a href="Shop" class="shoptext">Uplay</a>
+					<a href="ShopSub-UPLAY" class="shoptext">UPLAY</a>
 					<p class="shopline1"></p>
 					
-					<a href="Shop" class="shoptext">Origin</a>
+					<a href="ShopSub-ORIGIN" class="shoptext">ORIGIN</a>
 					<p class="shopline1"></p>
+										
 					<div style="padding-bottom: 20px"></div>
 				</div>
 				<div style="padding-bottom: 30px"></div>
@@ -89,7 +90,7 @@
     				<ul class="dropdown-menu">
     					<li><a href="Shop" style="text-decoration: none!important;color:black;">All</a></li>
     					<div ng-repeat="disp in display">
-      					<li><a href="Shop?search={{disp.categoryName}}" style="text-decoration: none!important;color:black;">{{disp.categoryName}}</a></li>
+      					<li><a href="Shop-{{disp.categoryID}}" style="text-decoration: none!important;color:black;">{{disp.categoryName}}</a></li>
       					</div>
     				</ul>
   				</div>
@@ -100,7 +101,8 @@
 			<div style="margin-top: 10px" class="hidden-lg hidden-md"></div>
 	
 			<div class="row">
-				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" dir-paginate="disp in display | filter:searchtext | itemsPerPage: 12 | filter:search|orderBy:order" current-page="currentPage">
+				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" dir-paginate="disp in display | filter:searchtext | itemsPerPage: 12|orderBy:order" current-page="currentPage">
+					
 					<div class="shopitem">
 					<a data-toggle="tooltip" title="Wishlist" href="addWishShop-{{disp.productID}}" ><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
 						<div class="shopimage">
@@ -201,16 +203,14 @@
     </div>
   </div>
 </div>
-{{page}}
+{{search}}
 <%@ include file="/WEB-INF/views/Footer.jsp"%>
 </div>
 <script>
 var app = angular.module('myApp', ['angularUtils.directives.dirPagination']);
-app.controller('categoryCtrl', function($scope,$location)
+app.controller('categoryCtrl', function($scope)
 {
   $scope.display=${displayProduct};
-  $scope.search = location.search.substr(8).slice(0,3);
-  
   $scope.dispcategory=${category};
   $scope.currentPage = 1;
 });

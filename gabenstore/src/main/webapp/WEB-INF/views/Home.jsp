@@ -83,7 +83,7 @@
 	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop-${display.category.categoryID}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -264,7 +264,7 @@
 	                      	 		</div> -->
                     			</div>
                     			<h5 class="homefeatline">${display.productName}</h5>
-                    			<h6 class="greycolor homefeattextpad"><a href="Shop?search=${display.category.categoryName}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="Shop?search=${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
+                    			<h6 class="greycolor homefeattextpad"><a href="Shop-${display.category.categoryID}" style="text-decoration: none!important;color: black">${display.category.categoryName}</a>,<a href="ShopSub-${display.productSubCategory}" style="text-decoration: none!important;color: black">${display.productSubCategory}</a></h6>
                     			<h5 class="homefeattextpad homefeatcolor">RS. ${display.productSalePrice}
                        				<strike class="homestrikecolor" style="font-size: 12px">RS. ${display.productOriginalPrice}</strike>
                       				<a href="addToCartHome-${display.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>

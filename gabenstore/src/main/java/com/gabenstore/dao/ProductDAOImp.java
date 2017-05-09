@@ -74,4 +74,20 @@ public class ProductDAOImp implements ProductDAO
 		sessionFactory.getCurrentSession().createQuery("UPDATE Product set productQuantity="+productQuantity+"where productID="+productID).executeUpdate();
 	}
 	
+	public String productSearch(int categoryID)
+	{
+		List<Product> list=sessionFactory.getCurrentSession().createQuery("from Product where categoryID="+categoryID).getResultList();
+		Gson g=new Gson();
+		String jsonList=g.toJson(list);
+		return jsonList;
+	}
+	
+	public String productSearchSub(String productSubCategory)
+	{
+		List<Product> list=sessionFactory.getCurrentSession().createQuery("from Product where productSubCategory='"+productSubCategory+"'").getResultList();
+		Gson g=new Gson();
+		String jsonList=g.toJson(list);
+		return jsonList;
+	}
+	
 }

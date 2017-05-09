@@ -33,7 +33,7 @@
 					</div>	
 					<div class="productline" style="margin-top:20px;border-color:#eeeeee"></div>
 					<h3>{{display.product.productName}}</h3>
-					<h6><a href="Shop?search={{display.product.category.categoryName}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</h6></a>
+					<h6><a href="Shop-{{display.product.category.categoryID}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</h6></a>
 					<div ng-if="display.descriptionAbout">
 					<div class="producttext">
 						{{display.descriptionAbout}}
@@ -59,7 +59,7 @@
 						</form:form>
 					</div>	
 					<div style="margin-bottom: 50px;"></div>
-					<h5>Categories:<a href="Shop?search={{display.product.category.categoryName}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</a></h5>
+					<h5>Categories:<a href="Shop-{{display.product.category.categoryID}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</a></h5>
 					<div class="row" style="font-size: 20px;">
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 			<a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
@@ -224,7 +224,7 @@
                       	 </div>  --> 
                     </div>
                     <h5 class="homefeatline">${relate.productName}</h5>
-                    <h6 class="greycolor homefeattextpad"><a href="Shop?search=${relate.categoryName}" style="text-decoration: none!important;color: black">${relate.categoryName}</a>,<a href="Shop?search=${relate.productSubCategory}" style="text-decoration: none!important;color: black">${relate.productSubCategory}</a></h6>
+                    <h6 class="greycolor homefeattextpad"><a href="Shop-${relate.categoryName}" style="text-decoration: none!important;color: black">${relate.categoryName}</a>,<a href="Shop?search=${relate.productSubCategory}" style="text-decoration: none!important;color: black">${relate.productSubCategory}</a></h6>
                     <h5 class="homefeattextpad homefeatcolor">Rs.${relate.productSalePrice}
                        <strike class="homestrikecolor" style="font-size: 12px">Rs.${relate.productOriginalPrice}</strike>
                       <a href="addToCartHome-${relate.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
