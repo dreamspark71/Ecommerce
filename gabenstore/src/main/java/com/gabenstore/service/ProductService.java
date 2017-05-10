@@ -82,4 +82,9 @@ public class ProductService
 	{
 		return productDAOImp.productSearchSub(productSubCategory);
 	}
+	
+	public void updateTag(int productID)
+	{
+		productDAOImp.updateTag(productID);
+	}
 }

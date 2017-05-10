@@ -83,6 +83,8 @@ public class DescriptionController
 	{
 		Description d=descriptionService.updateDescription(descriptionID);
 		Gson g=new Gson();
+		int stock=productService.updateProduct(descriptionID).getProductQuantity();
+		model.addAttribute("stock",stock);
 		String jsonView=g.toJson(d);
 		model.addAttribute("displaydesp", d);
 		session.setAttribute("idProduct", d.getProductID());

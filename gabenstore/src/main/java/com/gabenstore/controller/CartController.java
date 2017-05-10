@@ -92,17 +92,27 @@ public class CartController
 		catch(Exception e)
 		{
 			int uid=userService.getUserByName(p.getName()).getUserID();
-			cartItems.setUserID(uid);
-			cartItems.setCartID(uid);
-			cartItems.setProductID(productID);
-			cartItems.setProductName(productService.updateProduct(productID).getProductName());
-			cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
-			cartItems.setCartItemQuantity(1);
-			int price=productService.updateProduct(productID).getProductSalePrice();
-			int quant=cartItems.getCartItemQuantity();
-			cartItems.setCartTotalAmount(price*quant);
-			cartService.addCart(cartItems);
-			return "redirect:/Shop";
+			int stock=productService.updateProduct(productID).getProductQuantity();
+			if(stock>0)
+			{
+				cartItems.setUserID(uid);
+				cartItems.setCartID(uid);
+				cartItems.setProductID(productID);
+				cartItems.setProductName(productService.updateProduct(productID).getProductName());
+				cartItems.setCartAmount(productService.updateProduct(productID).getProductSalePrice());
+				cartItems.setCartItemQuantity(1);
+				int price=productService.updateProduct(productID).getProductSalePrice();
+				int quant=cartItems.getCartItemQuantity();
+				cartItems.setCartTotalAmount(price*quant);
+				cartService.addCart(cartItems);
+				model.addAttribute("cart","Added in cart");
+				return "redirect:/Shop";
+			}
+			else
+			{
+				model.addAttribute("cart","Not in Stock");
+				return "redirect:/Shop";
+			}
 		}
 	}
 	
@@ -126,7 +136,7 @@ public class CartController
 		}
 		catch(Exception e)
 		{
-			int uid=userService.getUserByName(p.getName()).getUserID();
+			int uid=userService.getUserByName(p.getName()).getUserID();		
 			cartItems.setUserID(uid);
 			cartItems.setCartID(uid);
 			cartItems.setProductID(productID);
@@ -199,6 +209,10 @@ public class CartController
 			int finalQuantity=productQuantity-quant;
 			cartService.updateCartOrders(uid);
 			productService.updateQuantity(pid,finalQuantity);
+			if(finalQuantity==0)
+			{
+				productService.updateTag(pid);
+			}
 		}
 		return "Orders";
 	}

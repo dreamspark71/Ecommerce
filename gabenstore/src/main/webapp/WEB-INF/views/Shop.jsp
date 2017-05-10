@@ -101,8 +101,7 @@
 			<div style="margin-top: 10px" class="hidden-lg hidden-md"></div>
 	
 			<div class="row">
-				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" dir-paginate="disp in display | filter:searchtext | itemsPerPage: 12|orderBy:order" current-page="currentPage">
-					
+				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" dir-paginate="disp in display | filter:searchtext | itemsPerPage: 12|orderBy:order" current-page="currentPage">					
 					<div class="shopitem">
 					<a data-toggle="tooltip" title="Wishlist" href="addWishShop-{{disp.productID}}" ><span class="fa fa-heart-o pull-right" aria-hidden="true" ></span></a>
 						<div class="shopimage">
@@ -112,7 +111,12 @@
                     	<h6 class="greycolor homefeattextpad">{{disp.category.categoryName}},{{disp.productSubCategory}}</h6>
 						<h5 class="homefeattextpad homefeatcolor">Rs. {{disp.productSalePrice}}
                        		<strike class="homestrikecolor" style="font-size: 12px">Rs. {{disp.productOriginalPrice}}</strike>
+                       		<div ng-if="disp.productQuantity > 0">
                       		<a href="addToCartShop-{{disp.productID}}" data-toggle="tooltip" title="Add To Cart" class="pull-right"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
+                      		</div>
+                      		<div ng-if="disp.productQuantity ==0">
+                      		<p data-toggle="tooltip" title="No Stock" class="pull-right"><i class="fa fa-ban homeglyph"></i></p>
+                      		</div>
                     	</h5> 
 					</div>
 					<div style="padding-top:10px"></div>
@@ -139,9 +143,7 @@
         <c:forEach items="${topFeatured}" var="disp" varStatus="loopCount">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <div style="border-width: 2px;border-style: solid;width:70px;height: 100px;border-color: #2263a6">
               <a href="viewProduct-${disp.productID }"><img src="resources/theme1/images/productImages/${disp.productID}.jpg" class="image-responsive" style="width: 66px;height: 96px"></a>
-            </div>
           </div>
           <div class="col-lg-8 col-md-4 col-sm-8 col-xs-8">
             <p style="margin-bottom: 2px;">${disp.productName}</p>

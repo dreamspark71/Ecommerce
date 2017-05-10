@@ -45,18 +45,23 @@
 					<strike><h4 style="color: grey">Rs. {{display.product.productOriginalPrice}}</h4></strike>
 					<div style="padding-bottom: 20px;"></div>
 					<div class="row">
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-						<form:form action="addToCartViewProduct-${displaydesp.productID}" modelAttribute="cartItems">
-						<input type="submit" class="btn btn-primary" style="border-radius: 1px" value="ADD TO CART"></button>
-						</div>
-						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
-								<input type="button" onclick="decrementValue()" value="-" class="btn btn-primary" style="border-radius: 1px" />
-								<form:input type="text" class="text-center" value="1" maxlength="2" max="10" size="1" id="number" path="cartItemQuantity"/>
-								<input type="button" onclick="incrementValue()" value="+" class="btn btn-primary" style="border-radius: 1px"/>
+						<c:if test="${stock eq 0 }">
+						<p style="color:red">This product is OUT OF STOCK</p>
+						</c:if>						
+						<c:if test="${stock ne 0}">
+							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+							<form:form action="addToCartViewProduct-${displaydesp.productID}" modelAttribute="cartItems">
+							<input type="submit" class="btn btn-primary" style="border-radius: 1px" value="ADD TO CART"></button>
 							</div>
-						</div>
-						</form:form>
+							<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
+									<input type="button" onclick="decrementValue()" value="-" class="btn btn-primary" style="border-radius: 1px" />
+									<form:input type="text" class="text-center" value="1" maxlength="2" max="9" size="1" id="number" path="cartItemQuantity"/>
+									<input type="button" onclick="incrementValue()" value="+" class="btn btn-primary" style="border-radius: 1px"/>
+								</div>
+							</div>
+							</form:form>
+						</c:if>
 					</div>	
 					<div style="margin-bottom: 50px;"></div>
 					<h5>Categories:<a href="Shop-{{display.product.category.categoryID}}" style="text-decoration: none!important">{{display.product.category.categoryName}}</a>,<a href="Shop?search={{display.product.productSubCategory}}" style="text-decoration: none!important">{{display.product.productSubCategory}}</a></h5>
@@ -224,7 +229,7 @@
                       	 </div>  --> 
                     </div>
                     <h5 class="homefeatline">${relate.productName}</h5>
-                    <h6 class="greycolor homefeattextpad"><a href="Shop-${relate.categoryName}" style="text-decoration: none!important;color: black">${relate.categoryName}</a>,<a href="Shop?search=${relate.productSubCategory}" style="text-decoration: none!important;color: black">${relate.productSubCategory}</a></h6>
+                    <h6 class="greycolor homefeattextpad">${relate.categoryName},${relate.productSubCategory}</h6>
                     <h5 class="homefeattextpad homefeatcolor">Rs.${relate.productSalePrice}
                        <strike class="homestrikecolor" style="font-size: 12px">Rs.${relate.productOriginalPrice}</strike>
                       <a href="addToCartHome-${relate.productID}" data-toggle="tooltip" title="Add To Cart"><i class="glyphicon homeglyph glyphicon-plus-sign"></i></a>
@@ -319,7 +324,8 @@
 <script type="text/javascript">
 function incrementValue()
 {
-    var value = parseInt(document.getElementById('number').value, 10);
+    
+	var value = parseInt(document.getElementById('number').value, 10);
     value = isNaN(value) ? 0 : value;
     if(value<10){
         value++;

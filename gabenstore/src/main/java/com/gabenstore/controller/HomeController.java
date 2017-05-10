@@ -98,6 +98,7 @@ public class HomeController
 		model.addAttribute("ratedTop",ratingViewService.displayRatingTop());
 		model.addAttribute("topSale",productService.displayTopSale());
 		model.addAttribute("category",categoryService.displayCategoryByJson());
+		
 		return "Shop";
 	}
 	

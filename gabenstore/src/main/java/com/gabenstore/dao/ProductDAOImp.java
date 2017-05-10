@@ -74,6 +74,11 @@ public class ProductDAOImp implements ProductDAO
 		sessionFactory.getCurrentSession().createQuery("UPDATE Product set productQuantity="+productQuantity+"where productID="+productID).executeUpdate();
 	}
 	
+	public void updateTag(int productID)
+	{
+		sessionFactory.getCurrentSession().createQuery("UPDATE Product set productTag='NO STOCK' where productID="+productID).executeUpdate();
+	}
+	
 	public String productSearch(int categoryID)
 	{
 		List<Product> list=sessionFactory.getCurrentSession().createQuery("from Product where categoryID="+categoryID).getResultList();
